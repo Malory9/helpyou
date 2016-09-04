@@ -1,18 +1,25 @@
 package com.helpyouJFinal.controller;
 
+import org.apache.log4j.Logger;
+
 import com.helpyouJFinal.interceptor.AuthInterceptor;
-import com.helpyouJFinal.service.TaskService;
 import com.helpyouJFinal.service.UserService;
 import com.helpyouJFinal.validator.LoginValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
+import com.jfinal.kit.StrKit;
 
 public class MainController extends Controller {
 	private UserService userService = new UserService();
-	private TaskService taskService = new TaskService();
+	private static final Logger logger = Logger.getLogger(MainController.class);
 
 	// Controller默认调用方法
 	public void index() {
+		String username = getSessionAttr("username");
+		if (StrKit.isBlank(username)) {
+			username = "游客";
+		}
+		logger.info(username+"进入到主页");
 		// 渲染视图并返回给浏览器
 		this.render("index.jsp");
 	}

@@ -62,6 +62,7 @@
   /* line 67, E:/Program Test/Helpyou front/css/square.scss */
   .xb-task-list {
     width: 670px;
+    min-height: 600px;
     overflow: hidden;
     float: right;
     border-left: 1px solid #49525c;

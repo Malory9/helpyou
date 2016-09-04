@@ -23,7 +23,7 @@ public class UserService {
 		Integer reslut = Db.queryFirst(SQL, username);
 		if (reslut == null) {
 			Record user = new Record().set("username", username).set("password", password);
-			Db.save("user", user);
+			Db.save("user", "userId", user);
 			return true;
 		}
 		return false;

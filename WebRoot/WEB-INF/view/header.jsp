@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%!
 	public boolean isBlank(String str) {
 		return str == null || "".equals(str.trim());	
