@@ -1,0 +1,380 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url("http://at.alicdn.com/t/font_1472558960_0758517.eot");
+  /* IE9*/
+  src: url("http://at.alicdn.com/t/font_1472558960_0758517.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1472558960_0758517.woff") format("woff"), url("http://at.alicdn.com/t/font_1472558960_0758517.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1472558960_0758517.svg#iconfont") format("svg");
+  /* iOS 4.1- */ }
+
+/* line 15, E:/Program Test/Helpyou front/css/commons.scss */
+.iconfont {
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal; }
+
+/* line 21, E:/Program Test/Helpyou front/css/commons.scss */
+body, div, ul, ol, li, p, h1, h2, h3, h4, h5, button, input, select, textarea {
+  margin: 0;
+  padding: 0; }
+
+/* line 26, E:/Program Test/Helpyou front/css/commons.scss */
+ul, ol {
+  list-style: none; }
+
+/* line 30, E:/Program Test/Helpyou front/css/commons.scss */
+a {
+  text-decoration: none; }
+  /* line 32, E:/Program Test/Helpyou front/css/commons.scss */
+  a:hover {
+    text-decoration: underline; }
+
+/* line 37, E:/Program Test/Helpyou front/css/commons.scss */
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  color: #222;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.8em;
+  word-wrap: break-word; }
+
+/* header-start */
+/* line 52, E:/Program Test/Helpyou front/css/commons.scss */
+input[type="search"] {
+  -webkit-appearance: none; }
+
+/* line 54, E:/Program Test/Helpyou front/css/commons.scss */
+.xb-top {
+  width: 100%;
+  height: 45px;
+  background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
+  border-bottom: 1px solid #FF7000;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20; }
+  /* line 66, E:/Program Test/Helpyou front/css/commons.scss */
+  .xb-top-inner {
+    width: 960px;
+    margin: 0 auto;
+    height: 100%; }
+    /* line 71, E:/Program Test/Helpyou front/css/commons.scss */
+    .xb-top-inner .xb-top-logo {
+      background-image: url("../images/head-logo.png");
+      background-position: 0 8px;
+      background-repeat: no-repeat;
+      width: 60px;
+      height: 100%;
+      float: left;
+      text-indent: -9999px; }
+    /* line 81, E:/Program Test/Helpyou front/css/commons.scss */
+    .xb-top-inner a {
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+      color: #f2f4f5;
+      text-align: center; }
+      /* line 86, E:/Program Test/Helpyou front/css/commons.scss */
+      .xb-top-inner a:hover {
+        color: #fff;
+        text-decoration: none; }
+    /* line 93, E:/Program Test/Helpyou front/css/commons.scss */
+    .xb-top-search {
+      float: left;
+      margin: 7px 0 0 20px;
+      position: relative; }
+      /* line 98, E:/Program Test/Helpyou front/css/commons.scss */
+      .xb-top-search form {
+        position: relative;
+        width: 367px; }
+        /* line 102, E:/Program Test/Helpyou front/css/commons.scss */
+        .xb-top-search form .xb-top-search-input {
+          background-color: #e1eaf2;
+          border: 1px solid #FF9D00;
+          border-radius: 4px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.1);
+          box-sizing: border-box;
+          color: #49525c;
+          font-size: 14px;
+          line-height: 17px;
+          outline: 0 none;
+          padding: 7px 50px 7px 10px;
+          transition: all 0.2s ease-in-out 0s;
+          width: 100%; }
+          /* line 116, E:/Program Test/Helpyou front/css/commons.scss */
+          .xb-top-search form .xb-top-search-input:focus {
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset, 0 1px 15px rgba(255, 255, 255, 0.3); }
+        /* line 122, E:/Program Test/Helpyou front/css/commons.scss */
+        .xb-top-search form .xb-top-search-button {
+          background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
+          border: 1px solid #FF9D00;
+          border-bottom-right-radius: 4px;
+          border-top-right-radius: 4px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(255, 255, 255, 0.15) inset;
+          box-sizing: border-box;
+          cursor: pointer;
+          height: 100%;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 40px; }
+          /* line 136, E:/Program Test/Helpyou front/css/commons.scss */
+          .xb-top-search form .xb-top-search-button .xb-top-search-button-icon {
+            color: #f2f4f5;
+            font-size: 20px;
+            font-weight: bold;
+            vertical-align: middle; }
+    /* line 146, E:/Program Test/Helpyou front/css/commons.scss */
+    .xb-top-nav {
+      float: left;
+      position: relative; }
+      /* line 151, E:/Program Test/Helpyou front/css/commons.scss */
+      .xb-top-nav-ul {
+        margin-left: 25px; }
+        /* line 154, E:/Program Test/Helpyou front/css/commons.scss */
+        .xb-top-nav-ul .xb-top-nav-ul-li {
+          float: left;
+          position: relative; }
+          /* line 158, E:/Program Test/Helpyou front/css/commons.scss */
+          .xb-top-nav-ul .xb-top-nav-ul-li .xb-top-nav-link {
+            display: block;
+            width: 60px;
+            height: 45px;
+            line-height: 45px; }
+            /* line 164, E:/Program Test/Helpyou front/css/commons.scss */
+            .xb-top-nav-ul .xb-top-nav-ul-li .xb-top-nav-link .notice-number {
+              position: absolute;
+              left: 38px;
+              top: 5px;
+              z-index: 5;
+              visibility: visible;
+              height: 16px;
+              width: 16px;
+              line-height: 16px;
+              color: #fff;
+              font-size: 11px;
+              font-weight: 700;
+              text-align: center;
+              text-indent: 0;
+              background-color: #bf1031;
+              border: 1px solid #b11331;
+              border-radius: 16px;
+              box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.15) inset; }
+    /* line 193, E:/Program Test/Helpyou front/css/commons.scss */
+    .xb-top-profile {
+      float: right;
+      position: relative;
+      margin-right: 15px;
+      min-width: 120px;
+      z-index: 10; }
+      /* line 200, E:/Program Test/Helpyou front/css/commons.scss */
+      .xb-top-profile .xb-top-userinfo {
+        display: block;
+        background-color: transparent;
+        border-top: 0 none;
+        color: #fff;
+        height: 45px;
+        line-height: 45px;
+        text-decoration: none;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+        /* line 216, E:/Program Test/Helpyou front/css/commons.scss */
+        .xb-top-profile .xb-top-userinfo .avatar {
+          background-color: transparent;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+          height: 25px;
+          width: 25px;
+          position: absolute;
+          left: 10px;
+          top: 9px; }
+        /* line 227, E:/Program Test/Helpyou front/css/commons.scss */
+        .xb-top-profile .xb-top-userinfo:hover {
+          background-color: #FFA900;
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset; }
+    /* line 234, E:/Program Test/Helpyou front/css/commons.scss */
+    .xb-top-add-task {
+      background-color: #FFBD00;
+      border: 1px solid #FF9D00;
+      border-radius: 4px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(255, 255, 255, 0.15) inset;
+      cursor: pointer;
+      float: right;
+      height: 32px;
+      margin: 7px 20px 0 0;
+      text-align: center;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+      width: 80px;
+      color: #fff; }
+      /* line 249, E:/Program Test/Helpyou front/css/commons.scss */
+      .xb-top-add-task:hover {
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12); }
+
+/* header-end */
+/* backtotop-start */
+/* line 261, E:/Program Test/Helpyou front/css/commons.scss */
+.xb-backtotop {
+  position: fixed;
+  left: 0px;
+  bottom: 150px;
+  opacity: 1;
+  display: none;
+  background-color: #f2f4f5;
+  border: 1px solid #49525c;
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer; }
+  /* line 277, E:/Program Test/Helpyou front/css/commons.scss */
+  .xb-backtotop:hover {
+    background-color: #FFCA00;
+    border: 1px solid #FF9D00; }
+    /* line 280, E:/Program Test/Helpyou front/css/commons.scss */
+    .xb-backtotop:hover i {
+      color: #fff; }
+  /* line 284, E:/Program Test/Helpyou front/css/commons.scss */
+  .xb-backtotop i {
+    color: #222;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    top: 3px;
+    left: 5px;
+    user-select: none; }
+
+/* backtotop-end */
+/* add-task-modal-start*/
+/* line 298, E:/Program Test/Helpyou front/css/commons.scss */
+.modal-bg {
+  display: none;
+  width: 2560px;
+  height: 1000px;
+  opacity: 0;
+  background-color: #666;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 90; }
+
+/* line 311, E:/Program Test/Helpyou front/css/commons.scss */
+.add-task-modal {
+  display: none;
+  z-index: 99;
+  width: 550px;
+  height: 550px;
+  position: fixed;
+  left: 50%;
+  top: -550px;
+  margin-left: -275px;
+  background-color: #fff;
+  border: 1px solid #888;
+  border-radius: 6px;
+  box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.4); }
+  /* line 327, E:/Program Test/Helpyou front/css/commons.scss */
+  .modal-title {
+    background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
+    border: 1px solid #FF9D00;
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 1px rgba(0, 0, 0, 0.2);
+    line-height: 14px;
+    padding: 10px 15px;
+    position: relative;
+    color: #fff; }
+    /* line 337, E:/Program Test/Helpyou front/css/commons.scss */
+    .modal-title .modal-title-text {
+      font-size: 15px;
+      font-weight: bold;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); }
+    /* line 343, E:/Program Test/Helpyou front/css/commons.scss */
+    .modal-title .modal-close {
+      float: right;
+      font-size: 20px;
+      margin-top: -2px;
+      cursor: pointer; }
+  /* line 351, E:/Program Test/Helpyou front/css/commons.scss */
+  .modal-content {
+    margin-top: 10px;
+    padding-left: 15px; }
+    /* line 355, E:/Program Test/Helpyou front/css/commons.scss */
+    .modal-content .add-task-form {
+      display: block; }
+      /* line 358, E:/Program Test/Helpyou front/css/commons.scss */
+      .modal-content .add-task-form label {
+        font-size: 15px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        display: block;
+        margin: 8px 5px; }
+      /* line 365, E:/Program Test/Helpyou front/css/commons.scss */
+      .modal-content .add-task-form input, .modal-content .add-task-form select, .modal-content .add-task-form textarea {
+        padding: 4px 0 4px 5px;
+        border-radius: 4px;
+        border: 1px solid #999;
+        box-sizing: border-box;
+        color: #49525c;
+        font-size: 12px;
+        line-height: 16px;
+        margin-left: 5px;
+        margin-right: 5px; }
+        /* line 376, E:/Program Test/Helpyou front/css/commons.scss */
+        .modal-content .add-task-form input:focus, .modal-content .add-task-form select:focus, .modal-content .add-task-form textarea:focus {
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset; }
+      /* line 381, E:/Program Test/Helpyou front/css/commons.scss */
+      .modal-content .add-task-form input[type=number] {
+        -webkit-appearance: none !important;
+        -moz-appearance: textfield;
+        width: 50px; }
+      /* line 387, E:/Program Test/Helpyou front/css/commons.scss */
+      .modal-content .add-task-form button {
+        background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
+        border: 1px solid #FF9D00;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
+        color: #fff !important;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 4px 10px;
+        text-align: center;
+        float: right;
+        margin-top: 10px;
+        margin-right: 30px; }
+      /* line 404, E:/Program Test/Helpyou front/css/commons.scss */
+      .modal-content .add-task-form #taskTitle {
+        width: 500px; }
+      /* line 407, E:/Program Test/Helpyou front/css/commons.scss */
+      .modal-content .add-task-form #taskContent {
+        width: 500px;
+        height: 70px;
+        resize: none; }
+
+/* add-task-modal-end */
+/* footer-start */
+/* line 424, E:/Program Test/Helpyou front/css/commons.scss */
+.xb-footer {
+  margin: 0 auto;
+  padding: 10px 80px;
+  width: 800px;
+  height: 30px;
+  border-top: 1px solid #999;
+  color: #999;
+  line-height: 20px;
+  font-size: 16px; }
+  /* line 436, E:/Program Test/Helpyou front/css/commons.scss */
+  .xb-footer span {
+    float: left; }
+  /* line 439, E:/Program Test/Helpyou front/css/commons.scss */
+  .xb-footer .xb-footer-links {
+    float: right; }
+    /* line 441, E:/Program Test/Helpyou front/css/commons.scss */
+    .xb-footer .xb-footer-links a {
+      color: #999;
+      display: inline-block;
+      margin-left: 20px; }
+
+/* footer-end */
+
+/*# sourceMappingURL=commons.css.map */

@@ -1,0 +1,97 @@
+/* line 6, E:/Program Test/Helpyou front/css/square.scss */
+.xb-main {
+  display: block;
+  width: 960px;
+  margin: 50px auto 10px;
+  overflow: hidden;
+  position: relative; }
+  /* line 13, E:/Program Test/Helpyou front/css/square.scss */
+  .xb-task-type-box {
+    padding: 20px;
+    width: 200px;
+    position: fixed;
+    top: 50px; }
+    /* line 18, E:/Program Test/Helpyou front/css/square.scss */
+    .xb-task-type-box h3 {
+      width: inherit;
+      height: 50px;
+      line-height: 50px;
+      font-size: 20px;
+      font-weight: 900;
+      text-align: left;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+    /* line 27, E:/Program Test/Helpyou front/css/square.scss */
+    .xb-task-type-box .xb-task-type {
+      display: block;
+      width: 100%;
+      height: 30px;
+      color: #49525c;
+      cursor: pointer;
+      text-align: center;
+      letter-spacing: 10px; }
+      /* line 35, E:/Program Test/Helpyou front/css/square.scss */
+      .xb-task-type-box .xb-task-type:hover {
+        color: #f2f4f5; }
+        /* line 37, E:/Program Test/Helpyou front/css/square.scss */
+        .xb-task-type-box .xb-task-type:hover.type-new {
+          background-color: rgba(250, 104, 62, 0.6); }
+        /* line 40, E:/Program Test/Helpyou front/css/square.scss */
+        .xb-task-type-box .xb-task-type:hover.type-online {
+          background-color: rgba(79, 250, 89, 0.6); }
+        /* line 43, E:/Program Test/Helpyou front/css/square.scss */
+        .xb-task-type-box .xb-task-type:hover.type-offline {
+          background-color: rgba(47, 137, 234, 0.6); }
+        /* line 46, E:/Program Test/Helpyou front/css/square.scss */
+        .xb-task-type-box .xb-task-type:hover.type-other {
+          background-color: rgba(242, 239, 54, 0.6); }
+      /* line 50, E:/Program Test/Helpyou front/css/square.scss */
+      .xb-task-type-box .xb-task-type.current {
+        color: #f2f4f5; }
+        /* line 52, E:/Program Test/Helpyou front/css/square.scss */
+        .xb-task-type-box .xb-task-type.current.type-new {
+          background-color: rgba(250, 104, 62, 0.8); }
+        /* line 55, E:/Program Test/Helpyou front/css/square.scss */
+        .xb-task-type-box .xb-task-type.current.type-online {
+          background-color: rgba(79, 250, 89, 0.8); }
+        /* line 58, E:/Program Test/Helpyou front/css/square.scss */
+        .xb-task-type-box .xb-task-type.current.type-offline {
+          background-color: rgba(47, 137, 234, 0.8); }
+        /* line 61, E:/Program Test/Helpyou front/css/square.scss */
+        .xb-task-type-box .xb-task-type.current.type-other {
+          background-color: rgba(242, 239, 54, 0.8); }
+  /* line 67, E:/Program Test/Helpyou front/css/square.scss */
+  .xb-task-list {
+    width: 670px;
+    overflow: hidden;
+    float: right;
+    border-left: 1px solid #49525c;
+    padding: 10px 20px; }
+    /* line 73, E:/Program Test/Helpyou front/css/square.scss */
+    .xb-task-list .task {
+      width: 600px;
+      margin-top: 40px;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      padding: 10px; }
+      /* line 79, E:/Program Test/Helpyou front/css/square.scss */
+      .xb-task-list .task:hover {
+        text-shadow: 0 0 1px rgba(0, 0, 0, 0.2); }
+      /* line 82, E:/Program Test/Helpyou front/css/square.scss */
+      .xb-task-list .task a:hover {
+        text-decoration: none; }
+      /* line 85, E:/Program Test/Helpyou front/css/square.scss */
+      .xb-task-list .task .task-title {
+        color: #333;
+        font-size: 18px;
+        padding: 8px 0 7px 7px; }
+      /* line 90, E:/Program Test/Helpyou front/css/square.scss */
+      .xb-task-list .task .task-content {
+        width: 100%;
+        color: #49525c;
+        padding-bottom: 8px;
+        text-indent: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+
+/*# sourceMappingURL=square.css.map */

@@ -1,0 +1,151 @@
+$gradient-start-color: #FFCA00;
+$gradient-end-color: #FFA900;
+$border-color: #FF9D00;
+$dark-text-color: #222;
+$light-text-color: #49525c;
+.xb-user {
+    box-sizing: border-box;
+    margin: 80px auto 20px;
+    width: 960px;
+    .xb-user-info {
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
+    }
+    @at-root {
+        .xb-user-info-item {
+            padding-left: 20px;
+            display: block;
+            height: 40px;
+            color: $light-text-color;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+            &:last-child {
+                border-bottom: none;
+            }
+            .xb-user-info-label {
+                width: 100px;
+                float: left;
+                height: 40px;
+                line-height: 40px;
+                border-right: 1px solid #ccc;
+            }
+            .xb-user-info-content {
+                padding-left: 30px;
+                float: left;
+                height: 40px;
+                line-height: 40px;
+            }
+            .change-info {
+                font-size: 12px;
+                color: #ccc;
+                margin-left: 20px;
+                line-height: 40px;
+                cursor: pointer;
+            }
+            input {
+                line-height: 20px;
+                margin: 10px 20px;
+                display: none;
+            }
+        }
+        .xb-user-info-save {
+            display: none;
+            margin-bottom: 20px;
+            width: 100px;
+            padding: 8px 0;
+            line-height: 14px;
+            text-align: center;
+            background: linear-gradient(to bottom, $gradient-start-color, $gradient-end-color);
+            border: 1px solid $border-color;
+            &:hover {
+                color: #fff;
+                box-shadow: 1px 1px 3px $light-text-color;
+            }
+            &:active {
+                box-shadow: 0 0 3px 2px $border-color inset;
+            }
+        }
+        
+        .xb-user-task-watch {
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            .xb-user-task-nav{
+                font-size: 14px;
+                text-align: center;
+                display: inline-block;
+                color: $light-text-color;
+                
+                .xb-user-task-item {
+                    cursor: pointer;
+                    float: left;
+                    line-height: 40px;
+                    height: 40px;
+                    width: 10em;
+                    box-sizing: border-box;
+                    opacity: 0.7;
+                    transition: opacity 0.15s ease 0s, color 0.15s ease 0s,border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
+                    color: inherit;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    &.active {
+                        opacity: 1;
+                        border-bottom: 3px solid $light-text-color;
+                    }
+                }
+            }
+            
+            .xb-user-task-list {
+                margin: 15px auto 0;
+                text-align: left;
+                display: none;
+                width: 960px;
+
+                li {
+                    line-height: 40px;
+                    height: 40px;
+                    border-top: 1px solid #ccc;
+
+
+                    span {
+                        display: inline-block;
+                    }
+
+                    @at-root {
+                        .task-time {
+                            width: 200px;
+                            padding-left: 20px;
+                        }
+
+                        .task-name {
+                            color: $light-text-color;
+                            width: 400px;
+                            padding-left: 20px;
+                            border-left: 1px solid #ccc;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+
+                        .task-state {
+                            width: 200px;
+                            padding-left: 20px;
+                            border-left: 1px solid #ccc;
+                        }
+                    }
+                }
+
+
+                &.selected {
+                    display: block;
+                }
+
+            }
+        }
+    }
+}

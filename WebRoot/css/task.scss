@@ -1,0 +1,50 @@
+$gradient-start-color: #FFCA00;
+$gradient-end-color: #FFA900;
+$border-color: #FF9D00;
+$dark-text-color: #222;
+$light-text-color: #49525c;
+.xb-task {
+    min-height: 600px;
+    width: 960px;
+    margin: 80px auto 10px;
+    box-sizing: border-box;
+    .task-simple-info {
+        border-bottom: 1px solid #ccc;
+        @at-root {
+            .task-title {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .xb-task-take-btn {
+                margin-bottom: 20px;
+                margin-left: 30px;
+                padding: 7px 10px;
+                background: rgba(0, 0, 0, 0) linear-gradient(to bottom, $gradient-start-color, $gradient-end-color) repeat scroll 0 0;
+                border: 1px solid $border-color;
+                border-radius: 4px;
+                cursor: pointer;
+                color: #eee;
+                &:hover {
+                    color: #fff;
+                }
+            }
+            div {
+                padding-left: 30px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .task-content {
+        padding-left: 0;
+        span {
+            display: block;
+            text-align: center;
+            font-size: 24px;
+            background: linear-gradient(to right, #ffcc77 0%, #ffcc77 40%, #fff 40%, #fff 60%, #ffcc77 60%, #ffcc77 100%);
+        }
+        p {
+            text-indent: 2em;
+            margin-top: 30px;
+        }
+    }
+}

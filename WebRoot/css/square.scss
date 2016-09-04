@@ -1,0 +1,102 @@
+$gradient-start-color: #FFCA00;
+$gradient-end-color: #FFA900;
+$border-color: #FF9D00;
+$title-color: #222;
+$text-color: #49525c;
+.xb-main {
+    display: block;
+    width: 960px;
+    margin: 50px auto 10px;
+    overflow: hidden;
+    position: relative;
+    @at-root {
+        .xb-task-type-box {
+            padding: 20px;
+            width: 200px;
+            position: fixed;
+            top: 50px;
+            h3 {
+                width: inherit;
+                height: 50px;
+                line-height: 50px;
+                font-size: 20px;
+                font-weight: 900;
+                text-align: left;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            }
+            .xb-task-type {
+                display: block;
+                width: 100%;
+                height: 30px;
+                color: $text-color;
+                cursor: pointer;
+                text-align: center;
+                letter-spacing: 10px;
+                &:hover {
+                    color: #f2f4f5;
+                    &.type-new {
+                        background-color: rgba(250, 104, 62, 0.6);
+                    }
+                    &.type-online {
+                        background-color: rgba(79, 250, 89, 0.6);
+                    }
+                    &.type-offline {
+                        background-color: rgba(47, 137, 234, 0.6);
+                    }
+                    &.type-other {
+                        background-color: rgba(242, 239, 54, 0.6);
+                    }
+                }
+                &.current {
+                    color: #f2f4f5;
+                    &.type-new {
+                        background-color: rgba(250, 104, 62, 0.8);
+                    }
+                    &.type-online {
+                        background-color: rgba(79, 250, 89, 0.8);
+                    }
+                    &.type-offline {
+                        background-color: rgba(47, 137, 234, 0.8);
+                    }
+                    &.type-other {
+                        background-color: rgba(242, 239, 54, 0.8);
+                    }
+                }
+            }
+        }
+        .xb-task-list {
+            width: 670px;
+            overflow: hidden;
+            float: right;
+            border-left: 1px solid #49525c;
+            padding: 10px 20px;
+            .task {
+                width: 600px;
+                margin-top: 40px;
+                box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                padding: 10px;
+                &:hover {
+                    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+                }
+                a:hover {
+                    text-decoration: none;
+                }
+                .task-title {
+                    color: #333;
+                    font-size: 18px;
+                    padding: 8px 0 7px 7px;
+                }
+                .task-content {
+                    width: 100%;
+                    color: #49525c;
+                    padding-bottom: 8px;
+                    text-indent: 20px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}

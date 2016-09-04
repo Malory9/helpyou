@@ -1,0 +1,166 @@
+$gradient-start-color: #FFCA00;
+$gradient-end-color: #FFA900;
+$border-color: #FF9D00;
+/* footer-start */
+
+body {
+    background-color: #EEF7FF;
+    color: #555;
+    font-size: 14px;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+$footer-text-color: #999;
+
+.xb-footer {
+    position: absolute;
+    left: 50%;
+    margin-left: -480px;
+    bottom: 40px;
+
+    padding: 10px 80px;
+    width: 800px;
+    height: 30px;
+
+    border-top: 1px solid $footer-text-color;
+    color: $footer-text-color;
+
+    line-height: 20px;
+    font-size: 16px;
+
+    span {
+        float: left;
+    }
+    .xb-footer-links {
+        float: right;
+        a {
+            color: $footer-text-color;
+            display: inline-block;
+            margin-left: 20px;
+        }
+    }
+}
+
+/* footer-end */
+
+.xb-index-main {
+    margin: 60px auto 0;
+    min-height: 500px;
+    width: 300px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: normal;
+
+    .logo {
+        background: url("../images/big-logo.png");
+        width: 160px;
+        height: 74px;
+        margin: 0 auto;
+        text-indent: -9999px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        letter-spacing: 5px;
+        font-weight: 400;
+        text-indent: 5px;
+        margin: 20px 0 20px;
+    }
+
+    @at-root {
+        .sign-view {
+            .index-tab-navs {
+                font-size: 18px;
+                margin-bottom: 10px;
+                text-align: center;
+                display: inline-block;
+                position: relative;
+
+                a {
+                    float: left;
+                    box-sizing: border-box;
+                    height: 35px;
+                    line-height: 35px;
+                    opacity: 0.7;
+                    transition: opacity 0.15s ease 0s, color 0.15s ease 0s,border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
+                    width: 4em;
+                    color: inherit;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    &.active {
+                        color: $border-color;
+                        opacity: 1;
+                        border-bottom: 3px solid $border-color;
+                    }
+                }
+            }
+
+            .view {
+                float: none;
+                margin: 15px auto;
+                text-align: left;
+                width: 300px;
+                display: none;
+
+                .group-input {
+                    border: 1px solid #d5d5d5;
+                    border-radius: 3px;
+                }
+
+                &.selected {
+                    display: block;
+                }
+
+
+                input {
+                    display: block;
+                    overflow: hidden;
+                    margin: 0;
+                    padding: 1em;
+                    box-sizing: border-box;
+                    width: 300px;
+
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+                input + input {
+                    border-top: 1px solid #e8e8e8;
+                }
+
+                button {
+                    margin-top: 20px;
+                    padding: 0;
+                    width: 100%;
+                    line-height: 39px;
+                    background-color: $gradient-end-color;
+                    border: 1px solid $border-color;
+                    border-radius: 3px;
+                    color: #fff;
+                    cursor: pointer;
+                    display: block;
+                    font-size: 15px;
+                    outline: 0 none;
+                    text-align: center;
+                    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+
+                    &:hover {
+                        background-color: $gradient-start-color;
+                    }
+                }
+            }
+        }
+    }
+}
