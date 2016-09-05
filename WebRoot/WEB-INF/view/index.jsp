@@ -1,3 +1,5 @@
+<%@page import="com.helpyouJFinal.model.Task"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,12 +31,17 @@
             <div class="xb-task-type type-other">其他任务</div>
         </div>
 		<ul class="xb-task-list">
+		<%	List<Task> tasks = (List<Task>)request.getAttribute("tasks"); %>
+		<%	for(int i=0,len=tasks.size(); i < len ; i++) {
+				Task task = tasks.get(i);
+		%>
             <li class="task">
-                <a href="/task/taskID">
-                    <h3 class="task-title">任务标题</h3>
-                    <p class="task-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias deleniti explicabo molestiae odit perspiciatis placeat unde! Aut culpa deleniti dolore esse, expedita facilis fuga obcaecati porro quasi sequi ullam voluptates?</p>
+                <a href="/task/<%=task.getInt("taskId") %>">
+                    <h3 class="task-title"><%=task.getStr("title") %></h3>
+                    <p class="task-content"><%=task.getStr("content") %></p>
                 </a>
             </li>
+        <%} %>
         </ul>
     </div>
     

@@ -1,0 +1,38 @@
+.xb-help {
+    width:700px ;
+    margin:50px auto 40px;
+}
+
+.xb-help-banner {
+    width: 700px;
+    height: 350px;
+}
+
+.faq {
+    padding-left: 50px;
+    font-size: 14px;
+    color: black;
+}
+
+.xb-help-title {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 80px auto 30px;
+}
+
+.xb-help-question {
+    font-size: 16px;
+    color: #FFA900;
+    margin: 10px auto;
+}
+
+.xb-help-answer-list {
+    list-style: decimal;
+    margin: 10px 50px 20px;
+    font-size: 14px;
+    color: #222;
+}
+
+.xb-help-answer-list li {
+    margin-top: 10px;
+}

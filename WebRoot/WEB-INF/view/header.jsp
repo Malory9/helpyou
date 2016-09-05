@@ -1,6 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="com.helpyouJFinal.model.User"%>
 <%!
 	public boolean isBlank(String str) {
-		return str == null || "".equals(str.trim());	
+		return str == null || "".equals(str.trim());
 	} 
 %>
 
@@ -24,15 +26,17 @@
             </ul>
         </div>
         <div class="xb-top-profile">
-            <% if(isBlank((String)session.getAttribute("username"))){ %>
+        <% User user = (User)session.getAttribute("user"); %>
+            <% if(user == null){ %>
 				<a class="xb-top-userinfo" href="${BASE_PATH}/login">
 					<span class="username">登陆</span>
 				</a>
 			<%} else {%>
-				<a class="xb-top-userinfo" href="${BASE_PATH}/user/${sessionScope.userId}">
-					<span class="username">${sessionScope.username}</span>
+				<a class="xb-top-userinfo" href="${BASE_PATH}/user/<%=user.getInt("userId") %>">
+					<span class="username"><%=user.getStr("nickname") %></span>
 	                <!--<img src="images/head.png" class="avatar" alt="用户名">-->
 				</a>
+				<a class="xb-top-logOut" href="${BASE_PATH}/logOut">注销</a>
 			<%} %>
         </div>
         <button id="xb-top-add-task" class="xb-top-add-task">发布任务</button>

@@ -19,7 +19,7 @@
 	<script src="${BASE_PATH}/js/jquery.js"></script>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
 	
 	<div class="xb-task">
         <div class="task-simple-info">

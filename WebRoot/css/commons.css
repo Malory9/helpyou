@@ -5,29 +5,29 @@
   src: url("http://at.alicdn.com/t/font_1472558960_0758517.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1472558960_0758517.woff") format("woff"), url("http://at.alicdn.com/t/font_1472558960_0758517.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1472558960_0758517.svg#iconfont") format("svg");
   /* iOS 4.1- */ }
 
-/* line 15, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 15, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 .iconfont {
   font-family: "iconfont";
   font-size: 16px;
   font-style: normal; }
 
-/* line 21, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 21, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 body, div, ul, ol, li, p, h1, h2, h3, h4, h5, button, input, select, textarea {
   margin: 0;
   padding: 0; }
 
-/* line 26, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 26, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 ul, ol {
   list-style: none; }
 
-/* line 30, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 30, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 a {
   text-decoration: none; }
-  /* line 32, E:/Program Test/Helpyou front/css/commons.scss */
+  /* line 32, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   a:hover {
     text-decoration: underline; }
 
-/* line 37, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 37, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 body {
   width: 100%;
   height: 100%;
@@ -39,11 +39,11 @@ body {
   word-wrap: break-word; }
 
 /* header-start */
-/* line 52, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 52, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 input[type="search"] {
   -webkit-appearance: none; }
 
-/* line 54, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 54, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 .xb-top {
   width: 100%;
   height: 45px;
@@ -54,12 +54,12 @@ input[type="search"] {
   left: 0;
   top: 0;
   z-index: 20; }
-  /* line 66, E:/Program Test/Helpyou front/css/commons.scss */
+  /* line 66, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .xb-top-inner {
     width: 960px;
     margin: 0 auto;
     height: 100%; }
-    /* line 71, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 71, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-top-inner .xb-top-logo {
       background-image: url("../images/head-logo.png");
       background-position: 0 8px;
@@ -68,25 +68,25 @@ input[type="search"] {
       height: 100%;
       float: left;
       text-indent: -9999px; }
-    /* line 81, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 81, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-top-inner a {
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
       color: #f2f4f5;
       text-align: center; }
-      /* line 86, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 86, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .xb-top-inner a:hover {
         color: #fff;
         text-decoration: none; }
-    /* line 93, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 93, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-top-search {
       float: left;
       margin: 7px 0 0 20px;
       position: relative; }
-      /* line 98, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 98, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .xb-top-search form {
         position: relative;
         width: 367px; }
-        /* line 102, E:/Program Test/Helpyou front/css/commons.scss */
+        /* line 102, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
         .xb-top-search form .xb-top-search-input {
           background-color: #e1eaf2;
           border: 1px solid #FF9D00;
@@ -100,11 +100,11 @@ input[type="search"] {
           padding: 7px 50px 7px 10px;
           transition: all 0.2s ease-in-out 0s;
           width: 100%; }
-          /* line 116, E:/Program Test/Helpyou front/css/commons.scss */
+          /* line 116, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
           .xb-top-search form .xb-top-search-input:focus {
             background-color: #fff;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset, 0 1px 15px rgba(255, 255, 255, 0.3); }
-        /* line 122, E:/Program Test/Helpyou front/css/commons.scss */
+        /* line 122, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
         .xb-top-search form .xb-top-search-button {
           background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
           border: 1px solid #FF9D00;
@@ -118,30 +118,30 @@ input[type="search"] {
           right: 0;
           top: 0;
           width: 40px; }
-          /* line 136, E:/Program Test/Helpyou front/css/commons.scss */
+          /* line 136, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
           .xb-top-search form .xb-top-search-button .xb-top-search-button-icon {
             color: #f2f4f5;
             font-size: 20px;
             font-weight: bold;
             vertical-align: middle; }
-    /* line 146, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 146, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-top-nav {
       float: left;
       position: relative; }
-      /* line 151, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 151, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .xb-top-nav-ul {
         margin-left: 25px; }
-        /* line 154, E:/Program Test/Helpyou front/css/commons.scss */
+        /* line 154, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
         .xb-top-nav-ul .xb-top-nav-ul-li {
           float: left;
           position: relative; }
-          /* line 158, E:/Program Test/Helpyou front/css/commons.scss */
+          /* line 158, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
           .xb-top-nav-ul .xb-top-nav-ul-li .xb-top-nav-link {
             display: block;
             width: 60px;
             height: 45px;
             line-height: 45px; }
-            /* line 164, E:/Program Test/Helpyou front/css/commons.scss */
+            /* line 164, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
             .xb-top-nav-ul .xb-top-nav-ul-li .xb-top-nav-link .notice-number {
               position: absolute;
               left: 38px;
@@ -160,14 +160,14 @@ input[type="search"] {
               border: 1px solid #b11331;
               border-radius: 16px;
               box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.15) inset; }
-    /* line 193, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 193, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-top-profile {
       float: right;
       position: relative;
       margin-right: 15px;
       min-width: 120px;
       z-index: 10; }
-      /* line 200, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 200, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .xb-top-profile .xb-top-userinfo {
         display: block;
         background-color: transparent;
@@ -181,7 +181,7 @@ input[type="search"] {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap; }
-        /* line 216, E:/Program Test/Helpyou front/css/commons.scss */
+        /* line 216, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
         .xb-top-profile .xb-top-userinfo .avatar {
           background-color: transparent;
           border: 1px solid rgba(0, 0, 0, 0.1);
@@ -191,11 +191,25 @@ input[type="search"] {
           position: absolute;
           left: 10px;
           top: 9px; }
-        /* line 227, E:/Program Test/Helpyou front/css/commons.scss */
+        /* line 227, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
         .xb-top-profile .xb-top-userinfo:hover {
           background-color: #FFA900;
           box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset; }
-    /* line 234, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 233, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+      .xb-top-profile .xb-top-logOut {
+        display: none;
+        background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
+        width: 100%;
+        height: 45px;
+        line-height: 45px; }
+        /* line 240, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+        .xb-top-profile .xb-top-logOut:hover {
+          background: #FFA900;
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.2) inset; }
+      /* line 246, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+      .xb-top-profile:hover .xb-top-logOut {
+        display: block; }
+    /* line 251, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-top-add-task {
       background-color: #FFBD00;
       border: 1px solid #FF9D00;
@@ -209,13 +223,13 @@ input[type="search"] {
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
       width: 80px;
       color: #fff; }
-      /* line 249, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 266, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .xb-top-add-task:hover {
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12); }
 
 /* header-end */
 /* backtotop-start */
-/* line 261, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 278, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 .xb-backtotop {
   position: fixed;
   left: 0px;
@@ -228,14 +242,14 @@ input[type="search"] {
   width: 40px;
   height: 40px;
   cursor: pointer; }
-  /* line 277, E:/Program Test/Helpyou front/css/commons.scss */
+  /* line 294, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .xb-backtotop:hover {
     background-color: #FFCA00;
     border: 1px solid #FF9D00; }
-    /* line 280, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 297, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-backtotop:hover i {
       color: #fff; }
-  /* line 284, E:/Program Test/Helpyou front/css/commons.scss */
+  /* line 301, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .xb-backtotop i {
     color: #222;
     font-size: 30px;
@@ -247,7 +261,7 @@ input[type="search"] {
 
 /* backtotop-end */
 /* add-task-modal-start*/
-/* line 298, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 315, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 .modal-bg {
   display: none;
   width: 2560px;
@@ -259,7 +273,7 @@ input[type="search"] {
   top: 0;
   z-index: 90; }
 
-/* line 311, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 328, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 .add-task-modal {
   display: none;
   z-index: 99;
@@ -273,7 +287,7 @@ input[type="search"] {
   border: 1px solid #888;
   border-radius: 6px;
   box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.4); }
-  /* line 327, E:/Program Test/Helpyou front/css/commons.scss */
+  /* line 344, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .modal-title {
     background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
     border: 1px solid #FF9D00;
@@ -283,31 +297,31 @@ input[type="search"] {
     padding: 10px 15px;
     position: relative;
     color: #fff; }
-    /* line 337, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 354, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .modal-title .modal-title-text {
       font-size: 15px;
       font-weight: bold;
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); }
-    /* line 343, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 360, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .modal-title .modal-close {
       float: right;
       font-size: 20px;
       margin-top: -2px;
       cursor: pointer; }
-  /* line 351, E:/Program Test/Helpyou front/css/commons.scss */
+  /* line 368, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .modal-content {
     margin-top: 10px;
     padding-left: 15px; }
-    /* line 355, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 372, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .modal-content .add-task-form {
       display: block; }
-      /* line 358, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 375, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form label {
         font-size: 15px;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
         display: block;
         margin: 8px 5px; }
-      /* line 365, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 382, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form input, .modal-content .add-task-form select, .modal-content .add-task-form textarea {
         padding: 4px 0 4px 5px;
         border-radius: 4px;
@@ -318,15 +332,15 @@ input[type="search"] {
         line-height: 16px;
         margin-left: 5px;
         margin-right: 5px; }
-        /* line 376, E:/Program Test/Helpyou front/css/commons.scss */
+        /* line 393, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
         .modal-content .add-task-form input:focus, .modal-content .add-task-form select:focus, .modal-content .add-task-form textarea:focus {
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset; }
-      /* line 381, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 398, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form input[type=number] {
         -webkit-appearance: none !important;
         -moz-appearance: textfield;
         width: 50px; }
-      /* line 387, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 404, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form button {
         background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
         border: 1px solid #FF9D00;
@@ -342,10 +356,10 @@ input[type="search"] {
         float: right;
         margin-top: 10px;
         margin-right: 30px; }
-      /* line 404, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 421, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form #taskTitle {
         width: 500px; }
-      /* line 407, E:/Program Test/Helpyou front/css/commons.scss */
+      /* line 424, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form #taskContent {
         width: 500px;
         height: 70px;
@@ -353,7 +367,7 @@ input[type="search"] {
 
 /* add-task-modal-end */
 /* footer-start */
-/* line 424, E:/Program Test/Helpyou front/css/commons.scss */
+/* line 441, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 .xb-footer {
   margin: 0 auto;
   padding: 10px 80px;
@@ -363,13 +377,13 @@ input[type="search"] {
   color: #999;
   line-height: 20px;
   font-size: 16px; }
-  /* line 436, E:/Program Test/Helpyou front/css/commons.scss */
+  /* line 453, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .xb-footer span {
     float: left; }
-  /* line 439, E:/Program Test/Helpyou front/css/commons.scss */
+  /* line 456, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .xb-footer .xb-footer-links {
     float: right; }
-    /* line 441, E:/Program Test/Helpyou front/css/commons.scss */
+    /* line 458, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-footer .xb-footer-links a {
       color: #999;
       display: inline-block;

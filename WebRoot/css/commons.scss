@@ -229,6 +229,23 @@ input[type="search"]{-webkit-appearance:none;}
                             box-shadow: 0 0 2px rgba(0,0,0,0.2) inset;
                         }
                     }
+                    
+                    .xb-top-logOut {
+                        display: none;
+                        background: rgba(0, 0, 0, 0) linear-gradient(to bottom, $gradient-start-color, $gradient-end-color) repeat scroll 0 0;
+                        width: 100%;
+                        height: 45px;
+                        line-height: 45px;
+                        
+                        &:hover {
+                            background: $gradient-end-color;
+                            box-shadow: 0 0 2px rgba(0,0,0,0.2) inset;
+                        }
+                    }
+                    
+                    &:hover .xb-top-logOut{
+                        display: block;
+                    }
                 }
 
                 .xb-top-add-task {

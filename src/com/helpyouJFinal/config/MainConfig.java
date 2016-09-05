@@ -1,6 +1,14 @@
 package com.helpyouJFinal.config;
 
 import com.helpyouJFinal.controller.MainController;
+import com.helpyouJFinal.controller.TaskController;
+import com.helpyouJFinal.controller.UserController;
+import com.helpyouJFinal.model.Admin;
+import com.helpyouJFinal.model.Message;
+import com.helpyouJFinal.model.Notice;
+import com.helpyouJFinal.model.Task;
+import com.helpyouJFinal.model.TaskAccept;
+import com.helpyouJFinal.model.TaskPublish;
 import com.helpyouJFinal.model.User;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
@@ -37,6 +45,9 @@ public class MainConfig extends JFinalConfig {
 		 * 第三个参数viewPath表示接下来的跳转相对路径，需要配成"/"否则会出现路径跳转错误,
 		 */
 		 me.add("/",MainController.class,"/");
+		 me.add("/task", TaskController.class, "/");
+		 me.add("/user", UserController.class, "/");
+		 
 	}
 
 	// 用于使用JFinal的插件
@@ -64,11 +75,17 @@ public class MainConfig extends JFinalConfig {
 		
 		//注册activeRecord插件，配置数据库映射
 		ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(c3p0Plugin);
+		//设置MySQL方言
+		activeRecordPlugin.setDialect(new MysqlDialect());
 		//添加model类和数据库表的映射，user指的是表名，userid指的是主键
 		//表的主键名默认为id，所以需要手动配置
 		activeRecordPlugin.addMapping("user", "userId", User.class);
-		//设置MySQL方言
-		activeRecordPlugin.setDialect(new MysqlDialect());
+		activeRecordPlugin.addMapping("task", "taskId", Task.class);
+		activeRecordPlugin.addMapping("admin", "adminId", Admin.class);
+		activeRecordPlugin.addMapping("message", "messageId", Message.class);
+		activeRecordPlugin.addMapping("notice", "noticeId", Notice.class);
+		activeRecordPlugin.addMapping("taskAccept", "acceptId", TaskAccept.class);
+		activeRecordPlugin.addMapping("taskPublish", "publishId", TaskPublish.class);
 		me.add(activeRecordPlugin);
 	}
 

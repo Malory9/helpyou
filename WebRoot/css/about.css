@@ -1,0 +1,41 @@
+.xb-aboutus{
+    width: 700px;
+    min-height: 600px;
+    margin: 60px auto 5px;
+    position: relative;
+}
+
+.xb-aboutus-box {
+    color: #49525c;
+    width: 650px;
+    height: 300px;
+    position: absolute;
+    left: 25px;
+    top: 100px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 3px #ccc;
+}
+
+.xb-aboutus-h1 {
+    color: #222;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 13px;
+}
+
+.xb-aboutus-h2 {
+    margin: 10px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFA900;
+}
+
+.xb-aboutus-p {
+    margin-left: 30px;
+}
+
+.has-point-list {
+    margin-top: 10px;
+    margin-left: 70px;
+    list-style: disc;
+}
