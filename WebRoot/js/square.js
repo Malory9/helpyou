@@ -24,10 +24,7 @@ function selectTaskType(){
         });
     })
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd
 $(document).ready(function(){
     selectTaskType();
 });

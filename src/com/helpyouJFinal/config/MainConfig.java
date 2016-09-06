@@ -19,7 +19,6 @@ import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
 import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.kit.PropKit;
-import com.jfinal.log.Log4jLogFactory;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.activerecord.dialect.MysqlDialect;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
@@ -30,20 +29,13 @@ public class MainConfig extends JFinalConfig {
 	// 进行一些通用设置
 	@Override
 	public void configConstant(Constants me) {
-		
-		// 用PropKit读取config.properties文件中的配置信息
-		PropKit.use("config.properties");
-		
 		// 设置开发模式（log日志）
-		me.setDevMode(PropKit.getBoolean("devMode",true));
+		me.setDevMode(true);
 		// 设置编码
-		me.setEncoding(PropKit.get("encoding"));
+		me.setEncoding("utf-8");
 		// 设置视图渲染(render)模式
 		me.setViewType(ViewType.JSP);
-		// 设置基本页面路径
 		me.setBaseViewPath("/WEB-INF/view/");
-		// 设置log4j日志
-		me.setLogFactory(new Log4jLogFactory());
 	}
 
 	@Override
@@ -61,8 +53,9 @@ public class MainConfig extends JFinalConfig {
 	// 用于使用JFinal的插件
 	@Override
 	public void configPlugin(Plugins me) {
-		
-		//获取config.properties中的数据库参数
+
+		// 用PropKit读取jdbc.properties文件中的配置信息
+		PropKit.use("jdbc.properties");
 		final String URL = PropKit.get("jdbcUrl");
 		final String USERNAME = PropKit.get("username");
 		final String PASSWORD = PropKit.get("password");

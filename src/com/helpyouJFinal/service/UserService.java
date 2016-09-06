@@ -22,18 +22,11 @@ public class UserService {
 	public User add(String username,String password) {
 		String SQL = "select userId from user where username=?";
 		Integer reslut = Db.queryFirst(SQL, username);
-<<<<<<< HEAD
 		if (reslut == null || reslut <= 0) {
 			new User().set("username", username).set("password", password).set("nickname", username).set("lastLoginTime", new Date()).save();
 			String userSQL = "select * from user where username=? and password=?";
 			User user = new User().findFirst(userSQL, username,password);
 			return user;
-=======
-		if (reslut == null) {
-			Record user = new Record().set("username", username).set("password", password);
-			Db.save("user", "userId", user);
-			return true;
->>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd
 		}
 		return null;
 	}
