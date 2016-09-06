@@ -7,6 +7,7 @@ import java.util.List;
 import com.helpyouJFinal.model.Task;
 import com.helpyouJFinal.model.TaskAccept;
 import com.helpyouJFinal.model.TaskPublish;
+import com.helpyouJFinal.model.User;
 import com.jfinal.aop.Before;
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.activerecord.Db;
@@ -66,7 +67,7 @@ public class TaskService {
 	 * @param userId 用户id
 	 * @return 任务类的一个列表
 	 */
-	public List<Task> searchTaskUserPublish(Integer userId) {
+	public List<Task> getTaskListUserPublish(Integer userId) {
 		String getTaskIdSQL = "select taskId from taskPublish where userId = ?";
 		List<Integer> taskIds = Db.query(getTaskIdSQL,userId);
 		List<Task> tasks = new ArrayList<Task>();
@@ -82,13 +83,13 @@ public class TaskService {
 	 * @param userId 用户id
 	 * @return 任务类的一个列表
 	 */
-	public List<TaskAccept> searchTaskUserAccept(Integer userId) {
+	public List<TaskAccept> getTaskListUserAccept(Integer userId) {
 		String getTaskSQL = "select taskId from taskAccept where userId = ?";
 		return TaskAccept.dao.find(getTaskSQL,userId);
 	}
 
 	/**
-	 * 添加一个新的任务
+	 * 发布一个新的任务
 	 * @param userId 发布者id
 	 * @param title 任务标题
 	 * @param type 任务类型
@@ -106,6 +107,15 @@ public class TaskService {
 		Integer taskId = Db.queryFirst(taskIdSQL,title,content);
 		//保存发布信息
 		new TaskPublish().set("userId", userId).set("taskId", taskId).save();
+	}
+
+	/**
+	 * 接受一个新的任务
+	 * @param userId 接受者id
+	 * @param taskId 任务id
+	 */
+	public void takeTask(Integer userId,Integer taskId){
+		new TaskAccept().set("userId",userId).set("taskId",taskId).set("acceptTime",new Date()).save();
 	}
 	
 	/**
@@ -146,5 +156,63 @@ public class TaskService {
 	 */
 	public Task getTaskSpecific(Integer taskId) {
 		return Task.dao.findById(taskId);
+	}
+	
+	/**
+	 * 举报任务
+	 * @param taskId 任务ID
+	 */
+	public void reportTask(Integer taskId) {
+		Task.dao.findById(taskId).set("state", 3).update();
+	}
+	
+	/**
+	 * 提交完成任务
+	 * @param taskId 任务id
+	 * @param acceptId 接受者id
+	 */
+	public void submitFinishTask(Integer taskId,Integer acceptId) {
+		String findAcceptSQL = "select * from taskAccept where taskId = ? and userId = ?";
+		TaskAccept.dao.findFirst(findAcceptSQL, taskId, acceptId).set("state", 2).update();
+	}
+	
+	/**
+	 * 放弃任务
+	 * @param taskId 任务id
+	 * @param acceptId 接受者id
+	 * @param publishId 发布者id
+	 */
+	public void giveUpTask(Integer taskId,Integer acceptId,Integer publishId) {
+		String findAcceptSQL = "select * from taskAccept where taskId = ? and userId = ?";
+		TaskAccept.dao.findFirst(findAcceptSQL, taskId,acceptId).set("state", 3).update();
+		String taskRewardSQL = "select reward from task where taskId = ?";
+		Integer reward = Db.queryInt(taskRewardSQL, taskId);
+		User publisher = new User().findById(publishId);
+		User accepter = new User().findById(acceptId);
+		publisher.set("point", publisher.getInt("point")+reward);
+		accepter.set("point", accepter.getInt("point")-reward);
+	}
+	
+	/**
+	 * 确认完成任务
+	 * @param taskId 任务id
+	 * @param publishId 发布者id
+	 * @param acceptId 接受者id
+	 */
+	public void confirmFinishTask(Integer taskId,Integer publishId,Integer acceptId) {
+		String taskRewardSQL = "select reward from task where taskId = ?";
+		Integer reward = Db.queryInt(taskRewardSQL, taskId);
+		User publisher = new User().findById(publishId);
+		User accepter = new User().findById(acceptId);
+		publisher.set("point", publisher.getInt("point")-reward);
+		accepter.set("point", accepter.getInt("point")+reward);
+	}
+	
+	/**
+	 * 结束任务
+	 * @param taskId 任务id
+	 */
+	public void endTask(Integer taskId) {
+		Task.dao.findById(taskId).set("state", 4).set("endTime", new Date()).update();
 	}
 }

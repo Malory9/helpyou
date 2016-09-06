@@ -70,4 +70,13 @@ public class UserService {
 		user.update();
 		return user;
 	}
+	
+	/**
+	 * 获得一个用户实例
+	 * @param userId 用户id
+	 * @return 用户的model实例
+	 */
+	public User getUserSpecific(Integer userId) {
+		return new User().findById(userId);
+	}
 }

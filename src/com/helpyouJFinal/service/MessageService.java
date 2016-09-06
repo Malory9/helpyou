@@ -9,6 +9,7 @@ import com.jfinal.plugin.activerecord.tx.Tx;
 
 @Before(Tx.class)
 public class MessageService {
+	
 	/**
 	 * 得到一个用户的所有接受的信息
 	 * @param receiverId 信息接受方的id
