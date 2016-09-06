@@ -24,7 +24,7 @@
 	<link href="${BASE_PATH}/css/commons.css" rel="stylesheet" type="text/css">
 	<link href="${BASE_PATH}/css/task.css" rel="stylesheet" type="text/css">
 	<!--<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>-->
-	<script src="${BASE_PATH}/js/jquery.js"></script>
+	<script src="${BASE_PATH}/js/jquery.min.js"></script>
 </head>
 <body>
 	<%@ include file="header.jsp"%>

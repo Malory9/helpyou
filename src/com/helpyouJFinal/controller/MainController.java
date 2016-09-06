@@ -1,5 +1,6 @@
 package com.helpyouJFinal.controller;
 
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.List;
 
@@ -8,11 +9,23 @@ import com.helpyouJFinal.model.Task;
 import com.helpyouJFinal.model.User;
 import com.helpyouJFinal.service.MessageService;
 import com.helpyouJFinal.service.TaskService;
+=======
+import org.apache.log4j.Logger;
+
+import com.helpyouJFinal.interceptor.AuthInterceptor;
+>>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd
 import com.helpyouJFinal.service.UserService;
 import com.helpyouJFinal.validator.LoginValidator;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
+import com.jfinal.kit.StrKit;
 
+<<<<<<< HEAD
+=======
+public class MainController extends Controller {
+	private UserService userService = new UserService();
+	private static final Logger logger = Logger.getLogger(MainController.class);
+>>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd
 
 public class MainController extends Controller {
 	
@@ -26,8 +39,16 @@ public class MainController extends Controller {
 	 */
 	@Before(SetOriginUrlInterceptor.class)
 	public void index() {
+<<<<<<< HEAD
 		List<Task> tasks = taskService.searchLatestTasks();
 		setAttr("tasks", tasks);
+=======
+		String username = getSessionAttr("username");
+		if (StrKit.isBlank(username)) {
+			username = "游客";
+		}
+		logger.info(username+"进入到主页");
+>>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd
 		// 渲染视图并返回给浏览器
 		this.render("index.jsp");
 	}

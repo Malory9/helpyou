@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.helpyouJFinal.model.User"%>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+>>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd
 <%!
 	public boolean isBlank(String str) {
 		return str == null || "".equals(str.trim());

@@ -14,7 +14,7 @@
 	<link rel="shortcut icon" href="${BASE_PATH}/images/favicon.ico">
 	<link href="${BASE_PATH}/css/login.css" rel="stylesheet" type="text/css">
 	<!--<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>-->
-	<script src="${BASE_PATH}/js/jquery.js"></script>
+	<script src="${BASE_PATH}/js/jquery.min.js"></script>
 </head>
 <body>
     <div class="xb-index-main">

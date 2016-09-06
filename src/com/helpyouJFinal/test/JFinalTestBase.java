@@ -1,6 +1,10 @@
 package com.helpyouJFinal.test;
 
+<<<<<<< HEAD
 import org.junit.AfterClass;
+=======
+import org.junit.After;
+>>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd
 import org.junit.BeforeClass;
 
 import com.helpyouJFinal.model.Message;
@@ -49,9 +53,18 @@ public class JFinalTestBase {
 	    activeRecordPlugin.start();
 	}
 	
+<<<<<<< HEAD
 	@AfterClass
 	public static void close() {
 		activeRecordPlugin.stop();
 		c3p0Plugin.stop();
 	}
 }
+=======
+	@After
+	public void close() {
+		activeRecordPlugin.stop();
+		c3p0Plugin.stop();
+	}
+}
+>>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd

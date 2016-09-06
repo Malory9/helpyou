@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+>>>>>>> dd79e600cc3c71135998e44a198fe852675ddefd
 <div id="xb-backtotop" class="xb-backtotop">
     <i class="iconfont">&#xe601;</i>
 </div>
