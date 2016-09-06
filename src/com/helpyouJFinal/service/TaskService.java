@@ -58,7 +58,7 @@ public class TaskService {
 	 * @return 查找到的任务列表
 	 */
 	public List<Task> searchTasksByKeyword(String keyword) {
-		String sql = "select taskId,title,content from task where state <= 2 and (title like %?% or content like %?% ) order by startTime DESC";
+		String sql = "select taskId,title,content from task where state <= 2 and (title like %?% or content like %?%) order by startTime DESC";
 		return Task.dao.find(sql, keyword,keyword);
 	}
 	
@@ -79,6 +79,16 @@ public class TaskService {
 	}
 	
 	/**
+	 * 获得任务发布者id
+	 * @param taskId 任务id
+	 * @return 任务发布者id
+	 */
+	public Integer getTaskPublishId(Integer taskId) {
+		String sql = "select userId from taskPublish where taskId = ?";
+		return Db.queryInt(sql,taskId);
+	}
+	
+	/**
 	 * 查找某用户接受的所有任务
 	 * @param userId 用户id
 	 * @return 任务类的一个列表
@@ -89,6 +99,9 @@ public class TaskService {
 	}
 
 	/**
+
+	 */
+	/**
 	 * 发布一个新的任务
 	 * @param userId 发布者id
 	 * @param title 任务标题
@@ -96,12 +109,22 @@ public class TaskService {
 	 * @param peopleNum 任务所需人数
 	 * @param reward 任务报酬
 	 * @param content 任务内容
+	 * @param day 任务天数
+	 * @param hour 任务小时数
+	 * @param minute 任务分钟数
 	 */
 	public void addNewTask(Integer userId, String title, Integer type, Integer peopleNum,
-					Integer reward, String content) {
+					Integer reward, String content,Integer days,Integer hours,Integer minutes) {
+		Date startDate = new Date();
 		//保存任务
-		new Task().set("title", title).set("type", type).set("startTime", new Date())
-						.set("peopleNum", peopleNum).set("reward", reward).set("content", content).save();
+		Task task = new Task().set("title", title).set("type", type).set("startTime", startDate)
+						.set("peopleNum", peopleNum).set("reward", reward).set("content", content);
+		//添加结束日期
+		Date endDate = (Date) startDate.clone();
+		endDate.setDate(startDate.getDate()+days);
+		endDate.setHours(startDate.getHours()+hours);
+		endDate.setMinutes(startDate.getMinutes()+minutes);
+		task.set("endTime", endDate);
 		//获取任务Id
 		String taskIdSQL = "select taskId from task where title = ? and content = ?";
 		Integer taskId = Db.queryFirst(taskIdSQL,title,content);

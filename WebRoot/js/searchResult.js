@@ -1,37 +1,3 @@
-var tasks = [{
-	taskId:1,
-	taskTitle:"任务标题1",
-	taskContent:"任务内容1"
-},{
-	taskId:2,
-	taskTitle:"任务标题2",
-	taskContent:"任务内容2"
-},{
-	taskId:3,
-	taskTitle:"任务标题3",
-	taskContent:"任务内容3"
-},{
-	taskId:4,
-	taskTitle:"任务标题4",
-	taskContent:"任务内容4"
-},{
-	taskId:1,
-	taskTitle:"任务标题1",
-	taskContent:"任务内容1"
-},{
-	taskId:2,
-	taskTitle:"任务标题2",
-	taskContent:"任务内容2"
-},{
-	taskId:3,
-	taskTitle:"任务标题3",
-	taskContent:"任务内容3"
-},{
-	taskId:4,
-	taskTitle:"任务标题4",
-	taskContent:"任务内容4"
-}];
-
 function showTask(tasks){
 	$('.task').remove();
 
@@ -47,7 +13,3 @@ function showTask(tasks){
 		$taskList.append(task);
 	}
 }
-
-$(document).ready(function(){
-	showTask(tasks);
-})

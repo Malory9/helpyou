@@ -56,8 +56,44 @@ function allBinding() {
 	$('.notice-number').click(function () {
 		$(this).css('display','none');
 	})
+	
+	$('#xb-add-task').click(function(e) {
+	 	addTask();
+	 	e.preventDefault();
+	})
 }
+
+//使数字框只能输入数字
+function numberOnly(){
+    $('input[type=number]').keydown(function(){
+        $(this).val().replace(/\D/,'');
+    })
+}
+
+//添加任务
+function addTask() {
+    var data = {
+            taskTitle:$('#taskTitle').val(),
+            taskType:$('#taskType option:selected').val(),
+            peopleNum:$('#peopleNum').val(),
+            days:$('#taskTime-day').val(),
+            hours:$('#taskTime-hour').val(),
+            minutes:$('#taskTime-minute').val(),
+            reward:$('#taskReward').val(),
+            content:$('#taskContent').val()
+        };
+	$.ajax({
+ 		url: $('.add-task-form').attr('action'),
+        type: 'post',
+        data: data,
+        success:function(result){
+            
+        }
+ 	})
+}
+
 $(document).ready(function () {
 	backiconReput();
 	allBinding();
+    numberOnly();
 })

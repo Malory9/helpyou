@@ -1,17 +1,20 @@
-/* line 6, E:/Program Test/Helpyou front/css/task.scss */
+/* line 6, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
 .xb-task {
   min-height: 600px;
   width: 960px;
   margin: 80px auto 10px;
   box-sizing: border-box; }
-  /* line 11, E:/Program Test/Helpyou front/css/task.scss */
+  /* line 11, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
   .xb-task .task-simple-info {
     border-bottom: 1px solid #ccc; }
-    /* line 14, E:/Program Test/Helpyou front/css/task.scss */
+    /* line 14, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    .task-id {
+      display: none; }
+    /* line 17, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .task-title {
       font-size: 20px;
       font-weight: bold; }
-    /* line 18, E:/Program Test/Helpyou front/css/task.scss */
+    /* line 21, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task-take-btn {
       margin-bottom: 20px;
       margin-left: 30px;
@@ -21,23 +24,23 @@
       border-radius: 4px;
       cursor: pointer;
       color: #eee; }
-      /* line 27, E:/Program Test/Helpyou front/css/task.scss */
+      /* line 30, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
       .xb-task-take-btn:hover {
         color: #fff; }
-    /* line 31, E:/Program Test/Helpyou front/css/task.scss */
+    /* line 34, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     div {
       padding-left: 30px;
       margin-bottom: 20px; }
-  /* line 37, E:/Program Test/Helpyou front/css/task.scss */
+  /* line 40, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
   .xb-task .task-content {
     padding-left: 0; }
-    /* line 39, E:/Program Test/Helpyou front/css/task.scss */
+    /* line 42, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task .task-content span {
       display: block;
       text-align: center;
       font-size: 24px;
       background: linear-gradient(to right, #ffcc77 0%, #ffcc77 40%, #fff 40%, #fff 60%, #ffcc77 60%, #ffcc77 100%); }
-    /* line 45, E:/Program Test/Helpyou front/css/task.scss */
+    /* line 48, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task .task-content p {
       text-indent: 2em;
       margin-top: 30px; }

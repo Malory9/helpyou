@@ -10,17 +10,17 @@
     <div class="xb-top-inner">
         <a href="/" class="xb-top-logo">校帮</a>
         <div class="xb-top-search">
-            <form action="/search" method="get">
-                <input type="search" class="xb-top-search-input" placeholder="搜索你感兴趣的任务" autocomplete="off" name="taskName">
-                <button type="submit" class="xb-top-search-button">
+            <form action="${BASE_PATH}/task/search" method="post">
+                <input type="search" class="xb-top-search-input" placeholder="搜索你感兴趣的任务" autocomplete="off" name="keyword">
+                <button type="submit" class="xb-top-search-button" id="xb-top-search-button">
                     <i class="iconfont xb-top-search-button-icon">&#xe600;</i>
                 </button>
             </form>
         </div>
         <div class="xb-top-nav">
             <ul class="xb-top-nav-ul">
-                <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" href="/">任务广场</a></li>
-                <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" href="/user/message">
+                <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" href="${BASE_PATH}/">任务广场</a></li>
+                <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" href="${BASE_PATH}/message">
                     消息<span class="notice-number">0</span>
                 </a></li>
             </ul>
@@ -50,28 +50,28 @@
         <span id="task-publish-modal-close" class="modal-close iconfont">&#xe602;</span>
     </div>
     <div class="modal-content">
-        <form action="/addTask" method="post" class="add-task-form">
+        <form action="${BASE_PATH}/task/add" method="post" class="add-task-form">
             <label for="taskTitle">任务标题</label>
-            <input id="taskTitle" name="taskName" type="text">
+            <input id="taskTitle" name="taskName" type="text" required>
             <label for="taskType">任务类型</label>
-            <select id="taskType" name="taskType">
-                <option value="online">线上任务</option>
-                <option value="offline">线下任务</option>
-                <option value="other">其他任务</option>
+            <select id="taskType" name="taskType" required>
+                <option value="1">线上任务</option>
+                <option value="2">线下任务</option>
+                <option value="3">其他任务</option>
             </select>
             <label for="taskPeopleNum">任务人数</label>
-            <input type="number" id="taskPeopleNum" name="taskPeopleNum">人
+            <input type="number" id="peopleNum" name="peopleNum">人
             <label for="taskTime">任务时间</label>
             <div id="taskTime">
-                <input type="number" id="taskTime-day" name="taskTime">天
-                <input type="number" id="taskTime-hour" name="taskTime">小时
-                <input type="number" id="taskTime-minute" name="taskTime">分钟
+                <input type="number" id="taskTime-day" name="taskTime" required>天
+                <input type="number" id="taskTime-hour" name="taskTime" required>小时
+                <input type="number" id="taskTime-minute" name="taskTime" required>分钟
             </div>
             <label for="taskReward">任务报酬&nbsp;&nbsp;&nbsp;<small>(每人每次任务报酬不能超过10PY币)</small></label>
-            <input type="number" id="taskReward" name="taskReward" min="1" max="10">PY币
+            <input type="number" id="taskReward" name="taskReward" min="1" max="10" required>PY币
             <label for="taskContent">任务详情</label>
-            <textarea name="taskContent" id="taskContent"></textarea>
-            <button type="submit">发布</button>
+            <textarea name="taskContent" id="taskContent" required></textarea>
+            <button type="submit" id="xb-add-task">发布</button>
         </form>
     </div>
 </div>

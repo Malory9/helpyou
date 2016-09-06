@@ -11,6 +11,9 @@ $light-text-color: #49525c;
     .task-simple-info {
         border-bottom: 1px solid #ccc;
         @at-root {
+            .task-id {
+                display: none;
+            }
             .task-title {
                 font-size: 20px;
                 font-weight: bold;

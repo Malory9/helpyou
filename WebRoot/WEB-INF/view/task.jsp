@@ -1,6 +1,14 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.helpyouJFinal.model.Task"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%! SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日 hh时mm分ss"); %>
+<%! 
+	public String dateFormat(Date date){
+		return simpleDateFormat.format(date);	
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,22 +29,50 @@
 <body>
 	<%@ include file="header.jsp"%>
 	
+	<% Task task = (Task)request.getAttribute("task"); %>
+	<% if(task != null){ %>
 	<div class="xb-task">
         <div class="task-simple-info">
-            <div class="task-id" hidden>任务ID</div>
-            <div class="task-title">任务标题</div>
-            <div class="task-type">任务类型：<span>线上任务</span></div>
-            <div class="task-time">任务时间：<span class="start-time">2016年9月1日22:12:09</span> 到 <span class="end-time">2016年9月1日23:12:09</span></div>
-            <div class="task-people-num">任务人数：<span>3</span>人</div>
-            <div class="task-reward">任务报酬：<span>4</span>PY币</div>
-            <button type="button" class="xb-task-take-btn">立即接取</button>
+            <div class="task-id"><%=task.getInt("taskId") %></div>
+            <div class="task-title"><%=task.getStr("title") %></div>
+            <div class="task-type">任务类型：
+            	<span>
+            		<%  Integer type = task.getInt("type");
+            			if(type == 1){ %>
+            				<%="线上任务" %>
+            		<%  } else if(type == 2){ %>
+            				<%="线下任务" %>
+            		<%	} else if(type == 3){ %>
+            				<%="其他任务" %>
+            		<%	} %>
+            	</span>
+            </div>
+            <div class="task-time">任务时间：
+            	<span class="start-time"><%=dateFormat(task.getDate("startTime")) %></span>
+            	到
+            	<span class="end-time"><%=dateFormat(task.getDate("endTime")) %></span>
+            </div>
+            <div class="task-people-num">任务人数：<span><%=task.getInt("peopleNum") %></span>人</div>
+            <div class="task-reward">任务报酬：<span><%=task.getInt("reward") %></span>PY币</div>
+            <% if(user != null) {%>
+            <% if(request.getAttribute("publishId") != user.getInt("userId")){ %>
+            	<button type="button" class="xb-task-take-btn">立即接取</button>
+            <% } else { %>
+            	<button type="button" class="xb-task-take-btn">修改信息</button>
+            <% } 
+            } %>
         </div>
         <div class="task-content">
             <span>任务介绍</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, praesentium, dolor reprehenderit molestiae eos sapiente nostrum repellat molestias atque ducimus culpa placeat autem, soluta nihil. Delectus nostrum iste at, repellat?</p>
+			<p><%=task.getStr("content") %></p>
         </div>
+        <%
+        	} else {
+        		out.println("没有对应的任务");
+          	}
+        %>
+        
     </div>
-	
 	
 	<%@ include file="footer.jsp" %>
 	
