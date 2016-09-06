@@ -25,10 +25,11 @@
 	<div class="xb-main">
         <div class="xb-task-type-box">
             <h3>任务类别</h3>
-            <div class="xb-task-type type-new current">最新任务</div>
-            <div class="xb-task-type type-online">线上任务</div>
-            <div class="xb-task-type type-offline">线下任务</div>
-            <div class="xb-task-type type-other">其他任务</div>
+            <span id="ajaxURL" hidden="hidden" data-url="${BASE_PATH}/task/searchByType"></span>
+            <div class="xb-task-type type-0 current">最新任务</div>
+            <div class="xb-task-type type-1">线上任务</div>
+            <div class="xb-task-type type-2">线下任务</div>
+            <div class="xb-task-type type-3">其他任务</div>
         </div>
 		<ul class="xb-task-list">
 		<%	List<Task> tasks = (List<Task>)request.getAttribute("tasks"); %>

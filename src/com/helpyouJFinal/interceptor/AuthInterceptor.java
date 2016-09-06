@@ -1,5 +1,6 @@
 package com.helpyouJFinal.interceptor;
 
+import com.helpyouJFinal.model.User;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.aop.Invocation;
 import com.jfinal.core.Controller;
@@ -13,15 +14,13 @@ public class AuthInterceptor implements Interceptor {
 
 	@Override
 	public void intercept(Invocation invocation) {
-		Integer loginUserId;
-				
 		Controller controller = invocation.getController();
 		//判断用户是否有修改信息的权限
-		loginUserId = controller.getSessionAttr("userId");
-		if (loginUserId > 0) {
+		Integer userId = controller.getParaToInt("userId");
+		if (userId > 0) {			
 			invocation.invoke();
 		} else {
-			controller.redirect("/login");
+			controller.renderText("noUser");
 		}
 	}
 

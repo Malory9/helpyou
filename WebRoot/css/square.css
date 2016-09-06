@@ -33,31 +33,31 @@
       .xb-task-type-box .xb-task-type:hover {
         color: #f2f4f5; }
         /* line 37, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
-        .xb-task-type-box .xb-task-type:hover.type-new {
+        .xb-task-type-box .xb-task-type:hover.type-0 {
           background-color: rgba(250, 104, 62, 0.6); }
         /* line 40, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
-        .xb-task-type-box .xb-task-type:hover.type-online {
+        .xb-task-type-box .xb-task-type:hover.type-1 {
           background-color: rgba(79, 250, 89, 0.6); }
         /* line 43, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
-        .xb-task-type-box .xb-task-type:hover.type-offline {
+        .xb-task-type-box .xb-task-type:hover.type-2 {
           background-color: rgba(47, 137, 234, 0.6); }
         /* line 46, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
-        .xb-task-type-box .xb-task-type:hover.type-other {
+        .xb-task-type-box .xb-task-type:hover.type-3 {
           background-color: rgba(242, 239, 54, 0.6); }
       /* line 50, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-type-box .xb-task-type.current {
         color: #f2f4f5; }
         /* line 52, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
-        .xb-task-type-box .xb-task-type.current.type-new {
+        .xb-task-type-box .xb-task-type.current.type-0 {
           background-color: rgba(250, 104, 62, 0.8); }
         /* line 55, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
-        .xb-task-type-box .xb-task-type.current.type-online {
+        .xb-task-type-box .xb-task-type.current.type-1 {
           background-color: rgba(79, 250, 89, 0.8); }
         /* line 58, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
-        .xb-task-type-box .xb-task-type.current.type-offline {
+        .xb-task-type-box .xb-task-type.current.type-2 {
           background-color: rgba(47, 137, 234, 0.8); }
         /* line 61, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
-        .xb-task-type-box .xb-task-type.current.type-other {
+        .xb-task-type-box .xb-task-type.current.type-3 {
           background-color: rgba(242, 239, 54, 0.8); }
   /* line 67, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
   .xb-task-list {

@@ -113,7 +113,7 @@ public class TaskService {
 	 * @param hour 任务小时数
 	 * @param minute 任务分钟数
 	 */
-	public void addNewTask(Integer userId, String title, Integer type, Integer peopleNum,
+	public boolean addNewTask(Integer userId, String title, Integer type, Integer peopleNum,
 					Integer reward, String content,Integer days,Integer hours,Integer minutes) {
 		Date startDate = new Date();
 		//保存任务
@@ -125,11 +125,12 @@ public class TaskService {
 		endDate.setHours(startDate.getHours()+hours);
 		endDate.setMinutes(startDate.getMinutes()+minutes);
 		task.set("endTime", endDate);
+		task.save();
 		//获取任务Id
 		String taskIdSQL = "select taskId from task where title = ? and content = ?";
 		Integer taskId = Db.queryFirst(taskIdSQL,title,content);
 		//保存发布信息
-		new TaskPublish().set("userId", userId).set("taskId", taskId).save();
+		return new TaskPublish().set("userId", userId).set("taskId", taskId).save();
 	}
 
 	/**

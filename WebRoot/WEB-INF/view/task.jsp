@@ -33,7 +33,7 @@
 	<% if(task != null){ %>
 	<div class="xb-task">
         <div class="task-simple-info">
-            <div class="task-id"><%=task.getInt("taskId") %></div>
+            <div class="task-id" hidden="hidden"><%=task.getInt("taskId") %></div>
             <div class="task-title"><%=task.getStr("title") %></div>
             <div class="task-type">任务类型：
             	<span>

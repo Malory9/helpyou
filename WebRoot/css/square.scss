@@ -34,31 +34,31 @@ $text-color: #49525c;
                 letter-spacing: 10px;
                 &:hover {
                     color: #f2f4f5;
-                    &.type-new {
+                    &.type-0 {
                         background-color: rgba(250, 104, 62, 0.6);
                     }
-                    &.type-online {
+                    &.type-1 {
                         background-color: rgba(79, 250, 89, 0.6);
                     }
-                    &.type-offline {
+                    &.type-2 {
                         background-color: rgba(47, 137, 234, 0.6);
                     }
-                    &.type-other {
+                    &.type-3 {
                         background-color: rgba(242, 239, 54, 0.6);
                     }
                 }
                 &.current {
                     color: #f2f4f5;
-                    &.type-new {
+                    &.type-0 {
                         background-color: rgba(250, 104, 62, 0.8);
                     }
-                    &.type-online {
+                    &.type-1 {
                         background-color: rgba(79, 250, 89, 0.8);
                     }
-                    &.type-offline {
+                    &.type-2 {
                         background-color: rgba(47, 137, 234, 0.8);
                     }
-                    &.type-other {
+                    &.type-3 {
                         background-color: rgba(242, 239, 54, 0.8);
                     }
                 }

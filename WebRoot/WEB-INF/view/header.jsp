@@ -33,7 +33,7 @@
 				</a>
 			<%} else {%>
 				<a class="xb-top-userinfo" href="${BASE_PATH}/user/<%=user.getInt("userId") %>">
-					<span class="username"><%=user.getStr("nickname") %></span>
+                    <span class="username"><%=user.getStr("nickname") %></span>
 	                <!--<img src="images/head.png" class="avatar" alt="用户名">-->
 				</a>
 				<a class="xb-top-logOut" href="${BASE_PATH}/logOut">注销</a>
@@ -52,7 +52,7 @@
     <div class="modal-content">
         <form action="${BASE_PATH}/task/add" method="post" class="add-task-form">
             <label for="taskTitle">任务标题</label>
-            <input id="taskTitle" name="taskName" type="text" required>
+            <input id="taskTitle" name="taskTitle" type="text" maxlength="20" required placeholder="标题最长不能超过20个字">
             <label for="taskType">任务类型</label>
             <select id="taskType" name="taskType" required>
                 <option value="1">线上任务</option>

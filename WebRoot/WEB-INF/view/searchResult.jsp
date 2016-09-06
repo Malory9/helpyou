@@ -35,7 +35,7 @@
         				Task task = tasks.get(i);
         	%>
 	        			<li class="task">
-	                        <a href="/task/<%=task.getInt("taskId") %>">
+	                        <a href="${BASE_PATH}/task/<%=task.getInt("taskId") %>">
 	                        <h3 class="task-title"><%=task.getStr("title") %></h3>
 	                        <p class="task-content"><%=task.getStr("content") %></p>
 	                        </a>
