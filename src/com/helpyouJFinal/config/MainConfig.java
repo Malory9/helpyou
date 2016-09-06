@@ -29,10 +29,12 @@ public class MainConfig extends JFinalConfig {
 	// 进行一些通用设置
 	@Override
 	public void configConstant(Constants me) {
+		// 用PropKit读取config.properties文件中的配置信息
+		PropKit.use("config.properties");
 		// 设置开发模式（log日志）
-		me.setDevMode(true);
+		me.setDevMode(PropKit.getBoolean("devMode"));
 		// 设置编码
-		me.setEncoding("utf-8");
+		me.setEncoding(PropKit.get("encoding"));
 		// 设置视图渲染(render)模式
 		me.setViewType(ViewType.JSP);
 		me.setBaseViewPath("/WEB-INF/view/");
@@ -54,8 +56,6 @@ public class MainConfig extends JFinalConfig {
 	@Override
 	public void configPlugin(Plugins me) {
 
-		// 用PropKit读取jdbc.properties文件中的配置信息
-		PropKit.use("jdbc.properties");
 		final String URL = PropKit.get("jdbcUrl");
 		final String USERNAME = PropKit.get("username");
 		final String PASSWORD = PropKit.get("password");

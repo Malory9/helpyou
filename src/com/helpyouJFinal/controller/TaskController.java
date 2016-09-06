@@ -33,6 +33,7 @@ public class TaskController extends Controller {
 		String keyword = getPara("keyword");
 		System.out.println(keyword);
 		List<Task> tasks = taskService.searchTasksByKeyword(keyword);
+		System.out.println(tasks.size());
 		setAttr("tasks", tasks);
 		this.render("searchResult.jsp");
 	}

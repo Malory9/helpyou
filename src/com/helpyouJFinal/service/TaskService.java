@@ -58,8 +58,8 @@ public class TaskService {
 	 * @return 查找到的任务列表
 	 */
 	public List<Task> searchTasksByKeyword(String keyword) {
-		String sql = "select taskId,title,content from task where state <= 2 and (title like %?% or content like %?%) order by startTime DESC";
-		return Task.dao.find(sql, keyword,keyword);
+		String sql = "select taskId,title,content from task where state <= 2 and (title like '%"+keyword+"%' or content like '%"+keyword+"%') order by startTime DESC";
+		return Task.dao.find(sql);
 	}
 	
 	/**

@@ -23,7 +23,6 @@ public class MainController extends Controller {
 	/**
 	 * 默认主页，任务广场页面
 	 */
-	@Before(SetOriginUrlInterceptor.class)
 	public void index() {
 		List<Task> tasks = taskService.searchLatestTasks();
 		setAttr("tasks", tasks);
@@ -31,6 +30,9 @@ public class MainController extends Controller {
 		this.render("index.jsp");
 	}
 
+	/**
+	 * 转向登陆界面
+	 */
 	public void login() {
 		this.render("login.jsp");
 	}
@@ -73,12 +75,10 @@ public class MainController extends Controller {
 	 * 用户注销
 	 */
 	public void logOut() {
-		// 获取session中的原先地址
-		String redirectURL = getSessionAttr("originURL");
 		// 删除session中的user属性
 		removeSessionAttr("user");
-		// 重定向到注销前的网址
-		redirect(redirectURL);
+		// 重定向到首页
+		redirect("/");
 	}
 
 	/**

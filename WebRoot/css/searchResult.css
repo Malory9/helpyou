@@ -1,0 +1,44 @@
+/* line 6, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+.xb-main {
+  display: block;
+  width: 960px;
+  min-height: 600px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding-left: 129px;
+  margin: 60px auto 10px;
+  border-left: 1px solid #49525c;
+  border-right: 1px solid #49525c; }
+  /* line 18, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+  .xb-task-list {
+    min-height: 600px; }
+    /* line 20, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+    .xb-task-list .task {
+      width: 700px;
+      margin-top: 40px;
+      border: 1px solid #ccc;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      padding: 10px; }
+      /* line 28, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      .xb-task-list .task:hover {
+        text-shadow: 0 0 1px rgba(0, 0, 0, 0.2); }
+      /* line 31, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      .xb-task-list .task a:hover {
+        text-decoration: none; }
+      /* line 34, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      .xb-task-list .task .task-title {
+        color: #333;
+        font-size: 18px;
+        padding: 8px 0 7px 7px; }
+      /* line 39, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      .xb-task-list .task .task-content {
+        width: 100%;
+        color: #49525c;
+        padding-bottom: 8px;
+        text-indent: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+
+/*# sourceMappingURL=searchResult.css.map */

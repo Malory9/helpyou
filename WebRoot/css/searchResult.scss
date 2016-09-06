@@ -10,14 +10,13 @@ $text-color: #49525c;
     box-sizing: border-box;
     overflow: hidden;
     padding-left: 129px;
-    margin: 50px auto 10px;
-    position: relative;
+    margin: 60px auto 10px;
     border-left: 1px solid #49525c;
     border-right: 1px solid #49525c;
 
     @at-root {
         .xb-task-list {
-
+            min-height: 600px;
             .task {
                 width: 700px;
                 margin-top: 40px;
