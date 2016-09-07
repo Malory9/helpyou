@@ -1,18 +1,19 @@
 /* footer-start */
+/* line 6, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
 body {
   background-color: #EEF7FF;
   color: #555;
   font-size: 14px;
-  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
-}
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif; }
 
+/* line 13, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
 a {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-}
+  text-decoration: none; }
+  /* line 15, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+  a:hover {
+    text-decoration: none; }
 
+/* line 22, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
 .xb-footer {
   position: absolute;
   left: 50%;
@@ -24,21 +25,21 @@ a:hover {
   border-top: 1px solid #999;
   color: #999;
   line-height: 20px;
-  font-size: 16px;
-}
-.xb-footer span {
-  float: left;
-}
-.xb-footer .xb-footer-links {
-  float: right;
-}
-.xb-footer .xb-footer-links a {
-  color: #999;
-  display: inline-block;
-  margin-left: 20px;
-}
+  font-size: 16px; }
+  /* line 38, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+  .xb-footer span {
+    float: left; }
+  /* line 41, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+  .xb-footer .xb-footer-links {
+    float: right; }
+    /* line 43, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    .xb-footer .xb-footer-links a {
+      color: #999;
+      display: inline-block;
+      margin-left: 20px; }
 
 /* footer-end */
+/* line 53, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
 .xb-index-main {
   margin: 60px auto 0;
   min-height: 500px;
@@ -46,94 +47,99 @@ a:hover {
   padding: 0;
   text-align: center;
   vertical-align: middle;
-  white-space: normal;
-}
-.xb-index-main .logo {
-  background: url("../images/big-logo.png");
-  width: 160px;
-  height: 74px;
-  margin: 0 auto;
-  text-indent: -9999px;
-}
-.xb-index-main .subtitle {
-  font-size: 18px;
-  letter-spacing: 5px;
-  font-weight: 400;
-  text-indent: 5px;
-  margin: 20px 0 20px;
-}
-.sign-view .index-tab-navs {
-  font-size: 18px;
-  margin-bottom: 10px;
-  text-align: center;
-  display: inline-block;
-  position: relative;
-}
-.sign-view .index-tab-navs a {
-  float: left;
-  box-sizing: border-box;
-  height: 35px;
-  line-height: 35px;
-  opacity: 0.7;
-  transition: opacity 0.15s ease 0s, color 0.15s ease 0s,border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
-  width: 4em;
-  color: inherit;
-}
-.sign-view .index-tab-navs a:hover {
-  opacity: 1;
-}
-.sign-view .index-tab-navs a.active {
-  color: #FF9D00;
-  opacity: 1;
-  border-bottom: 3px solid #FF9D00;
-}
-.sign-view .view {
-  float: none;
-  margin: 15px auto;
-  text-align: left;
-  width: 300px;
-  display: none;
-}
-.sign-view .view .group-input {
-  border: 1px solid #d5d5d5;
-  border-radius: 3px;
-}
-.sign-view .view.selected {
-  display: block;
-}
-.sign-view .view input {
-  display: block;
-  overflow: hidden;
-  margin: 0;
-  padding: 1em;
-  box-sizing: border-box;
-  width: 300px;
-  background-color: #fff;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-}
-.sign-view .view input + input {
-  border-top: 1px solid #e8e8e8;
-}
-.sign-view .view button {
-  margin-top: 20px;
-  padding: 0;
-  width: 100%;
-  line-height: 39px;
-  background-color: #FFA900;
-  border: 1px solid #FF9D00;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  display: block;
-  font-size: 15px;
-  outline: 0 none;
-  text-align: center;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-}
-.sign-view .view button:hover {
-  background-color: #FFCA00;
-}
+  white-space: normal; }
+  /* line 62, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+  .xb-index-main .logo {
+    background: url("../images/big-logo.png");
+    width: 160px;
+    height: 74px;
+    margin: 0 auto;
+    text-indent: -9999px; }
+  /* line 70, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+  .xb-index-main .subtitle {
+    font-size: 18px;
+    letter-spacing: 5px;
+    font-weight: 400;
+    text-indent: 5px;
+    margin: 20px 0 20px; }
+  /* line 80, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+  .sign-view .index-tab-navs {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: inline-block;
+    position: relative; }
+    /* line 87, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    .sign-view .index-tab-navs a {
+      float: left;
+      box-sizing: border-box;
+      height: 35px;
+      line-height: 35px;
+      opacity: 0.7;
+      transition: opacity 0.15s ease 0s, color 0.15s ease 0s, border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
+      width: 4em;
+      color: inherit; }
+      /* line 97, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+      .sign-view .index-tab-navs a:hover {
+        opacity: 1; }
+      /* line 101, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+      .sign-view .index-tab-navs a.active {
+        color: #FF9D00;
+        opacity: 1;
+        border-bottom: 3px solid #FF9D00; }
+  /* line 109, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+  .sign-view .view {
+    float: none;
+    margin: 15px auto;
+    text-align: left;
+    width: 300px;
+    display: none; }
+    /* line 116, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    .sign-view .view .group-input {
+      border: 1px solid #d5d5d5;
+      border-radius: 3px; }
+    /* line 121, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    .sign-view .view.selected {
+      display: block; }
+    /* line 126, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    .sign-view .view input {
+      display: block;
+      overflow: hidden;
+      margin: 0;
+      padding: 1em;
+      box-sizing: border-box;
+      width: 300px;
+      background-color: #fff;
+      border: none;
+      border-radius: 0;
+      box-shadow: none; }
+    /* line 139, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    .sign-view .view input + input {
+      border-top: 1px solid #e8e8e8; }
+    /* line 143, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    .sign-view .view .errorMsg {
+      margin-top: 10px;
+      text-align: left;
+      color: rgba(255, 0, 0, 0.85);
+      font-size: 13px; }
+    /* line 150, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    .sign-view .view button {
+      margin-top: 20px;
+      padding: 0;
+      width: 100%;
+      line-height: 39px;
+      background-color: #FFA900;
+      border: 1px solid #FF9D00;
+      border-radius: 3px;
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      font-size: 15px;
+      outline: 0 none;
+      text-align: center;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+      /* line 166, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+      .sign-view .view button:hover {
+        background-color: #FFCA00; }
 
 /*# sourceMappingURL=login.css.map */

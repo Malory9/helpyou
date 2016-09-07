@@ -139,6 +139,13 @@ $footer-text-color: #999;
                 input + input {
                     border-top: 1px solid #e8e8e8;
                 }
+                
+                .errorMsg {
+                    margin-top: 10px;
+                    text-align: left;
+                    color: rgba(255, 0, 0, 0.85);
+                    font-size: 13px;
+                }
 
                 button {
                     margin-top: 20px;

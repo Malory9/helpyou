@@ -1,0 +1,24 @@
+.xb-error{
+    width: 700px;
+    min-height: 600px;
+    margin: 60px auto 5px;
+    position: relative;
+}
+
+.xb-error-box {
+    color: #49525c;
+    width: 650px;
+    height: 300px;
+    line-height:150px;
+    position: absolute;
+    left: 25px;
+    top: 100px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 3px #ccc;
+    text-align: center;
+}
+
+.xb-error-box a {
+	display: block;
+	color: #0d88ff;
+}

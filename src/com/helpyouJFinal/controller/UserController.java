@@ -3,6 +3,7 @@ package com.helpyouJFinal.controller;
 import java.util.List;
 
 import com.helpyouJFinal.interceptor.AuthInterceptor;
+import com.helpyouJFinal.interceptor.SetOriginUrlInterceptor;
 import com.helpyouJFinal.model.Task;
 import com.helpyouJFinal.model.TaskAccept;
 import com.helpyouJFinal.model.User;
@@ -20,11 +21,16 @@ public class UserController extends Controller {
 	/**
 	 * 用户主界面，若登录和查看的为同一用户，则设置修改权限为true
 	 */
+	@Before(SetOriginUrlInterceptor.class)
 	public void index() {
 		Integer readUserId = getParaToInt(0);
 		
 		//获得查看的用户的实例
 		User readUser = userService.getUserSpecific(readUserId);
+		//找不到对应用户
+		if (readUser == null) {
+			renderError(404);
+		}
 		setAttr("readingUser", readUser);
 		
 		//获得查看用户发布的任务列表

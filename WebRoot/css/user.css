@@ -146,4 +146,106 @@
       .xb-user-task-watch .xb-user-task-list.selected {
         display: block; }
 
+/* line 158, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+.xb-send-message {
+  background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
+  border: 1px solid #FF9D00;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
+  color: #fff !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 4px 10px;
+  text-align: center;
+  position: relative;
+  top: 60px;
+  left: 50%;
+  margin-left: -480px; }
+
+/* line 175, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+.send-message-modal {
+  display: none;
+  z-index: 99;
+  width: 400px;
+  height: 300px;
+  position: fixed;
+  left: 50%;
+  top: -350px;
+  margin-left: -200px;
+  background-color: #fff;
+  border: 1px solid #888;
+  border-radius: 6px;
+  box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.4); }
+  /* line 189, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+  .modal-title {
+    background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
+    border: 1px solid #FF9D00;
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 1px 1px rgba(0, 0, 0, 0.2);
+    line-height: 14px;
+    padding: 10px 15px;
+    position: relative;
+    color: #fff; }
+    /* line 198, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    .modal-title .modal-title-text {
+      font-size: 15px;
+      font-weight: bold;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); }
+    /* line 203, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    .modal-title .modal-close {
+      float: right;
+      font-size: 20px;
+      margin-top: -2px;
+      cursor: pointer; }
+  /* line 210, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+  .modal-content {
+    margin-top: 10px;
+    padding-left: 15px; }
+    /* line 213, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    .modal-content .send-message-form {
+      display: block; }
+      /* line 215, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      .modal-content .send-message-form label {
+        font-size: 15px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+        display: block;
+        margin: 8px 5px; }
+      /* line 222, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      .modal-content .send-message-form input,
+      .modal-content .send-message-form textarea {
+        padding: 4px 0 4px 5px;
+        border-radius: 4px;
+        border: 1px solid #999;
+        box-sizing: border-box;
+        color: #49525c;
+        font-size: 12px;
+        line-height: 16px;
+        margin-left: 5px;
+        width: 320px; }
+        /* line 232, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        .modal-content .send-message-form input:focus,
+        .modal-content .send-message-form textarea:focus {
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset; }
+      /* line 236, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      .modal-content .send-message-form textarea {
+        height: 100px;
+        resize: none; }
+      /* line 240, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      .modal-content .send-message-form button {
+        background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
+        border: 1px solid #FF9D00;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
+        color: #fff !important;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 14px;
+        padding: 4px 10px;
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+        margin-left: 5px; }
+
 /*# sourceMappingURL=user.css.map */

@@ -39,6 +39,9 @@ public class MainConfig extends JFinalConfig {
 		// 设置视图渲染(render)模式
 		me.setViewType(ViewType.JSP);
 		me.setBaseViewPath("/WEB-INF/view/");
+		//设置404页面
+		me.setError404View("404.jsp");
+		me.setError500View("500.jsp");
 	}
 
 	@Override

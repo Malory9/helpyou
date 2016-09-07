@@ -8,46 +8,116 @@ $light-text-color: #49525c;
     width: 960px;
     margin: 80px auto 10px;
     box-sizing: border-box;
-    .task-simple-info {
-        border-bottom: 1px solid #ccc;
-        @at-root {
-            .task-id {
-                display: none;
-            }
-            .task-title {
-                font-size: 20px;
-                font-weight: bold;
-            }
-            .xb-task-take-btn {
-                margin-bottom: 20px;
-                margin-left: 30px;
-                padding: 7px 10px;
-                background: rgba(0, 0, 0, 0) linear-gradient(to bottom, $gradient-start-color, $gradient-end-color) repeat scroll 0 0;
-                border: 1px solid $border-color;
-                border-radius: 4px;
-                cursor: pointer;
-                color: #eee;
-                &:hover {
-                    color: #fff;
-                }
-            }
+    @at-root {
+        .task-simple-info {
+            border-bottom: 1px solid #ccc;
+            padding-left: 30px;
+            padding-bottom: 10px;
             div {
                 padding-left: 30px;
                 margin-bottom: 20px;
             }
+            @at-root {
+                .task-title {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                .start-time {
+                    margin-right: 15px;
+                }
+                .end-time {
+                    margin-left: 15px;
+                }
+                .xb-task-form {
+                    display: inline-block;
+                    @at-root {
+                        .xb-task-btn {
+                            margin: 20px 30px 0;
+                            padding: 7px 10px;
+                            background: rgba(0, 0, 0, 0) linear-gradient(to bottom, $gradient-start-color, $gradient-end-color) repeat scroll 0 0;
+                            border: 1px solid $border-color;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            color: #eee;
+                            &:hover {
+                                color: #fff;
+                            }
+                        }
+                        .xb-task-report-btn {
+                            background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(255, 0, 0, 0.6), rgba(255, 0, 0, 0.8)) repeat scroll 0 0;
+                            border: 1px solid #ff0000;
+                        }
+                    }
+                }
+            }
         }
-    }
-    .task-content {
-        padding-left: 0;
-        span {
+        .task-content {
+            padding-left: 0;
+            p {
+                text-indent: 2em;
+                margin-top: 30px;
+                padding-left: 30px;
+                box-sizing: border-box;
+            }
+            .xb-task-form {
+                display: none;
+                textarea {
+                    margin-top: 30px;
+                    padding-left: 30px;
+                    box-sizing: border-box;
+                    width: inherit;
+                    height: 100px;
+                }
+            }
+        }
+        .xb-task-separator {
+            margin: 30px auto;
             display: block;
             text-align: center;
+            font-weight: normal;
             font-size: 24px;
             background: linear-gradient(to right, #ffcc77 0%, #ffcc77 40%, #fff 40%, #fff 60%, #ffcc77 60%, #ffcc77 100%);
         }
-        p {
-            text-indent: 2em;
-            margin-top: 30px;
+        .xb-task-accepter-list {
+            width: 750px;
+            margin: 35px auto 10px;
+            box-sizing: border-box;
+            text-align: center;
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 2px #ccc;
+            div {
+                margin: 0;
+                padding: 0;
+            }
+            .xb-task-accepter-list-header {
+                font-weight: 600;
+                border-bottom: 1px solid #ccc;
+            }
+            .xb-task-accepter {
+                border-bottom: 1px solid #ccc;
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+            .xb-task-accepter-nickname,
+            .xb-task-accepter-acceptTime,
+            .xb-task-accepter-state {
+                display: inline-block;
+            }
+            .xb-task-accepter-nickname {
+                a {
+                    color: inherit;
+                }
+                width: 200px;
+            }
+            .xb-task-accepter-acceptTime {
+                border-left: 1px solid #ccc;
+                width: 350px;
+            }
+            .xb-task-accepter-state {
+                border-left: 1px solid #ccc;
+                width: 150px;
+            }
         }
     }
 }

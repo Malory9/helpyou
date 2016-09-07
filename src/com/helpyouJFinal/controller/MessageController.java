@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.helpyouJFinal.interceptor.AuthInterceptor;
+import com.helpyouJFinal.interceptor.SetOriginUrlInterceptor;
 import com.helpyouJFinal.model.Message;
 import com.helpyouJFinal.model.User;
 import com.helpyouJFinal.service.MessageService;
@@ -18,7 +19,7 @@ public class MessageController extends Controller{
 	/**
 	 * 用户消息主页
 	 */
-	@Before(AuthInterceptor.class)
+	@Before({SetOriginUrlInterceptor.class,AuthInterceptor.class})
 	public void index() {
 		User user = getSessionAttr("user");
 		Integer receiverId = user.getInt("userId");
@@ -45,6 +46,6 @@ public class MessageController extends Controller{
 		User user = getSessionAttr("user");
 		Integer senderId = user.getInt("userId");
 		messageService.addNewMessage(senderId, ReceiverId, content);
-		redirect("/message/");
+		redirect("/message");
 	}
 }

@@ -19,7 +19,7 @@ public class AuthInterceptor implements Interceptor {
 		Integer userId = null;
 		if (user != null) {
 			userId = user.getInt("userId");
-			if (userId > 0) {			
+			if (userId > 0) {
 				invocation.invoke();
 			} else {
 				controller.redirect("/login");
@@ -27,7 +27,6 @@ public class AuthInterceptor implements Interceptor {
 		}else {
 			controller.redirect("/login");
 		}
-		
 	}
 
 }

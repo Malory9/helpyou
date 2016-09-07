@@ -1,6 +1,6 @@
+<%@page import="com.jfinal.kit.StrKit"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +30,16 @@
             <div class="view view-signin selected">
                 <form action="${BASE_PATH}/doLogin" method="post">
                     <div class="group-input">
-                        <input type="text" placeholder="用户名" name="username" maxlength="12" required>
+                        <input type="text" placeholder="用户名" name="username" maxlength="12" 
+                        	<%
+                        		if(StrKit.notBlank(request.getParameter("username"))){
+                        			out.print("value='"+request.getParameter("username")+"'");
+                        		}
+                        	%>
+                         required>
                         <input type="password" placeholder="密码" name="password" maxlength="12" required>
                     </div>
+                    <div class="errorMsg"><%=request.getAttribute("errorMsg")!=null?request.getAttribute("errorMsg"):"" %></div>
                     <button type="submit" class="sign-button">登陆</button>
                 </form>
             </div>

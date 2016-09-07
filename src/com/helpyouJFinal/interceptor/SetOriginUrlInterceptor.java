@@ -10,8 +10,7 @@ public class SetOriginUrlInterceptor implements Interceptor {
 	public void intercept(Invocation inv) {
 		Controller controller =  inv.getController();
 		//获得相对地址
-		String uri = inv.getActionKey()+controller.getPara();
-		System.out.println(uri);
+		String uri = inv.getActionKey()+"/"+controller.getPara();
 		//将原先的地址存储在session中
 		controller.setSessionAttr("originURL", uri);
 		inv.invoke();

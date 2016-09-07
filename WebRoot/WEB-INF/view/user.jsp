@@ -5,7 +5,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%! SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss"); %>
+<%! SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd  hh:mm"); %>
 <%! 
 	public String dateFormat(Date date){
 		return simpleDateFormat.format(date);	
@@ -35,6 +35,25 @@
 		User readUser = (User)request.getAttribute("readingUser"); 
 		Boolean editPower = (Boolean)request.getAttribute("editPower");
 	%>
+	
+	<% if(!editPower) { %>
+        <button class="xb-send-message" id="xb-send-message">写留言</button>
+		<div class="send-message-modal">
+			<div class="modal-title">
+				<span class="modal-title-text">发送留言</span> <span
+					id="send-message-modal-close" class="modal-close iconfont">&#xe602;</span>
+			</div>
+			<div class="modal-content">
+				<form action="${BASE_PATH}/message/send" method="post" class="send-message-form">
+					<label for="receiver">发送对象 <small>对方的昵称</small></label> <input
+						type="text" id="receiver" name="receiver"> <label
+						for="messageContent">留言内容</label>
+					<textarea name="messageContent" id="messageContent"></textarea>
+					<button type="submit">发送</button>
+				</form>
+			</div>
+		</div>
+	<% } %>
 	<div class="xb-user">
 		<form action="${BASE_PATH}/user/updateInfo" method="post" id="xb-user-form">
 			<div class="xb-user-info">
@@ -93,7 +112,7 @@
 			%>
 					<li>
 						<span class="task-time"><%=dateFormat(taskPublish.getDate("startTime")) %></span> 
-						<a href="${BASE_PATH}/task/<%=taskPublish.getInt("userId") %>">
+						<a href="${BASE_PATH}/task/<%=taskPublish.getInt("taskId") %>">
 							<span class="task-name"><%=taskPublish.getStr("title") %></span>
 						</a> 
 						<span class="task-state">
@@ -105,8 +124,6 @@
 									out.print("被举报");
 								} else if(state == 4){
 									out.print("已结束");
-								} else if(state == 5){
-									out.print("被锁定");
 								}
 							%>
 						</span>
@@ -130,8 +147,10 @@
 								if(state == 1){
 									out.print("已接受");
 								} else if(state == 2){
-									out.print("已完成");
+									out.print("已完成，等待确认");
 								} else if(state == 3){
+									out.print("已完成");
+								} else if(state == 4){
 									out.print("已放弃");
 								}
 							%>

@@ -105,10 +105,19 @@ public class TaskService {
 	 * @return 任务类的一个列表
 	 */
 	public List<TaskAccept> getTaskListUserAccept(Integer userId) {
-		String getTaskSQL = "select * from taskAccept where userId = ? order by acceptId DESC";
-		return TaskAccept.dao.find(getTaskSQL,userId);
+		String sql = "select * from taskAccept where userId = ? order by acceptId DESC";
+		return TaskAccept.dao.find(sql,userId);
 	}
 	
+	/**
+	 * 查找接取某任务的记录
+	 * @param taskId 任务id
+	 * @return 接取该任务的记录的列表
+	 */
+	public List<TaskAccept> getTaskAcceptList(Integer taskId) {
+		String sql = "select * from taskAccept where taskId = ? and state != 4 order by acceptId DESC";
+		return TaskAccept.dao.find(sql, taskId);
+	}
 
 	/**
 	 * 发布一个新的任务
@@ -147,34 +156,35 @@ public class TaskService {
 	 * @param userId 接受者id
 	 * @param taskId 任务id
 	 */
-	public void acceptTask(Integer userId,Integer taskId){
-		new TaskAccept().set("userId",userId).set("taskId",taskId).set("acceptTime",new Date()).set("state", 1).save();
+	public boolean acceptTask(Integer userId,Integer taskId){
+		String taskTitle = this.getTaskSpecific(taskId).getStr("title");
+		return new TaskAccept().set("userId",userId).set("taskId",taskId).set("taskTitle", taskTitle).set("acceptTime",new Date()).set("state", 1).save();			
 	}
 	
 	/**
-	 * 更新任务信息
+	 * 检查某个用户是否接受了某个任务
+	 * @param userId 用户id
+	 * @param taskId 任务id
+	 * @return true为接受了任务，false为未接受任务
+	 */
+	public boolean isUserAccept(Integer userId,Integer taskId) {
+		String sql = "select acceptId from taskAccept where userId = ? and taskId = ?";
+		Integer acceptId = Db.queryFirst(sql,userId,taskId);
+		if (acceptId != null && acceptId > 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	/**
+	 * 更新任务内容
 	 * @param taskId 对应的任务的id
-	 * @param title 任务标题
-	 * @param type 任务类型
-	 * @param peopleNum 任务所需人数
-	 * @param reward 任务报酬
 	 * @param content 任务内容
 	 * @return 更新后的任务model实例
 	 */
-	public Task updateTaskInfo(Integer taskId,String title,Integer type,Integer peopleNum,Integer reward,String content) {
+	public Task updateTaskInfo(Integer taskId,String content) {
 		Task task = new Task().findById(taskId);
-		if (!StrKit.isBlank(title)) {
-			task.set("title", title);
-		}
-		if (type != null) {
-			task.set("type", type);
-		}
-		if (peopleNum != null) {
-			task.set("peopleNum", peopleNum);
-		}
-		if (reward != null) {
-			task.set("reward", reward);
-		}
 		if (!StrKit.isBlank(content)) {
 			task.set("content", content);
 		}
@@ -189,6 +199,17 @@ public class TaskService {
 	 */
 	public Task getTaskSpecific(Integer taskId) {
 		return Task.dao.findById(taskId);
+	}
+	
+	/**
+	 * 查询某任务是否存在
+	 * @param taskId 任务id
+	 * @return 任务存在返回true，不存在返回false
+	 */
+	public boolean isTaskExist(Integer taskId) {
+		String sql = "select title from task where taskId = ?";
+		String title = Db.queryFirst(sql,taskId);
+		return StrKit.notBlank(title);
 	}
 	
 	/**
@@ -222,8 +243,8 @@ public class TaskService {
 		Integer reward = Db.queryInt(taskRewardSQL, taskId);
 		User publisher = new User().findById(publishId);
 		User accepter = new User().findById(acceptId);
-		publisher.set("point", publisher.getInt("point")+reward);
-		accepter.set("point", accepter.getInt("point")-reward);
+		publisher.set("point", publisher.getInt("point")+reward).update();
+		accepter.set("point", accepter.getInt("point")-reward).update();
 	}
 	
 	/**
@@ -231,14 +252,34 @@ public class TaskService {
 	 * @param taskId 任务id
 	 * @param publishId 发布者id
 	 * @param acceptId 接受者id
+	 * @return 返回数据库是否修改成功
 	 */
-	public void confirmFinishTask(Integer taskId,Integer publishId,Integer acceptId) {
+	public boolean confirmFinishTask(Integer taskId,Integer publishId,Integer acceptId) {
 		String taskRewardSQL = "select reward from task where taskId = ?";
-		Integer reward = Db.queryInt(taskRewardSQL, taskId);
+		Integer reward = Db.queryFirst(taskRewardSQL, taskId);
 		User publisher = new User().findById(publishId);
 		User accepter = new User().findById(acceptId);
-		publisher.set("point", publisher.getInt("point")-reward);
-		accepter.set("point", accepter.getInt("point")+reward);
+		publisher.set("point", publisher.getInt("point")-reward).update();
+		accepter.set("point", accepter.getInt("point")+reward).update();
+		String findAcceptSQL = "select * from taskAccept where taskId = ? and userId = ?";
+		return TaskAccept.dao.findFirst(findAcceptSQL, taskId, acceptId).set("state", 3).update();
+	}
+	
+	/**
+	 * 查询任务能否结束
+	 * @param taskId 任务id
+	 * @return 能结束返回true，不能结束返回false
+	 */
+	public boolean canEndTask(Integer taskId) {
+		String sql = "select * from taskAccept where taskId = ?";
+		List<TaskAccept> taskAccepts = TaskAccept.dao.find(sql,taskId);
+		for(int i=0,len=taskAccepts.size();i<len;i++){
+			Integer state = taskAccepts.get(i).getInt("state");
+			if (state == 1|| state == 2) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	/**

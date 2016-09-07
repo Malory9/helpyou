@@ -10,40 +10,6 @@ function switchTaskPublishAndToken() {
     });
 }
 
-/*
-//通过AJAX修改用户信息
-function editUserInfo() {
-        var userId = $('.xb-top-userinfo').attr('href').toString().replace('/helpyouJFinal/', '');
-        if (userId.startWith('user')) {
-            userId = parseInt(userId.replace('user/', ''));
-        } else {
-            userId = 0;
-        }
-        
-        var userInfo = {
-            userId: parseInt(userId),
-            nickname: $('#xb-user-edit-nickname').val(),
-            sex: $('#xb-user-edit-sex option:select').val(),
-            age: $('#xb-user-edit-age').val()
-        };
-        
-        $.ajax({
-            url: $('#xb-user-form').attr('action'),
-            type: 'post',
-            data: userInfo,
-            dataType: 'json',
-            success: function(user){
-                alert('修改成功');
-                $('#xb-user-info-nickname').text(user.nickname);
-                $('#xb-user-info-sex').text(user.sex);
-                $('#xb-user-info-age').text(user.age);
-                //清空表单文本框内数据并使其不显示
-                $('#xb-user-form').find('input').val('').hide();
-                $('#xb-user-info-save').hide();
-            }
-        });
-}
-*/
 
 //显示修改信息框
 function showUserInfoEditInput() {
@@ -51,11 +17,32 @@ function showUserInfoEditInput() {
         $(this).hide().next().prop('required', 'true').show(500);
         $('#xb-user-info-save').show(500);
     });
-//    $('#xb-user-info-save').click(function(e){
-//    	editUserInfo();
-//    	e.preventDefault();
-//        e.stopPropagation();
-//    })
+}
+
+//显示发送留言窗口
+function showMessageModal() {
+	$('#xb-send-message').click(function () {
+        var nickname = $('.xb-top-userinfo').text().trim();
+        //未登录时跳转到登录页面
+        if(nickname == "登陆"){
+            window.location.href = "http://localhost:8080/helpyouJFinal/login";
+            return;
+        }
+        var receiverNickname = $('.xb-user-info-nickname').text();
+        $('#receiver').val(receiverNickname);
+		$('.modal-bg').css('display','block').animate({opacity:0.5},300);
+		$('.send-message-modal').css('display','block').animate({opacity:1,top:90},300);
+	});
+	$('#send-message-modal-close').click(function () {
+        $('#receiver').val("");
+        $('#messageContent').val("");
+		$('.modal-bg').animate({opacity:0},300,function () {
+			$(this).css('display','none');
+		});
+		$('.send-message-modal').animate({opacity:0,top:-350},300,function () {
+			$(this).css('display','none');
+		});
+	});
 }
 
 
@@ -63,4 +50,5 @@ function showUserInfoEditInput() {
 $(document).ready(function () {
     switchTaskPublishAndToken();
     showUserInfoEditInput();
+    showMessageModal();
 })

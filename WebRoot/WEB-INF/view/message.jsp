@@ -3,7 +3,7 @@
 <%@page import="com.helpyouJFinal.model.Message"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%! SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日  hh:mm:ss"); %>
+<%! SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日  hh:mm"); %>
 <%! 
 	public String dateFormat(Date date){
 		return simpleDateFormat.format(date);	

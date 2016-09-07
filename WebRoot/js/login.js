@@ -7,7 +7,17 @@ function switchSignInAndSignUp() {
 	})
 }
 
+function hideErrorMsg(){
+    $('.view-signin input').focus(function(){
+        $('.errorMsg').animate({
+            opacity:0
+        },500,function(){
+            $('.errorMsg').css('display','none');
+        });
+    });
+}
 
 $(document).ready(function () {
 	switchSignInAndSignUp();
+	hideErrorMsg();
 })

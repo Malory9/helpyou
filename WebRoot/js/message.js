@@ -1,4 +1,4 @@
-function sendMessage() {
+function showMessageModal() {
 	$('#xb-send-message').click(function () {
 		$('.modal-bg').css('display','block').animate({opacity:0.5},300);
 		$('.send-message-modal').css('display','block').animate({opacity:1,top:90},300);
@@ -21,5 +21,5 @@ function sendMessage() {
 }
 
 $(document).ready(function () {
-	sendMessage();
+	showMessageModal();
 })

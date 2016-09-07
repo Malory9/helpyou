@@ -3,6 +3,7 @@ package com.helpyouJFinal.controller;
 import java.util.Date;
 import java.util.List;
 
+import com.helpyouJFinal.interceptor.SetOriginUrlInterceptor;
 import com.helpyouJFinal.model.Task;
 import com.helpyouJFinal.model.User;
 import com.helpyouJFinal.service.MessageService;
@@ -22,6 +23,7 @@ public class MainController extends Controller {
 	/**
 	 * 默认主页，任务广场页面
 	 */
+	@Before(SetOriginUrlInterceptor.class)
 	public void index() {
 		//获得默认最新任务列表
 		List<Task> tasks = taskService.searchLatestTasks();
@@ -56,6 +58,8 @@ public class MainController extends Controller {
 			user.set("lastLoginTime", new Date()).update();
 			redirect("/");
 		} else {
+			keepPara("username");
+			setAttr("errorMsg", "账号或密码错误");
 			renderJsp("login.jsp");
 		}
 	}
@@ -82,8 +86,9 @@ public class MainController extends Controller {
 	public void logOut() {
 		// 删除session中的user属性
 		removeSessionAttr("user");
-		// 重定向到首页
-		redirect("/");
+		// 重定向到原先
+		String url = getSessionAttr("originURL");
+		redirect(url);
 	}
 
 	/**
