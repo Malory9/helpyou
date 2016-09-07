@@ -54,6 +54,8 @@
             </div>
             <div class="task-people-num">任务人数：<span><%=task.getInt("peopleNum") %></span>人</div>
             <div class="task-reward">任务报酬：<span><%=task.getInt("reward") %></span>PY币</div>
+            <% User publisher = (User)request.getAttribute("publisher"); %>
+            <div class="task-publisher">发布者：<a href="${BASE_PATH}/user/<%=publisher.getInt("userId") %>"></span></div>
             <% if(user != null) {%>
             <% if(request.getAttribute("publishId") != user.getInt("userId")){ %>
             	<button type="button" class="xb-task-take-btn">立即接取</button>
@@ -66,11 +68,7 @@
             <span>任务介绍</span>
 			<p><%=task.getStr("content") %></p>
         </div>
-        <%
-        	} else {
-        		out.println("没有对应的任务");
-          	}
-        %>
+        <% } %>
         
     </div>
 	

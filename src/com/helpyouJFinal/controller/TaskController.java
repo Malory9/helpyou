@@ -2,7 +2,7 @@ package com.helpyouJFinal.controller;
 
 import java.util.List;
 
-import com.helpyouJFinal.interceptor.AuthInterceptor;
+import com.helpyouJFinal.interceptor.AJAXAuthInterceptor;
 import com.helpyouJFinal.interceptor.SetOriginUrlInterceptor;
 import com.helpyouJFinal.model.Task;
 import com.helpyouJFinal.model.User;
@@ -21,13 +21,15 @@ public class TaskController extends Controller {
 		Integer taskId = getParaToInt(0);
 		Task task = taskService.getTaskSpecific(taskId);
 		this.setAttr("task", task);
+		User publisher = taskService.getTaskPublisher(task.getInt("taskId"));
+		this.setAttr("publisher", publisher);
 		this.renderJsp("task.jsp");
 	}
 	
 	/**
 	 * 发布任务
 	 */
-	@Before(AuthInterceptor.class)
+	@Before(AJAXAuthInterceptor.class)
 	public void add() {
 		Integer userId = getParaToInt("userId");
 		String title = getPara("taskTitle");
@@ -58,6 +60,10 @@ public class TaskController extends Controller {
 		this.render("searchResult.jsp");
 	}
 	
+	/**
+	 * 通过类型搜索任务(AJAX)
+	 * 返回：List<Task>的json
+	 */
 	public void searchByType() {
 		Integer type = getParaToInt("taskType");
 		System.out.println(type);
@@ -73,4 +79,6 @@ public class TaskController extends Controller {
 		}
 		renderJson(tasks);
 	}
+	
+	
 }

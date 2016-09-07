@@ -8,7 +8,7 @@
 
 <div class="xb-top">
     <div class="xb-top-inner">
-        <a href="/" class="xb-top-logo">校帮</a>
+        <a href="${BASE_PATH}/" class="xb-top-logo">校帮</a>
         <div class="xb-top-search">
             <form action="${BASE_PATH}/task/search" method="post">
                 <input type="search" class="xb-top-search-input" placeholder="搜索你感兴趣的任务" autocomplete="off" name="keyword">
@@ -21,7 +21,7 @@
             <ul class="xb-top-nav-ul">
                 <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" href="${BASE_PATH}/">任务广场</a></li>
                 <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" href="${BASE_PATH}/message">
-                    消息<span class="notice-number">0</span>
+                    消息<span class="notice-number"><%=request.getAttribute("unreadMessageNum")!=null?request.getAttribute("unreadMessageNum"):0 %></span>
                 </a></li>
             </ul>
         </div>

@@ -23,7 +23,7 @@ public class UserService {
 		String SQL = "select userId from user where username=?";
 		Integer reslut = Db.queryFirst(SQL, username);
 		if (reslut == null || reslut <= 0) {
-			new User().set("username", username).set("password", password).set("nickname", username).set("lastLoginTime", new Date()).save();
+			new User().set("username", username).set("password", password).set("nickname", username).set("sex", "男").set("lastLoginTime", new Date()).save();
 			String userSQL = "select * from user where username=? and password=?";
 			User user = new User().findFirst(userSQL, username,password);
 			return user;
@@ -57,18 +57,18 @@ public class UserService {
 	 * @param age 用户年龄
 	 */
 	public User updateUserInfo(Integer userId,String nickname,String sex,Integer age) {
-		User user = new User().findById(userId);
+		User user = User.dao.findById(userId);
 		if (!StrKit.isBlank(nickname)) {
 			user.set("nickname", nickname);
 		}
-		if (!StrKit.isBlank(sex)) {
+		if (!StrKit.isBlank(sex) &&  !sex.equals("未选择")) {
 			user.set("sex", sex);
 		}
-		if (age != null) {
+		if (age != null && age > 0) {
 			user.set("age", age);
 		}
 		user.update();
-		return user;
+		return User.dao.findById(userId);
 	}
 	
 	/**
@@ -78,5 +78,25 @@ public class UserService {
 	 */
 	public User getUserSpecific(Integer userId) {
 		return new User().findById(userId);
+	}
+	
+	/**
+	 * 获得一个用户的nickname
+	 * @param userId 用户Id
+	 * @return 用户的nickname
+	 */
+	public String getUserNickname(Integer userId) {
+		String sql = "select nickname from user where userId = ?";
+		return User.dao.findFirst(sql,userId).getStr("nickname");
+	}
+	
+	/**
+	 * 通过昵称获得用户ID
+	 * @param nickname 用户昵称
+	 * @return 用户id
+	 */
+	public Integer getUserId(String nickname){
+		String sql = "select userId from user where nickname = ?";
+		return User.dao.findFirst(sql,nickname).getInt("userId");
 	}
 }

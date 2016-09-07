@@ -41,11 +41,30 @@
       line-height: 40px;
       cursor: pointer; }
     /* line 47, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    .xb-user-info-item input[type=number] {
+      -webkit-appearance: none !important;
+      -moz-appearance: textfield;
+      width: 50px; }
+    /* line 52, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-item input {
       line-height: 20px;
-      margin: 10px 20px;
+      margin: 6px 20px;
+      padding: 2px 0 2px 5px;
+      border-radius: 4px;
+      border: 1px solid #999;
+      color: #49525c;
+      font-size: 14px;
       display: none; }
-  /* line 53, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 61, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      .xb-user-info-item input:focus {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2) inset; }
+    /* line 65, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    .xb-user-info-item select {
+      line-height: 20px;
+      margin: 9px 20px;
+      padding: 2px 0 2px 5px;
+      display: none; }
+  /* line 72, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
   .xb-user-info-save {
     display: none;
     margin-bottom: 20px;
@@ -55,25 +74,25 @@
     text-align: center;
     background: linear-gradient(to bottom, #FFCA00, #FFA900);
     border: 1px solid #FF9D00; }
-    /* line 62, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 81, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-save:hover {
       color: #fff;
       box-shadow: 1px 1px 3px #49525c; }
-    /* line 66, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 85, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-save:active {
       box-shadow: 0 0 3px 2px #FF9D00 inset; }
-  /* line 71, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+  /* line 89, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
   .xb-user-task-watch {
     border: 1px solid #ccc;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     margin-top: 20px; }
-    /* line 75, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 93, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-task-watch .xb-user-task-nav {
       font-size: 14px;
       text-align: center;
       display: inline-block;
       color: #49525c; }
-      /* line 81, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 98, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .xb-user-task-watch .xb-user-task-nav .xb-user-task-item {
         cursor: pointer;
         float: left;
@@ -84,46 +103,46 @@
         opacity: 0.7;
         transition: opacity 0.15s ease 0s, color 0.15s ease 0s, border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
         color: inherit; }
-        /* line 92, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 108, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .xb-user-task-watch .xb-user-task-nav .xb-user-task-item:hover {
           opacity: 1; }
-        /* line 96, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 111, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .xb-user-task-watch .xb-user-task-nav .xb-user-task-item.active {
           opacity: 1;
           border-bottom: 3px solid #49525c; }
-    /* line 103, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 117, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-task-watch .xb-user-task-list {
       margin: 15px auto 0;
       text-align: left;
       display: none;
       width: 960px; }
-      /* line 109, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 122, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .xb-user-task-watch .xb-user-task-list li {
         line-height: 40px;
         height: 40px;
         border-top: 1px solid #ccc; }
-        /* line 115, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 126, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .xb-user-task-watch .xb-user-task-list li span {
           display: inline-block; }
-        /* line 120, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 130, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .task-time {
           width: 200px;
           padding-left: 20px; }
-        /* line 125, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 134, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .task-name {
           color: #49525c;
           width: 400px;
           padding-left: 20px;
           border-left: 1px solid #ccc; }
-          /* line 131, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+          /* line 139, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
           .task-name:hover {
             text-decoration: underline; }
-        /* line 136, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 143, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .task-state {
           width: 200px;
           padding-left: 20px;
           border-left: 1px solid #ccc; }
-      /* line 145, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 150, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .xb-user-task-watch .xb-user-task-list.selected {
         display: block; }
 

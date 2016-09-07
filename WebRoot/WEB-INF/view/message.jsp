@@ -1,6 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.helpyouJFinal.model.Message"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%! SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy年MM月dd日  hh:mm:ss"); %>
+<%! 
+	public String dateFormat(Date date){
+		return simpleDateFormat.format(date);	
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +39,7 @@
 					id="send-message-modal-close" class="modal-close iconfont">&#xe602;</span>
 			</div>
 			<div class="modal-content">
-				<form action="/sendMessage" method="post" class="send-message-form">
+				<form action="${BASE_PATH}/message/send" method="post" class="send-message-form">
 					<label for="receiver">发送对象 <small>对方的昵称</small></label> <input
 						type="text" id="receiver" name="receiver"> <label
 						for="messageContent">留言内容</label>
@@ -41,53 +49,20 @@
 			</div>
 		</div>
 
+		<% List<Message> messages = (List<Message>)request.getAttribute("messages"); %>
+		<% List<String> nicknames = (List<String>)request.getAttribute("nicknames"); %>
+		<%	for(int i=0,len = messages.size(); i < len ; i++) {
+				Message message = messages.get(i);
+				String nickname = nicknames.get(i);
+		%>
 		<div class="xb-message-item">
-			<a href="/user/userId" class="xb-message-sender-nickname">发送人昵称</a>:&nbsp;
-			<span class="xb-message-receiver-nickname">接收人昵称</span>,你好
-			<p class="xb-message-content">Lorem ipsum dolor sit amet,
-				consectetur adipisicing elit. Aperiam eveniet excepturi in iure
-				nihil pariatur recusandae reiciendis soluta temporibus voluptas!
-				Accusamus aliquid est natus pariatur quia, tempore temporibus ullam
-				voluptas!</p>
-			<span class="xb-message-time">2016年9月1日11:14:21</span> <a
+			<a href="${BASE_PATH}/user/<%=message.getInt("senderId")%>" class="xb-message-sender-nickname"><%=nickname %></a>:&nbsp;
+			<span class="xb-message-receiver-nickname"><%=user.getStr("nickname") %></span>,你好
+			<p class="xb-message-content"><%=message.getStr("content")%></p>
+			<span class="xb-message-time"><%=dateFormat(message.getDate("time")) %></span> <a
 				href="javascript:void(0)" class="answer">回复</a>
 		</div>
-
-		<div class="xb-message-item">
-			<a href="/user/userId" class="xb-message-sender-nickname">发送人昵称</a>:&nbsp;
-			<span class="xb-message-receiver-nickname">接收人昵称</span>,你好
-			<p class="xb-message-content">Lorem ipsum dolor sit amet,
-				consectetur adipisicing elit. Aperiam eveniet excepturi in iure
-				nihil pariatur recusandae reiciendis soluta temporibus voluptas!
-				Accusamus aliquid est natus pariatur quia, tempore temporibus ullam
-				voluptas!</p>
-			<span class="xb-message-time">2016年9月1日11:14:21</span> <a
-				href="javascript:void(0)" class="answer">回复</a>
-		</div>
-
-		<div class="xb-message-item">
-			<a href="/user/userId" class="xb-message-sender-nickname">发送人昵称</a>:&nbsp;
-			<span class="xb-message-receiver-nickname">接收人昵称</span>,你好
-			<p class="xb-message-content">Lorem ipsum dolor sit amet,
-				consectetur adipisicing elit. Aperiam eveniet excepturi in iure
-				nihil pariatur recusandae reiciendis soluta temporibus voluptas!
-				Accusamus aliquid est natus pariatur quia, tempore temporibus ullam
-				voluptas!</p>
-			<span class="xb-message-time">2016年9月1日11:14:21</span> <a
-				href="javascript:void(0)" class="answer">回复</a>
-		</div>
-
-		<div class="xb-message-item">
-			<a href="/user/userId" class="xb-message-sender-nickname">发送人昵称</a>:&nbsp;
-			<span class="xb-message-receiver-nickname">接收人昵称</span>,你好
-			<p class="xb-message-content">Lorem ipsum dolor sit amet,
-				consectetur adipisicing elit. Aperiam eveniet excepturi in iure
-				nihil pariatur recusandae reiciendis soluta temporibus voluptas!
-				Accusamus aliquid est natus pariatur quia, tempore temporibus ullam
-				voluptas!</p>
-			<span class="xb-message-time">2016年9月1日11:14:21</span> <a
-				href="javascript:void(0)" class="answer">回复</a>
-		</div>
+		<%} %>
 
 	</div>
 	

@@ -3,7 +3,6 @@ package com.helpyouJFinal.controller;
 import java.util.Date;
 import java.util.List;
 
-import com.helpyouJFinal.interceptor.SetOriginUrlInterceptor;
 import com.helpyouJFinal.model.Task;
 import com.helpyouJFinal.model.User;
 import com.helpyouJFinal.service.MessageService;
@@ -24,6 +23,7 @@ public class MainController extends Controller {
 	 * 默认主页，任务广场页面
 	 */
 	public void index() {
+		//获得默认最新任务列表
 		List<Task> tasks = taskService.searchLatestTasks();
 		setAttr("tasks", tasks);
 		// 渲染视图并返回给浏览器
@@ -45,9 +45,14 @@ public class MainController extends Controller {
 		String username = getPara("username");
 		String password = getPara("password");
 		User user = userService.login(username, password);
+		
+		//用户登录时，存储用户model到session，显示用户未读信息数量
+		Long unreadMessageNum = 0L;
 		if (user != null) {
-			setSessionAttr("userLastLoginTime", user.getDate("lastLoginTime"));
+			Date lastLoginTime = user.getDate("lastLoginTime");
+			unreadMessageNum = messageService.getUnreadMessageNum(lastLoginTime);
 			setSessionAttr("user", user);
+			setSessionAttr("unreadMessageNum", unreadMessageNum);
 			user.set("lastLoginTime", new Date()).update();
 			redirect("/");
 		} else {

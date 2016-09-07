@@ -68,7 +68,7 @@ public class TaskService {
 	 * @return 任务类的一个列表
 	 */
 	public List<Task> getTaskListUserPublish(Integer userId) {
-		String getTaskIdSQL = "select taskId from taskPublish where userId = ?";
+		String getTaskIdSQL = "select taskId from taskPublish where userId = ? order by publishId DESC";
 		List<Integer> taskIds = Db.query(getTaskIdSQL,userId);
 		List<Task> tasks = new ArrayList<Task>();
 		for(int i = 0,len = taskIds.size();i < len;i++){
@@ -89,18 +89,27 @@ public class TaskService {
 	}
 	
 	/**
+	 * 获得任务发布者信息
+	 * @param taskId 任务id
+	 * @return 任务发布者model实例
+	 */
+	public User getTaskPublisher(Integer taskId) {
+		String sql = "select userId from taskPublish where taskId = ?";
+		Integer publisherId = Db.queryInt(sql,taskId);
+		return User.dao.findById(publisherId);
+	}
+	
+	/**
 	 * 查找某用户接受的所有任务
 	 * @param userId 用户id
 	 * @return 任务类的一个列表
 	 */
 	public List<TaskAccept> getTaskListUserAccept(Integer userId) {
-		String getTaskSQL = "select taskId from taskAccept where userId = ?";
+		String getTaskSQL = "select * from taskAccept where userId = ? order by acceptId DESC";
 		return TaskAccept.dao.find(getTaskSQL,userId);
 	}
+	
 
-	/**
-
-	 */
 	/**
 	 * 发布一个新的任务
 	 * @param userId 发布者id
@@ -138,8 +147,8 @@ public class TaskService {
 	 * @param userId 接受者id
 	 * @param taskId 任务id
 	 */
-	public void takeTask(Integer userId,Integer taskId){
-		new TaskAccept().set("userId",userId).set("taskId",taskId).set("acceptTime",new Date()).save();
+	public void acceptTask(Integer userId,Integer taskId){
+		new TaskAccept().set("userId",userId).set("taskId",taskId).set("acceptTime",new Date()).set("state", 1).save();
 	}
 	
 	/**

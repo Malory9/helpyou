@@ -1,6 +1,16 @@
+<%@page import="com.helpyouJFinal.model.Task"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="com.helpyouJFinal.model.TaskAccept"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%! SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss"); %>
+<%! 
+	public String dateFormat(Date date){
+		return simpleDateFormat.format(date);	
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,68 +25,119 @@
 <link rel="shortcut icon" href="${BASE_PATH}/images/favicon.ico">
 <link href="${BASE_PATH}/css/commons.css" rel="stylesheet"
 	type="text/css">
-<link href="${BASE_PATH}/css/task.css" rel="stylesheet" type="text/css">
+<link href="${BASE_PATH}/css/user.css" rel="stylesheet" type="text/css">
 <!--<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>-->
 <script src="${BASE_PATH}/js/jquery.min.js"></script>
 </head>
 <body>
 	<%@include file="header.jsp"%>
-
+	<% 
+		User readUser = (User)request.getAttribute("readingUser"); 
+		Boolean editPower = (Boolean)request.getAttribute("editPower");
+	%>
 	<div class="xb-user">
-		<form action="/editUserInfo" method="post">
+		<form action="${BASE_PATH}/user/updateInfo" method="post" id="xb-user-form">
 			<div class="xb-user-info">
 				<div class="xb-user-info-item">
 					<label for="xb-user-nickname" class="xb-user-info-label">昵称</label>
-					<span class="xb-user-info-content">用户昵称</span> <span
-						class="change-info">修改</span> <input type="text"
-						class="xb-user-nickname" name="nickname" id="xb-user-nickname">
+					<span class="xb-user-info-content xb-user-info-nickname"><%=readUser.getStr("nickname") %></span>
+					<% if(editPower){ %>
+						<span class="change-info">修改</span>
+						<input type="text" name="nickname" id="xb-user-edit-nickname">
+					<% } %>
 				</div>
 				<div class="xb-user-info-item">
-					<label for="xb-user-sex" class="xb-user-info-label">性别</label> <span
-						class="xb-user-info-content">男</span> <span class="change-info">修改</span>
-					<input type="text" class="xb-user-sex" name="sex" id="xb-user-sex">
+					<label for="xb-user-sex" class="xb-user-info-label">性别</label>
+					<span class="xb-user-info-content xb-user-info-sex"><%=readUser.getStr("sex") %></span>
+					<% if(editPower){ %>
+						<span class="change-info">修改</span>
+						<select name="sex" id="xb-user-edit-sex">
+							<option value="未选择">未选择</option>
+	                    	<option value="男">男</option>
+	                    	<option value="女">女</option>
+                    	</select>
+					<% } %>
 				</div>
 				<div class="xb-user-info-item">
-					<label for="xb-user-age" class="xb-user-info-label">年龄</label> <span
-						class="xb-user-info-content"><span class="xb-user-age">20</span>岁</span>
-					<span class="change-info">修改</span> <input type="text"
-						class="xb-user-age" name="age" id="xb-user-age">
+					<label for="xb-user-age" class="xb-user-info-label">年龄</label>
+					<span class="xb-user-info-content xb-user-info-age"><span class="xb-user-age"><%=readUser.getInt("age")!=null?readUser.getInt("age"):0 %></span>岁</span>
+					<% if(editPower){ %>
+						<span class="change-info">修改</span> 
+						<input type="number" min="1" max="120" name="age" id="xb-user-edit-age" placeholder="1到120">
+					<% } %>
 				</div>
 				<div class="xb-user-info-item">
 					<label class="xb-user-info-label">用户积分</label> <span
-						class="xb-user-info-content"><span class="xb-user-point">100</span>PY币</span>
+						class="xb-user-info-content"><span class="xb-user-point"><%=readUser.getInt("point") %></span>PY币</span>
 				</div>
 			</div>
-			<button type="submit" class="xb-user-info-save"
-				id="xb-user-info-save">保存修改</button>
+			<% if(editPower){ %>
+				<button type="submit" class="xb-user-info-save" id="xb-user-info-save">保存修改</button>
+			<% } %>
 		</form>
-
+		
+		
+		<% 
+			List<Task> taskPublishs = (List<Task>)request.getAttribute("publishTasks");
+			List<TaskAccept> taskAccepts = (List<TaskAccept>)request.getAttribute("acceptTasks");
+		%>
 		<div class="xb-user-task-watch">
 			<div class="xb-user-task-nav">
 				<a href="#publish" class="xb-user-task-item active">已发布的任务</a> <a
 					href="#token" class="xb-user-task-item">已接受的任务</a>
 			</div>
 			<ul class="xb-user-task-list task-publish selected">
-				<li><span class="task-time">2016-05-04 09:12:00</span> <a
-					href="/task/taskId"><span class="task-name">任务4</span></a> <span
-					class="task-state">正在进行</span></li>
-				<li><span class="task-time">2015-06-12 12:56:00</span> <a
-					href="/task/taskId"><span class="task-name">任务5</span></a> <span
-					class="task-state">已结束</span></li>
-				<li><span class="task-time">2015-10-25 16:37:00</span> <a
-					href="/task/taskId"><span class="task-name">任务6</span></a> <span
-					class="task-state">已结束</span></li>
+			<% 
+				for(int i=0,len=taskPublishs.size();i < len;i++){
+					Task taskPublish = taskPublishs.get(i);
+			%>
+					<li>
+						<span class="task-time"><%=dateFormat(taskPublish.getDate("startTime")) %></span> 
+						<a href="${BASE_PATH}/task/<%=taskPublish.getInt("userId") %>">
+							<span class="task-name"><%=taskPublish.getStr("title") %></span>
+						</a> 
+						<span class="task-state">
+							<% 
+								Integer state = taskPublish.getInt("state");
+								if(state == 1 || state == 2){
+									out.print("进行中");
+								} else if(state == 3){
+									out.print("被举报");
+								} else if(state == 4){
+									out.print("已结束");
+								} else if(state == 5){
+									out.print("被锁定");
+								}
+							%>
+						</span>
+					</li>
+			<%} %>
 			</ul>
+			
 			<ul class="xb-user-task-list task-token">
-				<li><span class="task-time">2016-05-04 09:12:00</span> <a
-					href="/task/taskId"><span class="task-name">任务1</span></a> <span
-					class="task-state">正在进行</span></li>
-				<li><span class="task-time">2015-06-12 12:56:00</span> <a
-					href="/task/taskId"><span class="task-name">任务2</span></a> <span
-					class="task-state">已结束</span></li>
-				<li><span class="task-time">2015-10-25 16:37:00</span> <a
-					href="/task/taskId"><span class="task-name">任务3</span></a> <span
-					class="task-state">已结束</span></li>
+				<% 
+					for(int i=0,len=taskAccepts.size();i < len;i++){
+						TaskAccept taskAccept = taskAccepts.get(i);
+				%>
+					<li>
+						<span class="task-time"><%=dateFormat(taskAccept.getDate("acceptTime")) %></span> 
+						<a href="${BASE_PATH}/task/<%=taskAccept.getInt("taskId") %>">
+							<span class="task-name"><%=taskAccept.getStr("taskTitle") %></span>
+						</a> 
+						<span class="task-state">
+							<% 
+								Integer state = taskAccept.getInt("state");
+								if(state == 1){
+									out.print("已接受");
+								} else if(state == 2){
+									out.print("已完成");
+								} else if(state == 3){
+									out.print("已放弃");
+								}
+							%>
+						</span>
+					</li>
+				<% } %>
 			</ul>
 		</div>
 	</div>

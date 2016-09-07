@@ -58,6 +58,12 @@ function allBinding() {
 
     //发布任务框的出现
     $('#xb-top-add-task').click(function () {
+        var userId = $('.xb-top-userinfo').attr('href').replace('/helpyouJFinal/', '');
+        //非登录情况下跳转到登录界面
+        if (!userId.startWith('user')) {
+            window.location.href = "http://localhost:8080/helpyouJFinal/login";
+            return;
+        }
         $('.modal-bg').css('display', 'block').animate({
             opacity: 0.5
         }, 300);
@@ -93,6 +99,7 @@ function allBinding() {
     $('#xb-add-task').click(function (e) {
         addTask();
         e.preventDefault();
+        e.stopPropagation();
     })
 }
 

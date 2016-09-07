@@ -1,6 +1,7 @@
 package com.helpyouJFinal.config;
 
 import com.helpyouJFinal.controller.MainController;
+import com.helpyouJFinal.controller.MessageController;
 import com.helpyouJFinal.controller.TaskController;
 import com.helpyouJFinal.controller.UserController;
 import com.helpyouJFinal.model.Admin;
@@ -49,6 +50,7 @@ public class MainConfig extends JFinalConfig {
 		 me.add("/",MainController.class,"/");
 		 me.add("/task", TaskController.class, "/");
 		 me.add("/user", UserController.class, "/");
+		 me.add("/message", MessageController.class, "/");
 		 
 	}
 

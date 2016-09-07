@@ -15,13 +15,19 @@ public class AuthInterceptor implements Interceptor {
 	@Override
 	public void intercept(Invocation invocation) {
 		Controller controller = invocation.getController();
-		//判断用户是否有修改信息的权限
-		Integer userId = controller.getParaToInt("userId");
-		if (userId > 0) {			
-			invocation.invoke();
-		} else {
-			controller.renderText("noUser");
+		User user = controller.getSessionAttr("user");
+		Integer userId = null;
+		if (user != null) {
+			userId = user.getInt("userId");
+			if (userId > 0) {			
+				invocation.invoke();
+			} else {
+				controller.redirect("/login");
+			}
+		}else {
+			controller.redirect("/login");
 		}
+		
 	}
 
 }
