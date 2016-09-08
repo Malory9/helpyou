@@ -43,6 +43,10 @@ public class TaskController extends Controller {
 			accepters.add(userService.getUserSpecific(userId));
 		}
 		setAttr("accepters", accepters);
+		//到达人数上限，设置为不可接任务
+		if (task.getInt("peopleNum") == accepters.size()) {
+			task.set("state", 2).update();
+		}
 		this.renderJsp("task.jsp");
 	}
 	
@@ -169,7 +173,7 @@ public class TaskController extends Controller {
 			redirect("/task/"+taskId);
 		} else {
 			setAttr("endErrorMsg", "无法结束任务，还有未确认的提交");
-			redirect("/task/"+taskId);
+			forwardAction("/task/"+taskId);
 		}
 	}
 	

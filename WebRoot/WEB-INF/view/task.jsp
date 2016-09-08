@@ -81,7 +81,9 @@
         </div>
         	<% if(state != 3 && state != 4) { %>
 	        <% if(user == null) {%>
+	        		<% if(state == 1) %>
        				<button type="submit" class="xb-task-btn xb-task-take-btn">立即接取</button>
+       				<% } %>
 		            <button type="submit" class="xb-task-btn xb-task-report-btn">举报任务</button>
 		    <%} else { %>
 		        <% if(publisher.getInt("userId") != user.getInt("userId")){
@@ -101,7 +103,7 @@
 				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
 		            		<button type="submit" class="xb-task-btn xb-task-finish-btn" id="xb-task-finish-btn">完成任务</button>
 		            	</form>
-		            <%} else if(!hasTake) { %>
+		            <%} else if(!hasTake && state == 1) { %>
 		            	<form action="${BASE_PATH}/task/accept" method="post" class="xb-task-form">
 				        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
 				       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
@@ -122,8 +124,7 @@
 		            	</form>
 				        <button type="button" data-url="${BASE_PATH}/task/updateContent" class="xb-task-btn xb-task-edit-btn" id="xb-task-edit-btn">修改信息</button>
 		        <% }
-				}
-	        }%>
+				}%>
 	        <div class="task-content">
 	            <span class="xb-task-separator">任务介绍</span>
 				<p><%=task.getStr("content") %></p>
@@ -141,6 +142,7 @@
         
         
         <h2 class="xb-task-separator">任务接受列表</h2>
+        <div class="errorMsg"><%=request.getAttribute("errorMsg")==null?request.getAttribute("errorMsg"):"" %></div>
         <div class="xb-task-accepter-list">
             <div class="xb-task-accepter-list-header">
                 <div class="xb-task-accepter-nickname">用户昵称</div>

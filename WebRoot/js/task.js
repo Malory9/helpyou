@@ -86,4 +86,18 @@ $(document).ready(function () {
         confirmFinish();
         editContent();
     }
+    //错误消息框消失动画
+    if ($('.errorMsg').text().trim() == "") {
+        $('.errorMsg').css('display', 'none');
+    } else {
+        $('.errorMsg').animate({
+            opacity: 0.99
+        }, 3000, function () {
+            $('.errorMsg').animate({
+                opacity:0
+            },1000,function(){
+                $('.errorMsg').css('display','none');
+            });
+        });
+    }
 })
