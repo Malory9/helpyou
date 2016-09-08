@@ -40,12 +40,12 @@ public class MessageService {
 	 * @param lastLoginTime 用户上次登录时间
 	 * @return 未读通知的数量
 	 */
-	public Long getUnreadMessageNum(Date lastLoginTime){
-		String sql = "select count(*) from message where time > ?";
-		Long unreadMessageNum = Db.queryFirst(sql, simpleDateFormat.format(lastLoginTime));
-		if (unreadMessageNum == null) {
-			unreadMessageNum = 0L;
-		}
+	public long getUnreadMessageNum(Date lastLoginTime){
+		String sqlMessage = "select count(*) from message where time > ?";
+		String sqlNotice = "select count(*) from notice where time > ?";
+		long unreadMessageNum = 0L;
+		unreadMessageNum += (long)Db.queryFirst(sqlMessage, simpleDateFormat.format(lastLoginTime));
+		unreadMessageNum += (long)Db.queryFirst(sqlNotice, simpleDateFormat.format(lastLoginTime));
 		return unreadMessageNum;
 	}
 }

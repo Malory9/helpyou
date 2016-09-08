@@ -88,26 +88,26 @@ function allBinding() {
         });
     });
 
-    //消息框显示与否
+    //消息标签显示与否
     if ($('.notice-number').text() == 0) {
         $('.notice-number').css('display', 'none');
     }
     $('.notice-number').click(function () {
         $(this).css('display', 'none');
-    })
+    });
 
     $('#xb-add-task').click(function (e) {
         addTask();
         e.preventDefault();
         e.stopPropagation();
-    })
+    });
 }
 
 //使对输入框的输入内容进行限制
 function inputLimit() {
     //数字框无法输入除数字以外字符
     $('input[type=number]').keydown(function () {
-        $(this).val().replace(/\D/, '');
+        $(this).val().replaceAll(/\D/, '');
     });
     //文本框两端不能有空格
     $('input').keydown(function () {

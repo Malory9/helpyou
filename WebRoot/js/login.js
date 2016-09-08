@@ -7,8 +7,30 @@ function switchSignInAndSignUp() {
 	})
 }
 
+function inputLimit(){
+    //文本框中不能有空格
+    $('input').keydown(function () {
+        var inputContent = $(this).val().trim().replaceAll(/\s/,'');
+        $(this).val(inputContent);
+    })
+}
+
+function signUpConfirm(){
+    $('#sign-button').click(function(e){
+        var $signUp = $('.view-signup');
+        if(!$signUp.find('input[name=username]').val().match(/^[a-zA-z][a-zA-Z0-9]{2,11}$/)){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        if(!$signUp.find('input[name=password]').val().match(/^[a-zA-Z0-9]{6,12}$/)){
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    })
+}
+
 function hideErrorMsg(){
-    $('.view-signin input').focus(function(){
+    $('.view input').focus(function(){
         $('.errorMsg').animate({
             opacity:0
         },500,function(){
@@ -20,4 +42,6 @@ function hideErrorMsg(){
 $(document).ready(function () {
 	switchSignInAndSignUp();
 	hideErrorMsg();
+    signUpConfirm();
+    inputLimit();
 })

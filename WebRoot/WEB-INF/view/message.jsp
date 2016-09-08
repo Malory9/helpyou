@@ -1,3 +1,4 @@
+<%@page import="com.helpyouJFinal.model.Notice"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.helpyouJFinal.model.Message"%>
@@ -30,8 +31,13 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
+	
+	<div class="xb-message-notice-nav">
+        <a href="#xb-message" class="xb-message-notice-btn active"><i class="iconfont icon-yonghuming"></i>用户留言</a>
+        <a href="#xb-notice" class="xb-message-notice-btn"><i class="iconfont icon-xiaoxixitong"></i>系统消息</a>
+    </div>
 
-	<div class="xb-message">
+	<div class="xb-message selected">
 		<button class="xb-send-message" id="xb-send-message">写留言</button>
 		<div class="send-message-modal">
 			<div class="modal-title">
@@ -51,6 +57,7 @@
 
 		<% List<Message> messages = (List<Message>)request.getAttribute("messages"); %>
 		<% List<String> nicknames = (List<String>)request.getAttribute("nicknames"); %>
+		<% List<Notice> notices = (List<Notice>)request.getAttribute("notices"); %>
 		<%	for(int i=0,len = messages.size(); i < len ; i++) {
 				Message message = messages.get(i);
 				String nickname = nicknames.get(i);
@@ -60,11 +67,23 @@
 			<span class="xb-message-receiver-nickname"><%=user.getStr("nickname") %></span>,你好
 			<p class="xb-message-content"><%=message.getStr("content")%></p>
 			<span class="xb-message-time"><%=dateFormat(message.getDate("time")) %></span> <a
-				href="javascript:void(0)" class="answer">回复</a>
+				href="javascript:void(0)" class="answer"><i class="iconfont icon-huifu"></i>回复</a>
 		</div>
 		<%} %>
 
 	</div>
+	
+	<div class="xb-notice">
+		<%	for(int i=0,len = notices.size(); i < len ; i++) {
+				Notice notice = notices.get(i);
+		%>
+        <div class="xb-notice-item">
+            <span class="xb-notice-title"><%=notice.getStr("title") %></span>
+            <p class="xb-notice-content"><%=notice.getStr("content") %></p>
+            <span class="xb-notice-time"><%=dateFormat(notice.getDate("time")) %></span>
+        </div>
+        <% } %>
+    </div>
 	
 	<%@ include file="footer.jsp"%>
 

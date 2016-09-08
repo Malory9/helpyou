@@ -49,7 +49,7 @@ public class MainController extends Controller {
 		User user = userService.login(username, password);
 		
 		//用户登录时，存储用户model到session，显示用户未读信息数量
-		Long unreadMessageNum = 0L;
+		long unreadMessageNum = 0L;
 		if (user != null) {
 			Date lastLoginTime = user.getDate("lastLoginTime");
 			unreadMessageNum = messageService.getUnreadMessageNum(lastLoginTime);

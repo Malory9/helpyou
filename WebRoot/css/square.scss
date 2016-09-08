@@ -38,13 +38,13 @@ $text-color: #49525c;
                         background-color: rgba(250, 104, 62, 0.6);
                     }
                     &.type-1 {
-                        background-color: rgba(79, 250, 89, 0.6);
+                        background-color: rgba(68, 232, 78, 0.6);
                     }
                     &.type-2 {
                         background-color: rgba(47, 137, 234, 0.6);
                     }
                     &.type-3 {
-                        background-color: rgba(242, 239, 54, 0.6);
+                        background-color: rgba(227, 224, 51, 0.6);
                     }
                 }
                 &.current {
@@ -53,13 +53,13 @@ $text-color: #49525c;
                         background-color: rgba(250, 104, 62, 0.8);
                     }
                     &.type-1 {
-                        background-color: rgba(79, 250, 89, 0.8);
+                        background-color: rgba(68, 232, 78, 0.8);
                     }
                     &.type-2 {
                         background-color: rgba(47, 137, 234, 0.8);
                     }
                     &.type-3 {
-                        background-color: rgba(242, 239, 54, 0.8);
+                        background-color: rgba(227, 224, 51, 0.8);
                     }
                 }
             }
@@ -71,6 +71,12 @@ $text-color: #49525c;
             float: right;
             border-left: 1px solid #49525c;
             padding: 10px 20px;
+            position: relative;
+            border: 1px solid #ccc;
+            .no-task {
+                font-size: 50px;
+                margin: 100px auto;
+            }
             .task {
                 width: 600px;
                 margin-top: 40px;
@@ -83,10 +89,30 @@ $text-color: #49525c;
                 a:hover {
                     text-decoration: none;
                 }
+                .task-icon{
+                    float: left;
+                    color: $border-color;
+                    font-size: 60px;
+                    position: absolute;
+                    top: 8px;
+                }
+                .backIcon{
+                    width: 0;
+                    height: 0;
+                    border-top: 7px solid transparent;
+                    border-left: 7px solid transparent;
+                    border-right: 7px solid transparent;
+                    border-bottom: 7px solid $border-color;
+                    display: block;
+                    position: absolute;
+                    top: -14px;
+                    left: 10px;
+                }
                 .task-title {
                     color: #333;
                     font-size: 18px;
                     padding: 8px 0 7px 7px;
+                    margin-left: 65px;
                 }
                 .task-content {
                     width: 100%;

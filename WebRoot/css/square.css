@@ -37,13 +37,13 @@
           background-color: rgba(250, 104, 62, 0.6); }
         /* line 40, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
         .xb-task-type-box .xb-task-type:hover.type-1 {
-          background-color: rgba(79, 250, 89, 0.6); }
+          background-color: rgba(68, 232, 78, 0.6); }
         /* line 43, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
         .xb-task-type-box .xb-task-type:hover.type-2 {
           background-color: rgba(47, 137, 234, 0.6); }
         /* line 46, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
         .xb-task-type-box .xb-task-type:hover.type-3 {
-          background-color: rgba(242, 239, 54, 0.6); }
+          background-color: rgba(227, 224, 51, 0.6); }
       /* line 50, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-type-box .xb-task-type.current {
         color: #f2f4f5; }
@@ -52,13 +52,13 @@
           background-color: rgba(250, 104, 62, 0.8); }
         /* line 55, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
         .xb-task-type-box .xb-task-type.current.type-1 {
-          background-color: rgba(79, 250, 89, 0.8); }
+          background-color: rgba(68, 232, 78, 0.8); }
         /* line 58, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
         .xb-task-type-box .xb-task-type.current.type-2 {
           background-color: rgba(47, 137, 234, 0.8); }
         /* line 61, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
         .xb-task-type-box .xb-task-type.current.type-3 {
-          background-color: rgba(242, 239, 54, 0.8); }
+          background-color: rgba(227, 224, 51, 0.8); }
   /* line 67, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
   .xb-task-list {
     width: 670px;
@@ -66,26 +66,52 @@
     overflow: hidden;
     float: right;
     border-left: 1px solid #49525c;
-    padding: 10px 20px; }
-    /* line 74, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+    padding: 10px 20px;
+    position: relative;
+    border: 1px solid #ccc; }
+    /* line 76, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+    .xb-task-list .no-task {
+      font-size: 50px;
+      margin: 100px auto; }
+    /* line 80, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
     .xb-task-list .task {
       width: 600px;
       margin-top: 40px;
       box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
       cursor: pointer;
       padding: 10px; }
-      /* line 80, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+      /* line 86, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-list .task:hover {
         text-shadow: 0 0 1px rgba(0, 0, 0, 0.2); }
-      /* line 83, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+      /* line 89, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-list .task a:hover {
         text-decoration: none; }
-      /* line 86, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+      /* line 92, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+      .xb-task-list .task .task-icon {
+        float: left;
+        color: #FF9D00;
+        font-size: 60px;
+        position: absolute;
+        top: 8px; }
+      /* line 99, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+      .xb-task-list .task .backIcon {
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #FF9D00;
+        display: block;
+        position: absolute;
+        top: -14px;
+        left: 10px; }
+      /* line 111, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-list .task .task-title {
         color: #333;
         font-size: 18px;
-        padding: 8px 0 7px 7px; }
-      /* line 91, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+        padding: 8px 0 7px 7px;
+        margin-left: 65px; }
+      /* line 117, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-list .task .task-content {
         width: 100%;
         color: #49525c;

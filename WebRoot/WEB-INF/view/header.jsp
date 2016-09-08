@@ -13,15 +13,15 @@
             <form action="${BASE_PATH}/task/search" method="post">
                 <input type="search" class="xb-top-search-input" placeholder="搜索你感兴趣的任务" autocomplete="off" name="keyword">
                 <button type="submit" class="xb-top-search-button" id="xb-top-search-button">
-                    <i class="iconfont xb-top-search-button-icon">&#xe600;</i>
+                    <i class="iconfont icon-search xb-top-search-button-icon"></i>
                 </button>
             </form>
         </div>
         <div class="xb-top-nav">
             <ul class="xb-top-nav-ul">
                 <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" href="${BASE_PATH}/">任务广场</a></li>
-                <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" href="${BASE_PATH}/message">
-                    消息<span class="notice-number"><%=request.getAttribute("unreadMessageNum")!=null?request.getAttribute("unreadMessageNum"):0 %></span>
+                <li class="xb-top-nav-ul-li"><a class="xb-top-nav-link" id="xb-message-link" href="${BASE_PATH}/message">
+                    消息<span class="notice-number"><%=session.getAttribute("unreadMessageNum")==null?0:session.getAttribute("unreadMessageNum") %></span>
                 </a></li>
             </ul>
         </div>
@@ -36,7 +36,7 @@
                     <span class="username"><%=user.getStr("nickname") %></span>
 	                <!--<img src="images/head.png" class="avatar" alt="用户名">-->
 				</a>
-				<a class="xb-top-logOut" href="${BASE_PATH}/logOut">注销</a>
+				<a class="xb-top-logOut" href="${BASE_PATH}/logOut"><i class="iconfont icon-zhuxiao"></i>注销</a>
 			<%} %>
         </div>
         <button id="xb-top-add-task" class="xb-top-add-task">发布任务</button>
@@ -47,7 +47,7 @@
 <div id="add-task-modal" class="add-task-modal">
     <div class="modal-title">
         <span class="modal-title-text">发布任务</span>
-        <span id="task-publish-modal-close" class="modal-close iconfont">&#xe602;</span>
+        <span id="task-publish-modal-close" class="modal-close iconfont icon-close"></span>
     </div>
     <div class="modal-content">
         <form action="${BASE_PATH}/task/add" method="post" class="add-task-form">

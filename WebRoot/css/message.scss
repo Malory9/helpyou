@@ -4,11 +4,53 @@ $border-color: #FF9D00;
 $dark-text-color: #222;
 $light-text-color: #49525c;
 
+.xb-message-notice-nav {
+    width: 280px;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    margin-left: -465px;
+    font-size: 14px;
+    text-align: center;
+    color: $light-text-color;
+    border: 1px solid #ccc;
+    border-right: none;
+    box-shadow: 1px 1px 2px #ccc;
+    .xb-message-notice-btn {
+        float: left;
+        cursor: pointer;
+        float: left;
+        line-height: 40px;
+        height: 40px;
+        width: 10em;
+        box-sizing: border-box;
+        opacity: 0.7;
+        transition: opacity 0.15s ease 0s, color 0.15s ease 0s,border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
+        color: inherit;
+        border-right: 1px solid #ccc;
+        i {
+            margin-right: 5px;
+        }
+        &:hover {
+            opacity: 1;
+        }
+        &.active {
+            opacity: 1;
+            border-bottom: 3px solid $light-text-color;
+        }
+    }
+}
+
 .xb-message {
     width: 960px;
-    margin: 60px auto 10px;
+    margin: 120px auto 10px;
     min-height: 600px;
     padding-left: 30px;
+    display: none;
+    
+    &.selected {
+        display: block;
+    }
 
     .xb-send-message {
         background: rgba(0, 0, 0, 0) linear-gradient(to bottom, $gradient-start-color, $gradient-end-color) repeat scroll 0 0;
@@ -21,11 +63,12 @@ $light-text-color: #49525c;
         cursor: pointer;
         padding: 4px 10px;
         text-align: center;
+        display: block;
     }
     @at-root {
         .xb-message-item {
-            width: 600px;
-            padding: 20px;
+            width: 700px;
+            padding: 20px 80px 20px 80px;
             margin-top: 20px;
             border-top: 1px solid #ccc;
         }
@@ -49,10 +92,58 @@ $light-text-color: #49525c;
             font-size: 12px;
             cursor: pointer;
             float: right;
+            line-height: 20px;
+            
+            &:hover i{
+                opacity: 1;
+                font-size: 20px;
+            }
+            
+            i {
+                opacity: 0;
+                position: relative;
+                transition: opacity 0.3s ease-in-out 0s,font-size 0.3s ease-in-out 0s;
+            }
         }
     }
 }
 
+.xb-notice {
+	width: 960px;
+    margin: 120px auto 10px;
+    min-height: 600px;
+    padding-left: 30px;
+    display: none;
+    
+    &.selected {
+        display: block;
+    }
+    @at-root {
+        .xb-notice-item {
+            display: block;
+            width: 700px;
+            padding: 20px 80px 20px 80px;
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+        
+        .xb-notice-title {
+	        color: $dark-text-color;
+            font-weight: bold;
+        }
+
+        .xb-notice-content {
+            margin: 10px 0;
+            text-indent: 2em;
+        }
+
+        .xb-notice-time {
+            font-size: 12px;
+            color: $light-text-color;
+        }
+        
+    }
+}
 .send-message-modal {
     display: none;
     z-index: 99;

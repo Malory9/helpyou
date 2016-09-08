@@ -21,7 +21,7 @@ public class JFinalTestBase {
 	public static void setUpBeforeClass() {
 
 		// 用PropKit读取jdbc.properties文件中的配置信息
-		PropKit.use("jdbc.properties");
+		PropKit.use("config.properties");
 		final String URL = PropKit.get("jdbcUrl");
 		final String USERNAME = PropKit.get("username");
 		final String PASSWORD = PropKit.get("password");

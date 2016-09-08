@@ -58,18 +58,18 @@
 		<form action="${BASE_PATH}/user/updateInfo" method="post" id="xb-user-form">
 			<div class="xb-user-info">
 				<div class="xb-user-info-item">
-					<label for="xb-user-nickname" class="xb-user-info-label">昵称</label>
+					<label for="xb-user-nickname" class="xb-user-info-label"><i class="iconfont icon-nicheng"></i>昵称</label>
 					<span class="xb-user-info-content xb-user-info-nickname"><%=readUser.getStr("nickname") %></span>
 					<% if(editPower){ %>
-						<span class="change-info">修改</span>
+						<span class="change-info"><i class="iconfont icon-xiugai"></i>修改</span>
 						<input type="text" name="nickname" id="xb-user-edit-nickname">
 					<% } %>
 				</div>
 				<div class="xb-user-info-item">
-					<label for="xb-user-sex" class="xb-user-info-label">性别</label>
+					<label for="xb-user-sex" class="xb-user-info-label"><i class="iconfont icon-gender"></i>性别</label>
 					<span class="xb-user-info-content xb-user-info-sex"><%=readUser.getStr("sex") %></span>
 					<% if(editPower){ %>
-						<span class="change-info">修改</span>
+						<span class="change-info"><i class="iconfont icon-xiugai"></i>修改</span>
 						<select name="sex" id="xb-user-edit-sex">
 							<option value="未选择">未选择</option>
 	                    	<option value="男">男</option>
@@ -78,15 +78,15 @@
 					<% } %>
 				</div>
 				<div class="xb-user-info-item">
-					<label for="xb-user-age" class="xb-user-info-label">年龄</label>
+					<label for="xb-user-age" class="xb-user-info-label"><i class="iconfont icon-nianling"></i>年龄</label>
 					<span class="xb-user-info-content xb-user-info-age"><span class="xb-user-age"><%=readUser.getInt("age")!=null?readUser.getInt("age"):0 %></span>岁</span>
 					<% if(editPower){ %>
-						<span class="change-info">修改</span> 
-						<input type="number" min="1" max="120" name="age" id="xb-user-edit-age" placeholder="1到120">
+						<span class="change-info"><i class="iconfont icon-xiugai"></i>修改</span> 
+						<input type="number" min="1" max="120" name="age" id="xb-user-edit-age" placeholder="1-120">
 					<% } %>
 				</div>
 				<div class="xb-user-info-item">
-					<label class="xb-user-info-label">用户积分</label> <span
+					<label class="xb-user-info-label"><i class="iconfont icon-jifen"></i>用户积分</label> <span
 						class="xb-user-info-content"><span class="xb-user-point"><%=readUser.getInt("point") %></span>PY币</span>
 				</div>
 			</div>

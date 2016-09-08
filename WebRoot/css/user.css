@@ -25,27 +25,34 @@
       width: 100px;
       float: left;
       height: 40px;
-      line-height: 40px;
+      line-height: 36px;
       border-right: 1px solid #ccc; }
-    /* line 34, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 33, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      .xb-user-info-item .xb-user-info-label i {
+        position: relative;
+        font-weight: 500;
+        font-size: 1.5em;
+        margin-right: 5px;
+        color: #504646; }
+    /* line 41, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-item .xb-user-info-content {
       padding-left: 30px;
       float: left;
       height: 40px;
       line-height: 40px; }
-    /* line 40, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 47, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-item .change-info {
       font-size: 12px;
       color: #ccc;
       margin-left: 20px;
       line-height: 40px;
       cursor: pointer; }
-    /* line 47, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 54, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-item input[type=number] {
       -webkit-appearance: none !important;
       -moz-appearance: textfield;
       width: 50px; }
-    /* line 52, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 59, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-item input {
       line-height: 20px;
       margin: 6px 20px;
@@ -55,16 +62,16 @@
       color: #49525c;
       font-size: 14px;
       display: none; }
-      /* line 61, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 68, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .xb-user-info-item input:focus {
         box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2) inset; }
-    /* line 65, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 72, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-item select {
       line-height: 20px;
       margin: 9px 20px;
       padding: 2px 0 2px 5px;
       display: none; }
-  /* line 72, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+  /* line 79, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
   .xb-user-info-save {
     display: none;
     margin-bottom: 20px;
@@ -74,25 +81,25 @@
     text-align: center;
     background: linear-gradient(to bottom, #FFCA00, #FFA900);
     border: 1px solid #FF9D00; }
-    /* line 81, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 88, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-save:hover {
       color: #fff;
       box-shadow: 1px 1px 3px #49525c; }
-    /* line 85, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 92, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-info-save:active {
       box-shadow: 0 0 3px 2px #FF9D00 inset; }
-  /* line 89, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+  /* line 96, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
   .xb-user-task-watch {
     border: 1px solid #ccc;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     margin-top: 20px; }
-    /* line 93, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 100, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-task-watch .xb-user-task-nav {
       font-size: 14px;
       text-align: center;
       display: inline-block;
       color: #49525c; }
-      /* line 98, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 105, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .xb-user-task-watch .xb-user-task-nav .xb-user-task-item {
         cursor: pointer;
         float: left;
@@ -103,50 +110,50 @@
         opacity: 0.7;
         transition: opacity 0.15s ease 0s, color 0.15s ease 0s, border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
         color: inherit; }
-        /* line 108, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 115, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .xb-user-task-watch .xb-user-task-nav .xb-user-task-item:hover {
           opacity: 1; }
-        /* line 111, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 118, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .xb-user-task-watch .xb-user-task-nav .xb-user-task-item.active {
           opacity: 1;
           border-bottom: 3px solid #49525c; }
-    /* line 117, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 124, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .xb-user-task-watch .xb-user-task-list {
       margin: 15px auto 0;
       text-align: left;
       display: none;
       width: 960px; }
-      /* line 122, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 129, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .xb-user-task-watch .xb-user-task-list li {
         line-height: 40px;
         height: 40px;
         border-top: 1px solid #ccc; }
-        /* line 126, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 133, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .xb-user-task-watch .xb-user-task-list li span {
           display: inline-block; }
-        /* line 130, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 137, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .task-time {
           width: 200px;
           padding-left: 20px; }
-        /* line 134, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 141, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .task-name {
-          color: #49525c;
+          color: #222;
           width: 400px;
           padding-left: 20px;
           border-left: 1px solid #ccc; }
-          /* line 139, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+          /* line 146, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
           .task-name:hover {
             text-decoration: underline; }
-        /* line 143, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 150, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .task-state {
           width: 200px;
           padding-left: 20px;
           border-left: 1px solid #ccc; }
-      /* line 150, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 157, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .xb-user-task-watch .xb-user-task-list.selected {
         display: block; }
 
-/* line 158, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+/* line 165, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
 .xb-send-message {
   background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
   border: 1px solid #FF9D00;
@@ -163,7 +170,7 @@
   left: 50%;
   margin-left: -480px; }
 
-/* line 175, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+/* line 182, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
 .send-message-modal {
   display: none;
   z-index: 99;
@@ -177,7 +184,7 @@
   border: 1px solid #888;
   border-radius: 6px;
   box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.4); }
-  /* line 189, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+  /* line 196, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
   .modal-title {
     background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
     border: 1px solid #FF9D00;
@@ -187,31 +194,31 @@
     padding: 10px 15px;
     position: relative;
     color: #fff; }
-    /* line 198, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 205, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .modal-title .modal-title-text {
       font-size: 15px;
       font-weight: bold;
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); }
-    /* line 203, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 210, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .modal-title .modal-close {
       float: right;
       font-size: 20px;
       margin-top: -2px;
       cursor: pointer; }
-  /* line 210, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+  /* line 217, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
   .modal-content {
     margin-top: 10px;
     padding-left: 15px; }
-    /* line 213, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+    /* line 220, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
     .modal-content .send-message-form {
       display: block; }
-      /* line 215, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 222, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .modal-content .send-message-form label {
         font-size: 15px;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
         display: block;
         margin: 8px 5px; }
-      /* line 222, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 229, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .modal-content .send-message-form input,
       .modal-content .send-message-form textarea {
         padding: 4px 0 4px 5px;
@@ -223,15 +230,15 @@
         line-height: 16px;
         margin-left: 5px;
         width: 320px; }
-        /* line 232, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+        /* line 239, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
         .modal-content .send-message-form input:focus,
         .modal-content .send-message-form textarea:focus {
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset; }
-      /* line 236, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 243, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .modal-content .send-message-form textarea {
         height: 100px;
         resize: none; }
-      /* line 240, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
+      /* line 247, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .modal-content .send-message-form button {
         background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
         border: 1px solid #FF9D00;

@@ -3,11 +3,14 @@ package com.helpyouJFinal.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.helpyouJFinal.interceptor.AJAXAuthInterceptor;
 import com.helpyouJFinal.interceptor.AuthInterceptor;
 import com.helpyouJFinal.interceptor.SetOriginUrlInterceptor;
 import com.helpyouJFinal.model.Message;
+import com.helpyouJFinal.model.Notice;
 import com.helpyouJFinal.model.User;
 import com.helpyouJFinal.service.MessageService;
+import com.helpyouJFinal.service.NoticeService;
 import com.helpyouJFinal.service.UserService;
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
@@ -15,6 +18,7 @@ import com.jfinal.core.Controller;
 public class MessageController extends Controller{
 	MessageService messageService = enhance(MessageService.class);
 	UserService userService = enhance(UserService.class);
+	NoticeService noticeService = enhance(NoticeService.class);
 	
 	/**
 	 * 用户消息主页
@@ -32,8 +36,12 @@ public class MessageController extends Controller{
 			String nickname = userService.getUserNickname(senderId);
 			nicknames.add(nickname);
 		}
+		List<Notice> notices = noticeService.getAllNotice();
 		setAttr("messages", messages);
 		setAttr("nicknames", nicknames);
+		setAttr("notices", notices);
+		//将未读信息量设置为0
+		setSessionAttr("unreadMessageNum", 0);
 		render("message.jsp");
 	}
 	

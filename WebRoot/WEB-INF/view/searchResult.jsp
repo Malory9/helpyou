@@ -35,8 +35,10 @@
         	%>
 	        			<li class="task">
 	                        <a href="${BASE_PATH}/task/<%=task.getInt("taskId") %>">
-	                        <h3 class="task-title"><%=task.getStr("title") %></h3>
-	                        <p class="task-content"><%=task.getStr("content") %></p>
+                                <i class="iconfont icon-renwu01 task-icon"></i>
+                                <i class="backIcon"></i>
+                                <h3 class="task-title"><%=task.getStr("title") %></h3>
+                                <p class="task-content"><%=task.getStr("content") %></p>
 	                        </a>
 	                    </li>
         	<%		}

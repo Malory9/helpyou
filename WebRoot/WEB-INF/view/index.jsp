@@ -25,13 +25,16 @@
         <div class="xb-task-type-box">
             <h3>任务类别</h3>
             <span id="ajaxURL" hidden="hidden" data-url="${BASE_PATH}/task/searchByType"></span>
-            <div class="xb-task-type type-0 current">最新任务</div>
-            <div class="xb-task-type type-1">线上任务</div>
-            <div class="xb-task-type type-2">线下任务</div>
-            <div class="xb-task-type type-3">其他任务</div>
+            <div class="xb-task-type type-0 current"><i class="iconfont icon-zuixinnew3"></i>最新任务</div>
+            <div class="xb-task-type type-1"><i class="iconfont icon-diannaozaixian"></i>线上任务</div>
+            <div class="xb-task-type type-2"><i class="iconfont icon-xianxiahuodong"></i>线下任务</div>
+            <div class="xb-task-type type-3"><i class="iconfont icon-qita"></i>其他任务</div>
         </div>
 		<ul class="xb-task-list">
 		<%	List<Task> tasks = (List<Task>)request.getAttribute("tasks"); %>
+		<%	if(tasks.size() == 0){ %>
+			<span class="no-task">现在没有任务被发布</span>
+		<%  } %>
 		<%	for(int i=0,len=tasks.size(); i < len ; i++) {
 				Task task = tasks.get(i);
 		%>

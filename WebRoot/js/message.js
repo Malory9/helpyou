@@ -1,4 +1,4 @@
-function showMessageModal() {
+function sendMessage() {
 	$('#xb-send-message').click(function () {
 		$('.modal-bg').css('display','block').animate({opacity:0.5},300);
 		$('.send-message-modal').css('display','block').animate({opacity:1,top:90},300);
@@ -20,6 +20,22 @@ function showMessageModal() {
   })
 }
 
+function switchMessageAndNotice() {
+    var $message = $('.xb-message');
+    var $notice = $('.xb-notice');
+	$('.xb-message-notice-btn').click(function (e) {
+		$('.xb-message-notice-btn').removeClass('active');
+		$(this).addClass('active');
+		var which = $(this).attr('href').substring(1);
+		$message.removeClass('selected');
+        $notice.removeClass('selected');
+        $('.'+which).addClass('selected');
+        e.preventDefault();
+        e.stopPropagation();
+	})
+}
+
 $(document).ready(function () {
-	showMessageModal();
+	sendMessage();
+    switchMessageAndNotice();
 })

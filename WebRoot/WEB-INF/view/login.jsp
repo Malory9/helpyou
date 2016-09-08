@@ -46,10 +46,10 @@
             <div class="view view-signup">
                 <form action="${BASE_PATH}/doSignUp" method="post">
                     <div class="group-input">
-                        <input type="text" placeholder="用户名" name="username" maxlength="12" required>
-                        <input type="password" placeholder="密码(不少于6位)" name="password" maxlength="12" required>
+                        <input type="text" placeholder="用户名(字母开头,由字母和数字组成,3-12位)" name="username" maxlength="12" required>
+                        <input type="password" placeholder="密码(6-12位)" name="password" maxlength="12" required>
                     </div>
-                    <button type="submit" class="sign-button">注册</button>
+                    <button type="submit" class="sign-button" id="sign-button">注册</button>
                 </form>
             </div>
         </div>

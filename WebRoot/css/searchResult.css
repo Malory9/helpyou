@@ -19,19 +19,41 @@
       border: 1px solid #ccc;
       box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
       cursor: pointer;
-      padding: 10px; }
-      /* line 28, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      padding: 10px;
+      position: relative;
+      border: 1px solid #ccc; }
+      /* line 30, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
       .xb-task-list .task:hover {
         text-shadow: 0 0 1px rgba(0, 0, 0, 0.2); }
-      /* line 31, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      /* line 33, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
       .xb-task-list .task a:hover {
         text-decoration: none; }
-      /* line 34, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      /* line 36, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      .xb-task-list .task .task-icon {
+        float: left;
+        color: #FF9D00;
+        font-size: 60px;
+        position: absolute;
+        top: 8px; }
+      /* line 43, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+      .xb-task-list .task .backIcon {
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #FF9D00;
+        display: block;
+        position: absolute;
+        top: -14px;
+        left: 10px; }
+      /* line 55, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
       .xb-task-list .task .task-title {
         color: #333;
         font-size: 18px;
-        padding: 8px 0 7px 7px; }
-      /* line 39, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
+        padding: 8px 0 7px 7px;
+        margin-left: 65px; }
+      /* line 61, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/searchResult.scss */
       .xb-task-list .task .task-content {
         width: 100%;
         color: #49525c;
