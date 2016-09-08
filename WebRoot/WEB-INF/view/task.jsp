@@ -1,3 +1,4 @@
+<%@page import="com.jfinal.kit.StrKit"%>
 <%@page import="com.helpyouJFinal.model.TaskAccept"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
@@ -79,57 +80,58 @@
             			}%>
             </span></div>
         </div>
-        	<% if(state != 3 && state != 4) { %>
-	        <% if(user == null) {%>
-	        		<% if(state == 1) %>
-       				<button type="submit" class="xb-task-btn xb-task-take-btn">立即接取</button>
+        	<% if(state == 1 && state == 2) { %>
+	        	<% if(user == null) {%>
+	        		<% if(state == 1) { %>
+       					<button type="submit" class="xb-task-btn xb-task-take-btn">立即接取</button>
        				<% } %>
 		            <button type="submit" class="xb-task-btn xb-task-report-btn">举报任务</button>
-		    <%} else { %>
-		        <% if(publisher.getInt("userId") != user.getInt("userId")){
-					Integer userId = user.getInt("userId");
-					for(int i=0,len=taskAccepts.size();i < len;i++){
-						if(userId.equals(taskAccepts.get(i).getInt("userId"))){
-							hasTake = true;
-							if(taskAccepts.get(i).getInt("state")==1){
-								canFinish = true;								
+		    	<%} else { %>
+			        <% if(publisher.getInt("userId") != user.getInt("userId")){
+						Integer userId = user.getInt("userId");
+						for(int i=0,len=taskAccepts.size();i < len;i++){
+							if(userId.equals(taskAccepts.get(i).getInt("userId"))){
+								hasTake = true;
+								if(taskAccepts.get(i).getInt("state")==1){
+									canFinish = true;								
+								}
 							}
 						}
+						if(hasTake && canFinish) {%>
+							<form action="${BASE_PATH}/task/submitFinish" method="post" class="xb-task-form">
+					        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
+					       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
+					       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
+			            		<button type="submit" class="xb-task-btn xb-task-finish-btn" id="xb-task-finish-btn">完成任务</button>
+			            	</form>
+			            <%} else if(!hasTake && state == 1) { %>
+			            	<form action="${BASE_PATH}/task/accept" method="post" class="xb-task-form">
+					        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
+					       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
+					       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
+			            		<button type="submit" data-url="" class="xb-task-btn xb-task-take-btn" id="xb-task-take-btn">立即接取</button>
+			            	</form>
+			            <% } %>
+			            	<form action="${BASE_PATH}/task/report" method="post" class="xb-task-form">
+					       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
+					            <button type="submit" data-url="" class="xb-task-btn xb-task-report-btn" id="xb-task-report-btn">举报任务</button>
+			            	</form>
+		        	<% } else { %>
+			        		<form action="${BASE_PATH}/task/end" method="post" class="xb-task-form">
+					        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
+					       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
+					       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
+					            <button type="submit" data-url="" class="xb-task-btn xb-task-end-btn" id="xb-task-end-btn">结束任务</button>
+			            	</form>
+					        <button type="button" data-url="${BASE_PATH}/task/updateContent" class="xb-task-btn xb-task-edit-btn" id="xb-task-edit-btn">修改信息</button>
+			        <% }
 					}
-					if(hasTake && canFinish) {%>
-						<form action="${BASE_PATH}/task/submitFinish" method="post" class="xb-task-form">
-				        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
-				       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
-				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
-		            		<button type="submit" class="xb-task-btn xb-task-finish-btn" id="xb-task-finish-btn">完成任务</button>
-		            	</form>
-		            <%} else if(!hasTake && state == 1) { %>
-		            	<form action="${BASE_PATH}/task/accept" method="post" class="xb-task-form">
-				        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
-				       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
-				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
-		            		<button type="submit" data-url="" class="xb-task-btn xb-task-take-btn" id="xb-task-take-btn">立即接取</button>
-		            	</form>
-		            <% } %>
-		            	<form action="${BASE_PATH}/task/report" method="post" class="xb-task-form">
-				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
-				            <button type="submit" data-url="" class="xb-task-btn xb-task-report-btn" id="xb-task-report-btn">举报任务</button>
-		            	</form>
-	        	<% } else { %>
-		        		<form action="${BASE_PATH}/task/end" method="post" class="xb-task-form">
-				        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
-				       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
-				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
-				            <button type="submit" data-url="" class="xb-task-btn xb-task-end-btn" id="xb-task-end-btn">结束任务</button>
-		            	</form>
-				        <button type="button" data-url="${BASE_PATH}/task/updateContent" class="xb-task-btn xb-task-edit-btn" id="xb-task-edit-btn">修改信息</button>
-		        <% }
 				}%>
 	        <div class="task-content">
 	            <span class="xb-task-separator">任务介绍</span>
 				<p><%=task.getStr("content") %></p>
 				<% 
-					if(user != null){
+					if( state == 1 && state == 2 && user != null){
 						if(request.getAttribute("publishId") != user.getInt("userId")) { %>
 							<form action="${BASE_PATH}/task/updateContent" method="post" class="xb-task-form" id="xb-task-editInfo-form">
 								<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
@@ -142,7 +144,7 @@
         
         
         <h2 class="xb-task-separator">任务接受列表</h2>
-        <div class="errorMsg"><%=request.getAttribute("errorMsg")==null?request.getAttribute("errorMsg"):"" %></div>
+        <div class="errorMsg"><%=StrKit.notBlank((String)request.getAttribute("endErrorMsg"))?request.getAttribute("endErrorMsg"):"" %></div>
         <div class="xb-task-accepter-list">
             <div class="xb-task-accepter-list-header">
                 <div class="xb-task-accepter-nickname">用户昵称</div>
@@ -173,7 +175,7 @@
 			            		        	<a href="${BASE_PATH}/task/confirmFinish" class="xb-task-confirmFinish">确认完成</a>
 			            			<%	}
 		            				}
-		            			} else if(acceptState == 3){ 
+		            			} else if(acceptState == 3){
 		            				out.print("已完成");
 		            			}
 		            		%>
@@ -183,7 +185,7 @@
             </div>
         </div>
     </div>
-    <% } %>
+    <%} %>
 	
 	<%@ include file="footer.jsp" %>
 	

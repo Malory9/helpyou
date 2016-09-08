@@ -37,7 +37,7 @@
 	%>
 	
 	<% if(!editPower) { %>
-        <button class="xb-send-message" id="xb-send-message">写留言</button>
+        <button class="xb-send-message" id="xb-send-message">给他写留言</button>
 		<div class="send-message-modal">
 			<div class="modal-title">
 				<span class="modal-title-text">发送留言</span> <span

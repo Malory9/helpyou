@@ -289,4 +289,25 @@ public class TaskService {
 	public void endTask(Integer taskId) {
 		Task.dao.findById(taskId).set("state", 4).set("endTime", new Date()).update();
 	}
+	
+	/**
+	 * 强制结束任务
+	 * @param taskId 任务id
+	 */
+	public void forceEndTask(Integer taskId) {
+		//获得发布者id
+		String publishIdSQL = "select userId from taskPublish where taskId = ?";
+		Integer publishId = TaskPublish.dao.findFirst(publishIdSQL,taskId).getInt("userId");
+		
+		//给完成任务的人强制发送报酬
+		String sql = "select * from taskAccept where taskId = ? and state = 2";
+		List<TaskAccept> taskAccepts = TaskAccept.dao.find(sql, taskId);
+		for (int i = 0; i < taskAccepts.size(); i++) {
+			TaskAccept taskAccept = taskAccepts.get(i);
+			Integer acceptId = taskAccept.getInt("userId");
+			this.confirmFinishTask(taskId, publishId, acceptId);
+		}
+		//结束任务
+		Task.dao.findById(taskId).set("state", 4).update();
+	}
 }

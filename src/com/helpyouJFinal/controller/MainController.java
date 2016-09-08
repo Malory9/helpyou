@@ -56,7 +56,9 @@ public class MainController extends Controller {
 			setSessionAttr("user", user);
 			setSessionAttr("unreadMessageNum", unreadMessageNum);
 			user.set("lastLoginTime", new Date()).update();
-			redirect("/");
+			//获得登陆前的页面路径
+			String url = getSessionAttr("originURL");
+			redirect(url);
 		} else {
 			keepPara("username");
 			setAttr("errorMsg", "账号或密码错误");

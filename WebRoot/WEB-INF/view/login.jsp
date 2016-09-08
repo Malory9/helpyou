@@ -19,7 +19,7 @@
 <body>
     <div class="xb-index-main">
         <div class="index-header">
-            <h1 class="logo">校帮</h1>
+            <a href="${BASE_PATH}/"><h1 class="logo">校帮</h1></a>
             <h2 class="subtitle">你身边的互助平台</h2>
         </div>
         <div class="sign-view">

@@ -23,7 +23,9 @@ public class MessageController extends Controller{
 	public void index() {
 		User user = getSessionAttr("user");
 		Integer receiverId = user.getInt("userId");
+		//获得用户收到的信息
 		List<Message> messages = messageService.getMessageListByReceiverId(receiverId);
+		//获得信息的发送者昵称
 		List<String> nicknames = new ArrayList<String>();
 		for(int i = 0,len = messages.size();i < len;i++){
 			Integer senderId = messages.get(i).getInt("senderId");
@@ -33,12 +35,12 @@ public class MessageController extends Controller{
 		setAttr("messages", messages);
 		setAttr("nicknames", nicknames);
 		render("message.jsp");
-		
 	}
 	
 	/**
 	 * 发送留言
 	 */
+	@Before(AuthInterceptor.class)
 	public void send() {
 		String receiverNickname = this.getPara("receiver");
 		Integer ReceiverId = userService.getUserId(receiverNickname);
