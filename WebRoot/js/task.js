@@ -55,13 +55,14 @@ function confirmFinish() {
         var taskId = $('input[name=taskId]').val();
         var publishId = $('input[name=publishId]').val();
         var acceptId = $(this).parent().prevAll('.xb-task-accepter-nickname').children('a').attr('href').replace('/helpyouJFinal/user/', '');
-
+        var userId = $('.xb-top-userinfo').attr('href').replace('/helpyouJFinal/user/', '');
         var $that = $(this);
         
         $.ajax({
             url: url,
             type: 'post',
             data: {
+        		userId: userId
                 taskId: taskId,
                 publishId: publishId,
                 acceptId: acceptId

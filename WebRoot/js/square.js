@@ -7,6 +7,8 @@ function showTask(tasks) {
         console.log(taskObject);
         let task = $(`<li class="task">
                         <a href="/helpyouJFinal/task/${tasks[i].taskId}">
+                        	<i class="iconfont icon-renwu01 task-icon"></i>
+                        	<i class="backIcon"></i>
                             <h3 class="task-title">${tasks[i].title.toString()}</h3>
                             <p class="task-content">${tasks[i].content.toString()}</p>
                         </a>

@@ -71,8 +71,8 @@
     border: 1px solid #ccc; }
     /* line 76, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
     .xb-task-list .no-task {
-      font-size: 50px;
-      margin: 100px auto; }
+      font-size: 20px;
+      margin: 100px; }
     /* line 80, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
     .xb-task-list .task {
       width: 600px;
@@ -91,9 +91,8 @@
         float: left;
         color: #FF9D00;
         font-size: 60px;
-        position: absolute;
-        top: 8px; }
-      /* line 99, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+        position: absolute; }
+      /* line 98, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-list .task .backIcon {
         width: 0;
         height: 0;
@@ -103,15 +102,15 @@
         border-bottom: 7px solid #FF9D00;
         display: block;
         position: absolute;
-        top: -14px;
-        left: 10px; }
-      /* line 111, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+        top: 36px;
+        left: 29px; }
+      /* line 110, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-list .task .task-title {
         color: #333;
         font-size: 18px;
         padding: 8px 0 7px 7px;
         margin-left: 65px; }
-      /* line 117, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
+      /* line 116, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/square.scss */
       .xb-task-list .task .task-content {
         width: 100%;
         color: #49525c;

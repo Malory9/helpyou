@@ -2,6 +2,7 @@ package com.helpyouJFinal.controller;
 
 import java.util.List;
 
+import com.helpyouJFinal.interceptor.AJAXAuthInterceptor;
 import com.helpyouJFinal.interceptor.AuthInterceptor;
 import com.helpyouJFinal.interceptor.SetOriginUrlInterceptor;
 import com.helpyouJFinal.model.Task;

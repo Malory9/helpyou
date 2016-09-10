@@ -2,6 +2,7 @@ package com.helpyouJFinal.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import com.helpyouJFinal.model.Task;
@@ -309,5 +310,40 @@ public class TaskService {
 		}
 		//结束任务
 		Task.dao.findById(taskId).set("state", 4).update();
+	}
+	
+	
+	/**
+	 * 寻找所有被举报的任务
+	 * @return 被举报的任务的列表
+	 */
+	public List<Task> getTasksReport() {
+		String sql = "select * from task where state = 3";
+		return Task.dao.find(sql);
+	}
+	
+	/**
+	 * 恢复任务
+	 * @param taskId 任务Id
+	 * @return 是否恢复成功
+	 */
+	public boolean recoveryTask(Integer taskId) {
+		return Task.dao.findById(taskId).set("state", 1).update();
+	}
+	
+	/**
+	 * 删除某个任务相关的所有信息
+	 * @param taskId 任务id
+	 * @return 是否删除成功
+	 */
+	public boolean deleteTask(Integer taskId) {
+		String taskPublishSQL = "select * from taskPublish where taskId = ?";
+		TaskPublish.dao.findFirst(taskPublishSQL,taskId).delete();
+		String taskAcceptSQL = "select * from taskAccept where taskId = ?";
+		List<TaskAccept> taskAccepts = TaskAccept.dao.find(taskAcceptSQL,taskId);
+		for (int i = 0; i < taskAccepts.size(); i++) {
+			taskAccepts.get(i).delete();
+		}
+		return Task.dao.deleteById(taskId);
 	}
 }

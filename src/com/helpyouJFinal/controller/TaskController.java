@@ -75,7 +75,12 @@ public class TaskController extends Controller {
 		Integer minutes = getParaToInt("minutes");
 		Integer reward = getParaToInt("reward");
 		String content = getPara("content");
-		boolean result = taskService.addNewTask(userId, title, type, peopleNum, reward, content,
+		Integer allReward = peopleNum*reward;
+		boolean result = userService.canPublish(userId,allReward);
+		if (!result) {
+			renderText("failed");
+		}
+		result = taskService.addNewTask(userId, title, type, peopleNum, reward, content,
 						days, hours, minutes);
 		if (result) {
 			renderText("success");

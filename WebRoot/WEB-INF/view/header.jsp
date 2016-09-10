@@ -51,6 +51,7 @@
     </div>
     <div class="modal-content">
         <form action="${BASE_PATH}/task/add" method="post" class="add-task-form">
+        	<span class="addTaskErrorMsg"></span>
             <label for="taskTitle">任务标题</label>
             <input id="taskTitle" name="taskTitle" type="text" maxlength="20" required placeholder="标题最长不能超过20个字">
             <label for="taskType">任务类型</label>
@@ -60,12 +61,12 @@
                 <option value="3">其他任务</option>
             </select>
             <label for="taskPeopleNum">任务人数</label>
-            <input type="number" id="peopleNum" name="peopleNum">人
+            <input type="number" id="peopleNum" name="peopleNum" min="1" max="99">人
             <label for="taskTime">任务时间</label>
             <div id="taskTime">
-                <input type="number" id="taskTime-day" name="taskTime" required>天
-                <input type="number" id="taskTime-hour" name="taskTime" required>小时
-                <input type="number" id="taskTime-minute" name="taskTime" required>分钟
+                <input type="number" id="taskTime-day" name="taskTime" min="0" max="30" required>天
+                <input type="number" id="taskTime-hour" name="taskTime" min="0" max="23" required>小时
+                <input type="number" id="taskTime-minute" name="taskTime" min="0" max="59" required>分钟
             </div>
             <label for="taskReward">任务报酬&nbsp;&nbsp;&nbsp;<small>(每人每次任务报酬不能超过10PY币)</small></label>
             <input type="number" id="taskReward" name="taskReward" min="1" max="10" required>PY币

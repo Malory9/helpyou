@@ -1,17 +1,26 @@
 package com.helpyouJFinal.service;
 
 import java.util.Date;
+import java.util.List;
 
 import com.helpyouJFinal.model.User;
 import com.jfinal.aop.Before;
 import com.jfinal.kit.StrKit;
 import com.jfinal.plugin.activerecord.Db;
-import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.activerecord.tx.Tx;
 
 //在执行的过程中如果有异常将回滚，如果return false 就也回滚
 @Before(Tx.class)
 public class UserService {
+	
+	/**
+	 * 获得所有的用户信息
+	 * @return 用户信息列表
+	 */
+	public List<User> getAllUsers() {
+		String sql = "select * from user";
+		return User.dao.find(sql);
+	}
 	
 	/**
 	 * 注册用户
@@ -98,5 +107,38 @@ public class UserService {
 	public Integer getUserId(String nickname){
 		String sql = "select userId from user where nickname = ?";
 		return User.dao.findFirst(sql,nickname).getInt("userId");
+	}
+	
+	/**
+	 * 冻结用户
+	 * @param userId 用户id
+	 * @return 是否冻结成功
+	 */
+	public boolean freezeUser(Integer userId) {
+		return User.dao.findById(userId).set("state", 2).update();
+	}
+	
+	/**
+	 * 解冻用户
+	 * @param userId 用户id
+	 * @return 是否解冻成功
+	 */
+	public boolean unfreezeUser(Integer userId) {
+		return User.dao.findById(userId).set("state", 1).update();
+	}
+	
+	/**
+	 * 检测用户积分是否足够发布任务
+	 * @param userId 用户Id
+	 * @param pointUsed 要花费的积分
+	 * @return 积分足够返回true，不够返回false
+	 */
+	public boolean canPublish(Integer userId,Integer pointUsed) {
+		Integer userPoint = User.dao.findById(userId).getInt("point");
+		if (userPoint > pointUsed) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

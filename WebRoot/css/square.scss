@@ -74,8 +74,8 @@ $text-color: #49525c;
             position: relative;
             border: 1px solid #ccc;
             .no-task {
-                font-size: 50px;
-                margin: 100px auto;
+                font-size: 20px;
+                margin: 100px;
             }
             .task {
                 width: 600px;
@@ -94,7 +94,6 @@ $text-color: #49525c;
                     color: $border-color;
                     font-size: 60px;
                     position: absolute;
-                    top: 8px;
                 }
                 .backIcon{
                     width: 0;
@@ -105,8 +104,8 @@ $text-color: #49525c;
                     border-bottom: 7px solid $border-color;
                     display: block;
                     position: absolute;
-                    top: -14px;
-                    left: 10px;
+                    top: 36px;
+                    left: 29px;
                 }
                 .task-title {
                     color: #333;

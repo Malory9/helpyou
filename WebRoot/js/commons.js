@@ -95,9 +95,21 @@ function allBinding() {
     $('.notice-number').click(function () {
         $(this).css('display', 'none');
     });
-
+    
+    //发布任务验证
     $('#xb-add-task').click(function (e) {
-        addTask();
+    	if($('#peopleNum').val() <= 0 ||$('#taskTime-day').val() < 0||$('#taskTime-hour').val() < 0||$('#taskTime-minute').val() < 0||$('#taskReward').val() <= 0){
+    		$('.addTaskErrorMsg').text('请不要输入不符合的内容');
+    		$('.add-task-form').find('input,textarea').focus(function(){
+    	        $('.addTaskErrorMsg').animate({
+    	            opacity:0
+    	        },500,function(){
+    	            $('.addTaskErrorMsg').css('display','none');
+    	        });
+    	    });
+    	} else {
+	        addTask();    		
+    	}
         e.preventDefault();
         e.stopPropagation();
     });
@@ -107,13 +119,15 @@ function allBinding() {
 function inputLimit() {
     //数字框无法输入除数字以外字符
     $('input[type=number]').keydown(function () {
-        $(this).val().replaceAll(/\D/, '');
+    	var value = $(this).val().replace(/\D/g, '');
+        $(this).val(value);
+        
     });
     //文本框两端不能有空格
     $('input').keydown(function () {
         var inputContent = $(this).val().trim();
         $(this).val(inputContent);
-    })
+    });
 }
 
 //添加(发布)任务
@@ -126,14 +140,14 @@ function addTask() {
     }
     var data = {
         userId: userId,
-        taskTitle: $('#taskTitle').val(),
+        taskTitle: $('#taskTitle').val().trim(),
         taskType: $('#taskType option:selected').val(),
         peopleNum: $('#peopleNum').val(),
         days: $('#taskTime-day').val(),
         hours: $('#taskTime-hour').val(),
         minutes: $('#taskTime-minute').val(),
         reward: $('#taskReward').val(),
-        content: $('#taskContent').val()
+        content: $('#taskContent').val().trim()
     };
     $.ajax({
         url: $('.add-task-form').attr('action'),
@@ -153,7 +167,15 @@ function addTask() {
                     location.reload();
                 }
             } else if (result == "failed") {
-                alert("发布失败，请重新发布任务");
+                $('.addTaskErrorMsg').text('任务发布失败，请检查积分是否足够').animate({
+                    opacity: 0.99
+                }, 3000, function () {
+                    $('.addTaskErrorMsg').animate({
+                        opacity:0
+                    },1000,function(){
+                        $('.addTaskErrorMsg').css('display','none');
+                    });
+                });
             } else if (result == "noUser") {
                 window.location.href = "http://localhost:8080/helpyouJFinal/login";
             }

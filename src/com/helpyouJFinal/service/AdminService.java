@@ -1,7 +1,7 @@
 package com.helpyouJFinal.service;
 
+import com.helpyouJFinal.model.Admin;
 import com.jfinal.aop.Before;
-import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.tx.Tx;
 
 @Before(Tx.class)
@@ -13,13 +13,13 @@ public class AdminService {
 	 * @param password 密码
 	 * @return 管理员ID
 	 */
-	public Integer login(String adminname, String password) {
-		String SQL = "select adminId from admin where adminname=? and password=?";
-		Integer adminId = Db.queryFirst(SQL, adminname, password);
-		if (adminId != null) {
-			return adminId;
+	public Admin login(String adminname, String password) {
+		String sql = "select * from admin where adminname=? and password=?";
+		Admin admin = Admin.dao.findFirst(sql, adminname,password);
+		if (admin != null) {
+			return admin;
 		} else {
-			return 0;
+			return null;
 		}
 	}
 }
