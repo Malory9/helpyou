@@ -28,10 +28,10 @@ public class TaskController extends Controller {
 		// 添加任务model到request中
 		Task task = taskService.getTaskSpecific(taskId);
 		// 找不到对应任务
-		if (task == null) {
+		if (task == null || task.getInt("state") == 3) {
 			renderError(404);
 		}
-
+		
 		// 添加发布者model到request中
 		User publisher = taskService.getTaskPublisher(task.getInt("taskId"));
 		this.setAttr("publisher", publisher);
@@ -45,17 +45,20 @@ public class TaskController extends Controller {
 			accepters.add(userService.getUserSpecific(userId));
 		}
 		setAttr("accepters", accepters);
-		// 到达人数上限，设置为不可接任务
-		if (task.getInt("peopleNum") == accepters.size()) {
-			task.set("state", 2).update();
-			// 重新获取任务
-			task = taskService.getTaskSpecific(taskId);
-		}
-		// 任务超时，强制结束
-		if (task.getDate("endTime").before(new Date())) {
-			taskService.forceEndTask(taskId);
-			// 重新获取任务
-			task = taskService.getTaskSpecific(taskId);
+		//非被举报任务
+		if (task.getInt("state") != 3) {
+			// 到达人数上限，设置为不可接任务
+			if (task.getInt("peopleNum") == accepters.size()) {
+				task.set("state", 2).update();
+				// 重新获取任务
+				task = taskService.getTaskSpecific(taskId);
+			}
+			// 任务超时，强制结束
+			if (task.getDate("endTime").before(new Date())) {
+				taskService.forceEndTask(taskId);
+				// 重新获取任务
+				task = taskService.getTaskSpecific(taskId);
+			}
 		}
 		this.setAttr("task", task);
 		this.renderJsp("task.jsp");
@@ -148,12 +151,12 @@ public class TaskController extends Controller {
 	/**
 	 * 确认完成任务
 	 */
-	@Before(AJAXAuthInterceptor.class)
 	public void confirmFinish() {
 		Integer acceptId = getParaToInt("acceptId");
 		Integer publishId = getParaToInt("publishId");
 		Integer taskId = getParaToInt("taskId");
 		boolean result = taskService.confirmFinishTask(taskId, publishId, acceptId);
+		System.out.println(result);
 		if (result) {
 			renderText("success");
 		} else {

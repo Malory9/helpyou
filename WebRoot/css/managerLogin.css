@@ -1,0 +1,74 @@
+body {
+  background: #eff3f6;
+}
+
+.manager-login-title {
+  text-align: center;
+  margin: 60px auto;
+  color: #418aff;
+  font-size: 50px;
+  font-weight: bold;
+}
+.errorMsg {
+	color: rgba(255,0,0,0.7);
+}
+.box {
+  background: #fefefe;
+  border: 2px solid #C3D4DB;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 0 1px;
+  color: #444;
+  overflow: hidden;
+  margin: 100px auto;
+  width: 340px;
+  height: 330px;
+}
+
+.boxBody {
+  padding: 20px;
+}
+
+.comboBox {
+  margin-bottom: 20px;
+}
+
+.box label {
+  display: block;
+  font: 16px/22px Arial, Helvetica, Sans-serif;
+  margin: 10px 0 10px 4px;
+}
+
+.box input{
+  box-sizing: border-box;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 300px;
+  display: block;
+}
+
+.box input:focus {
+  border: 2px solid #ffd800;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.04) inset, 0 0 1px #0d6db6 inset;
+}
+
+.btnLogin {
+  margin-top: 40px;
+  padding: 0;
+  width: 300px;
+  line-height: 40px;
+  background-color: #FFA900;
+  border: 1px solid #FF9D00;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 17px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.btnLogin:hover {
+  background-color: #FFCA00;
+  text-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0px;
+}

@@ -79,6 +79,7 @@
     padding: 8px 0;
     line-height: 14px;
     text-align: center;
+    background: -webkit-linear-gradient(top, #FFCA00, #FFA900);
     background: linear-gradient(to bottom, #FFCA00, #FFA900);
     border: 1px solid #FF9D00; }
     /* line 88, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
@@ -108,6 +109,7 @@
         width: 10em;
         box-sizing: border-box;
         opacity: 0.7;
+        -webkit-transition: opacity 0.15s ease 0s, color 0.15s ease 0s, border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
         transition: opacity 0.15s ease 0s, color 0.15s ease 0s, border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
         color: inherit; }
         /* line 115, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
@@ -155,6 +157,7 @@
 
 /* line 165, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
 .xb-send-message {
+  background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
   background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
   border: 1px solid #FF9D00;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -186,6 +189,7 @@
   box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.4); }
   /* line 196, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
   .modal-title {
+    background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
     background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
     border: 1px solid #FF9D00;
     border-radius: 6px 6px 0 0;
@@ -240,6 +244,7 @@
         resize: none; }
       /* line 247, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/user.scss */
       .modal-content .send-message-form button {
+        background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
         background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
         border: 1px solid #FF9D00;
         box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -254,5 +259,3 @@
         display: block;
         margin-top: 10px;
         margin-left: 5px; }
-
-/*# sourceMappingURL=user.css.map */

@@ -374,7 +374,7 @@ input[type="search"] {
   display: none;
   z-index: 99;
   width: 550px;
-  height: 550px;
+  height: 600px;
   position: fixed;
   left: 50%;
   top: -550px;

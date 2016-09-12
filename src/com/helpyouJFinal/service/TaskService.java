@@ -258,8 +258,9 @@ public class TaskService {
 	public boolean confirmFinishTask(Integer taskId,Integer publishId,Integer acceptId) {
 		String taskRewardSQL = "select reward from task where taskId = ?";
 		Integer reward = Db.queryFirst(taskRewardSQL, taskId);
-		User publisher = new User().findById(publishId);
-		User accepter = new User().findById(acceptId);
+		System.out.println(reward);
+		User publisher = User.dao.findById(publishId);
+		User accepter = User.dao.findById(acceptId);
 		publisher.set("point", publisher.getInt("point")-reward).update();
 		accepter.set("point", accepter.getInt("point")+reward).update();
 		String findAcceptSQL = "select * from taskAccept where taskId = ? and userId = ?";
@@ -337,13 +338,13 @@ public class TaskService {
 	 * @return 是否删除成功
 	 */
 	public boolean deleteTask(Integer taskId) {
-		String taskPublishSQL = "select * from taskPublish where taskId = ?";
-		TaskPublish.dao.findFirst(taskPublishSQL,taskId).delete();
 		String taskAcceptSQL = "select * from taskAccept where taskId = ?";
 		List<TaskAccept> taskAccepts = TaskAccept.dao.find(taskAcceptSQL,taskId);
 		for (int i = 0; i < taskAccepts.size(); i++) {
 			taskAccepts.get(i).delete();
 		}
+		String taskPublishSQL = "select * from taskPublish where taskId = ?";
+		TaskPublish.dao.findFirst(taskPublishSQL,taskId).delete();
 		return Task.dao.deleteById(taskId);
 	}
 }

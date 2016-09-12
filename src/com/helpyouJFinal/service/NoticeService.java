@@ -39,9 +39,9 @@ public class NoticeService {
 	 * @param receiverId 接受方id
 	 * @param content 信息内容
 	 */
-	public void addNewNotice(String title, String content) {
+	public boolean addNewNotice(String title, String content) {
 		// 新建一条通知记录
-		new Notice().set("title", title)
+		return new Notice().set("title", title)
 						.set("time", new Date()).set("content", content).save();
 	}
 	

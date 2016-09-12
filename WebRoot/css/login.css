@@ -76,6 +76,7 @@ a {
       height: 35px;
       line-height: 35px;
       opacity: 0.7;
+      -webkit-transition: opacity 0.15s ease 0s, color 0.15s ease 0s, border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
       transition: opacity 0.15s ease 0s, color 0.15s ease 0s, border-bottom-width 0.15s ease 0s, color 0.15s ease 0s;
       width: 4em;
       color: inherit; }
@@ -141,5 +142,3 @@ a {
       /* line 166, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
       .sign-view .view button:hover {
         background-color: #FFCA00; }
-
-/*# sourceMappingURL=login.css.map */

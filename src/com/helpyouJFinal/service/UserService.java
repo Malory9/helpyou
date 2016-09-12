@@ -32,7 +32,7 @@ public class UserService {
 		String SQL = "select userId from user where username=?";
 		Integer reslut = Db.queryFirst(SQL, username);
 		if (reslut == null || reslut <= 0) {
-			new User().set("username", username).set("password", password).set("nickname", username).set("sex", "男").set("lastLoginTime", new Date()).save();
+			new User().set("username", username).set("password", password).set("nickname", username).set("sex", "男").set("lastLoginTime", new Date()).set("point", 20).save();
 			String userSQL = "select * from user where username=? and password=?";
 			User user = new User().findFirst(userSQL, username,password);
 			return user;

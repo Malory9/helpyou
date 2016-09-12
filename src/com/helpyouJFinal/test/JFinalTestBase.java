@@ -3,7 +3,13 @@ package com.helpyouJFinal.test;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
+import com.helpyouJFinal.model.Admin;
 import com.helpyouJFinal.model.Message;
+import com.helpyouJFinal.model.Notice;
+import com.helpyouJFinal.model.Task;
+import com.helpyouJFinal.model.TaskAccept;
+import com.helpyouJFinal.model.TaskPublish;
+import com.helpyouJFinal.model.User;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.activerecord.dialect.MysqlDialect;
@@ -44,7 +50,13 @@ public class JFinalTestBase {
 	    activeRecordPlugin.setDialect(new MysqlDialect()).setDevMode(true).setShowSql(true);
 	    
 	    //添加数据库表和model的映射
-	    activeRecordPlugin.addMapping("message", "messageId", Message.class);
+		activeRecordPlugin.addMapping("user", "userId", User.class);
+		activeRecordPlugin.addMapping("task", "taskId", Task.class);
+		activeRecordPlugin.addMapping("admin", "adminId", Admin.class);
+		activeRecordPlugin.addMapping("message", "messageId", Message.class);
+		activeRecordPlugin.addMapping("taskAccept", "acceptId", TaskAccept.class);
+		activeRecordPlugin.addMapping("taskPublish", "publishId", TaskPublish.class);
+		activeRecordPlugin.addMapping("notice", "noticeId", Notice.class);
 	    
 	    activeRecordPlugin.start();
 	}

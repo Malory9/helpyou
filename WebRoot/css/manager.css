@@ -1,0 +1,28 @@
+body {
+	background-color: #fdfbf8;
+	font-family: "微软雅黑";
+}
+
+.xb-manager-nav {
+	background: linear-gradient(to bottom, #FFCA00, #FFA900);
+	border-color: #FF9D00;
+}
+
+.xb-manager-nav-title {
+	color: #fff !important;
+	font-weight: bold;
+}
+
+.xb-notice-model-header {
+	font-weight: bold;
+	background: linear-gradient(to bottom, #FFCA00, #FFA900);
+	border-color: #FF9D00;
+}
+
+.main {
+	margin-top: 60px;
+}
+
+.send-notice-btn {
+	margin-right: 40px;
+}
