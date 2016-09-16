@@ -51,7 +51,7 @@
     </div>
     <div class="modal-content">
         <form action="${BASE_PATH}/task/add" method="post" class="add-task-form">
-        	<span class="addTaskErrorMsg"></span>
+        	<span class="errorMsg addTaskErrorMsg"></span>
             <label for="taskTitle">任务标题</label>
             <input id="taskTitle" name="taskTitle" type="text" maxlength="20" required placeholder="标题最长不能超过20个字">
             <label for="taskType">任务类型</label>

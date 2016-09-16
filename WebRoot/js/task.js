@@ -25,6 +25,12 @@ function btnConfirm() {
       e.stopPropagation();
     }
   });
+  $('#xb-task-giveup-btn').click(function (e) {
+    if (!confirm('是否要放弃这个任务?你会被扣除和任务报酬一样的积分')) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  });
   $('#xb-task-report-btn').click(function (e) {
     if (!confirm('是否举报这个任务?')) {
       e.preventDefault();

@@ -122,8 +122,9 @@ a {
       margin-top: 10px;
       text-align: left;
       color: rgba(255, 0, 0, 0.85);
+      height: 20px;
       font-size: 13px; }
-    /* line 150, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+    /* line 151, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
     .sign-view .view button {
       margin-top: 20px;
       padding: 0;
@@ -139,6 +140,6 @@ a {
       outline: 0 none;
       text-align: center;
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
-      /* line 166, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
+      /* line 167, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/login.scss */
       .sign-view .view button:hover {
         background-color: #FFCA00; }

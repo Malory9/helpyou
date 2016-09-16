@@ -15,7 +15,6 @@ function sendNotice() {
     title: $('#notice-title').val().trim(),
     content: $('#notice-content').val().trim()
   };
-  console.log(data);
   $.ajax({
     url: $('#send-notice-form').attr('action'),
     type: 'post',

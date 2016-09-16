@@ -30,38 +30,38 @@ public class MainConfig extends JFinalConfig {
 
 	// 进行一些通用设置
 	@Override
-	public void configConstant(Constants me) {
+	public void configConstant(Constants constants) {
 		// 用PropKit读取config.properties文件中的配置信息
 		PropKit.use("config.properties");
 		// 设置开发模式（log日志）
-		me.setDevMode(PropKit.getBoolean("devMode"));
+		constants.setDevMode(PropKit.getBoolean("devMode"));
 		// 设置编码
-		me.setEncoding(PropKit.get("encoding"));
+		constants.setEncoding(PropKit.get("encoding"));
 		// 设置视图渲染(render)模式
-		me.setViewType(ViewType.JSP);
-		me.setBaseViewPath("/WEB-INF/view/");
+		constants.setViewType(ViewType.JSP);
+		constants.setBaseViewPath("/WEB-INF/view/");
 		//设置404页面
-		me.setError404View("404.jsp");
-		me.setError500View("500.jsp");
+		constants.setError404View("404.jsp");
+		constants.setError500View("500.jsp");
 	}
 
 	@Override
-	public void configRoute(Routes me) {
+	public void configRoute(Routes routes) {
 		/* 
-		 * "/"访问到MainController这个类的index()方法，这是约定,
+		 * "/"访问到MainController这个类的index()方法，这是约定
 		 * 第三个参数viewPath表示接下来的跳转相对路径，需要配成"/"否则会出现路径跳转错误,
 		 */
-		 me.add("/",MainController.class,"/");
-		 me.add("/task", TaskController.class, "/");
-		 me.add("/user", UserController.class, "/");
-		 me.add("/message", MessageController.class, "/");
-		 me.add("/manager", ManagerController.class, "/");
+		 routes.add("/",MainController.class,"/");
+		 routes.add("/task", TaskController.class, "/");
+		 routes.add("/user", UserController.class, "/");
+		 routes.add("/message", MessageController.class, "/");
+		 routes.add("/manager", ManagerController.class, "/");
 		 
 	}
 
 	// 用于使用JFinal的插件
 	@Override
-	public void configPlugin(Plugins me) {
+	public void configPlugin(Plugins plugins) {
 
 		final String URL = PropKit.get("jdbcUrl");
 		final String USERNAME = PropKit.get("username");
@@ -78,7 +78,7 @@ public class MainConfig extends JFinalConfig {
 		c3p0Plugin.setMaxIdleTime(MAXIDLETIME);			//设置最大空闲时间
 		c3p0Plugin.setMaxPoolSize(MAXPOOLSIZE);			//设置连接池中的最大连接数
 		c3p0Plugin.setMinPoolSize(MINPOOLSIZE);			//设置连接池中的最小连接数
-		me.add(c3p0Plugin);
+		plugins.add(c3p0Plugin);
 		
 		//注册activeRecord插件，配置数据库映射
 		ActiveRecordPlugin activeRecordPlugin = new ActiveRecordPlugin(c3p0Plugin);
@@ -93,23 +93,23 @@ public class MainConfig extends JFinalConfig {
 		activeRecordPlugin.addMapping("notice", "noticeId", Notice.class);
 		activeRecordPlugin.addMapping("taskAccept", "acceptId", TaskAccept.class);
 		activeRecordPlugin.addMapping("taskPublish", "publishId", TaskPublish.class);
-		me.add(activeRecordPlugin);
+		plugins.add(activeRecordPlugin);
 	}
 
 	// 这里用于配置全局的拦截器，对所有请求进行拦截
 	@Override
-	public void configInterceptor(Interceptors me) {
+	public void configInterceptor(Interceptors interceptors) {
 		
 	}
 
 	@Override
-	public void configHandler(Handlers me) {
+	public void configHandler(Handlers handlers) {
 		/*
 		 * ContextPathHandler，在每次请求时将request.getContextPath()
 		 * 这里指"/helpyouJFinal"） 设置到HttpServletRequest的属性"BASE_PATH"中
 		 * 在jsp页面可以直接使用${basePath}，可以解决路径问题
 		 */
-		me.add(new ContextPathHandler("BASE_PATH"));
+		handlers.add(new ContextPathHandler("BASE_PATH"));
 	}
 
 	public static void main(String[] args) {

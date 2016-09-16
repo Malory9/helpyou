@@ -61,7 +61,7 @@ public class MainController extends Controller {
 			redirect(url);
 		} else {
 			keepPara("username");
-			setAttr("errorMsg", "账号或密码错误");
+			setAttr("loginErrorMsg", "账号或密码错误");
 			renderJsp("login.jsp");
 		}
 	}
@@ -69,6 +69,7 @@ public class MainController extends Controller {
 	/*
 	 * 用户注册
 	 */
+	@Before(LoginValidator.class)
 	public void doSignUp() {
 		String username = getPara("username");
 		String password = getPara("password");
@@ -78,6 +79,7 @@ public class MainController extends Controller {
 			getSession().setAttribute("user", user);
 			redirect("/");
 		} else {
+			setAttr("signUpErrorMsg", "用户名已存在");
 			renderJsp("login.jsp");
 		}
 	}

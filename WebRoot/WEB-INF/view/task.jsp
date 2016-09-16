@@ -104,24 +104,30 @@
 				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
 		            		<button type="submit" class="xb-task-btn xb-task-finish-btn" id="xb-task-finish-btn">完成任务</button>
 		            	</form>
+		            	<form action="${BASE_PATH}/task/giveUp" method="post" class="xb-task-form">
+				        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
+				       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
+				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
+		            		<button type="submit" class="xb-task-btn xb-task-giveup-btn" id="xb-task-giveup-btn">放弃任务</button>
+		            	</form>
 		            <%} else if(!hasTake && state == 1) { %>
 		            	<form action="${BASE_PATH}/task/accept" method="post" class="xb-task-form">
 				        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
 				       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
 				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
-		            		<button type="submit" data-url="" class="xb-task-btn xb-task-take-btn" id="xb-task-take-btn">立即接取</button>
+		            		<button type="submit" class="xb-task-btn xb-task-take-btn" id="xb-task-take-btn">立即接取</button>
 		            	</form>
 		            <% } %>
 		            	<form action="${BASE_PATH}/task/report" method="post" class="xb-task-form">
 				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
-				            <button type="submit" data-url="" class="xb-task-btn xb-task-report-btn" id="xb-task-report-btn">举报任务</button>
+				            <button type="submit" class="xb-task-btn xb-task-report-btn" id="xb-task-report-btn">举报任务</button>
 		            	</form>
 	        	<% } else { %>
 		        		<form action="${BASE_PATH}/task/end" method="post" class="xb-task-form">
 				        	<input type="hidden" name="publishId" value="<%=publisher.getInt("userId") %>">
 				       		<input type="hidden" name="acceptId" value="<%=user.getInt("userId") %>">
 				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
-				            <button type="submit" data-url="" class="xb-task-btn xb-task-end-btn" id="xb-task-end-btn">结束任务</button>
+				            <button type="submit" class="xb-task-btn xb-task-end-btn" id="xb-task-end-btn">结束任务</button>
 		            	</form>
 				        <button type="button" data-url="${BASE_PATH}/task/updateContent" class="xb-task-btn xb-task-edit-btn" id="xb-task-edit-btn">修改信息</button>
 		        <% }

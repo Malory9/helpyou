@@ -23,6 +23,8 @@
 	<div class="xb-error">
 	    <div class="xb-error-box">
 	                对不起，找不到对应的网页o(︶︿︶)o
+	        <br>
+	                错误信息:<%=request.getAttribute("errorMsg")==null?"":request.getAttribute("errorMsg") %>
 	        <a href="${BASE_PATH}/">__返回首页__</a>
 	    </div>
 	</div>

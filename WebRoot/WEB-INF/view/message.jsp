@@ -41,16 +41,17 @@
 		<button class="xb-send-message" id="xb-send-message">写留言</button>
 		<div class="send-message-modal">
 			<div class="modal-title">
-				<span class="modal-title-text">发送留言</span> <span
-					id="send-message-modal-close" class="modal-close iconfont">&#xe602;</span>
+				<span class="modal-title-text">发送留言</span> 
+				<span id="send-message-modal-close" class="modal-close iconfont">&#xe602;</span>
 			</div>
 			<div class="modal-content">
-				<form action="${BASE_PATH}/message/send" method="post" class="send-message-form">
-					<label for="receiver">发送对象 <small>对方的昵称</small></label> <input
-						type="text" id="receiver" name="receiver"> <label
-						for="messageContent">留言内容</label>
+				<form action="${BASE_PATH}/message/send" method="post" class="send-message-form" id="send-message-form">
+					<span class="errorMsg send-message-errorMsg"></span>
+					<label for="receiver">发送对象 <small>对方的昵称</small></label> 
+					<input type="text" id="receiver" name="receiver"> 
+					<label for="messageContent">留言内容</label>
 					<textarea name="messageContent" id="messageContent"></textarea>
-					<button type="submit">发送</button>
+					<button type="submit" id="xb-message-send-btn">发送</button>
 				</form>
 			</div>
 		</div>

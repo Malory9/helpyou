@@ -48,14 +48,20 @@ public class MessageController extends Controller{
 	/**
 	 * 发送留言
 	 */
-	@Before(AuthInterceptor.class)
+	@Before(AJAXAuthInterceptor.class)
 	public void send() {
 		String receiverNickname = this.getPara("receiver");
-		Integer ReceiverId = userService.getUserId(receiverNickname);
+		Integer receiverId = userService.getUserId(receiverNickname);
+		if (receiverId == null || receiverId <= 0) {
+			renderText("noTargetUser");
+		}
 		String content = this.getPara("messageContent");
-		User user = getSessionAttr("user");
-		Integer senderId = user.getInt("userId");
-		messageService.addNewMessage(senderId, ReceiverId, content);
-		redirect("/message");
+		Integer senderId = getParaToInt("userId");
+		boolean result = messageService.addNewMessage(senderId, receiverId, content);
+		if (result) {
+			renderText("success");			
+		}else {
+			renderText("failed");
+		}
 	}
 }

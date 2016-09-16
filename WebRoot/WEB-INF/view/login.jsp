@@ -25,9 +25,9 @@
         <div class="sign-view">
             <div class="index-tab-navs">
                 <a class="" href="#signup">注册</a>
-                <a class="active" href="#signin">登录</a>
+                <a class="active" href="#login">登录</a>
             </div>
-            <div class="view view-signin selected">
+            <div class="view view-login selected">
                 <form action="${BASE_PATH}/doLogin" method="post">
                     <div class="group-input">
                         <input type="text" placeholder="用户名" name="username" maxlength="12" 
@@ -39,8 +39,8 @@
                          required>
                         <input type="password" placeholder="密码" name="password" maxlength="12" required>
                     </div>
-                    <div class="errorMsg"><%=request.getAttribute("errorMsg")!=null?request.getAttribute("errorMsg"):"" %></div>
-                    <button type="submit" class="sign-button">登陆</button>
+                    <div class="loginErrorMsg errorMsg"><%=request.getAttribute("loginErrorMsg")!=null?request.getAttribute("loginErrorMsg"):"" %></div>
+                    <button type="submit" class="sign-button" id="login-button">登陆</button>
                 </form>
             </div>
             <div class="view view-signup">
@@ -49,7 +49,7 @@
                         <input type="text" placeholder="用户名(字母开头,由字母和数字组成,3-12位)" name="username" maxlength="12" required>
                         <input type="password" placeholder="密码(6-12位)" name="password" maxlength="12" required>
                     </div>
-                    <div class="signUpErrorMsg errorMsg"></div>
+                    <div class="signUpErrorMsg errorMsg"><%=request.getAttribute("signUpErrorMsg")!=null?request.getAttribute("signUpErrorMsg"):"" %></div>
                     <button type="submit" class="sign-button" id="signup-button">注册</button>
                 </form>
             </div>

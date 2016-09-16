@@ -30,6 +30,7 @@ public class UserController extends Controller {
 		User readUser = userService.getUserSpecific(readUserId);
 		//找不到对应用户
 		if (readUser == null) {
+			setAttr("errorMsg", "找不到对应的用户！");
 			renderError(404);
 		}
 		setAttr("readingUser", readUser);
@@ -61,10 +62,6 @@ public class UserController extends Controller {
 		String nickname = getPara("nickname");
 		String sex = getPara("sex");
 		Integer age = getParaToInt("age");
-		System.out.println(userId);
-		System.out.println(nickname);
-		System.out.println(sex);
-		System.out.println(age);
 		User newUser = userService.updateUserInfo(userId, nickname, sex, age);
 		setSessionAttr("user", newUser);
 		redirect("/user/"+userId);

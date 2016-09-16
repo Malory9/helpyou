@@ -7,10 +7,19 @@ public class LoginValidator extends Validator {
 
 	@Override
 	protected void validate(Controller c) {
-		//检验用户名是否为空
-		validateRequiredString("username", "errorMessage", "用户名不能为空");
-		//检验密码是否为空
-		validateRequiredString("password", "errorMessage", "密码不能为空");
+		String methodName = invocation.getMethodName();
+		if (methodName.equals("doLogin")) {
+			//检验用户名是否为空
+			validateRequiredString("username", "loginErrorMsg", "用户名不能为空");
+			//检验密码是否为空
+			validateRequiredString("password", "loginErrorMsg", "密码不能为空");
+		}else if (methodName.equals("doSignUp")) {
+			//检验用户名是否为空
+			validateRequiredString("username", "signUpErrorMsg", "用户名不能为空");
+			//检验密码是否为空
+			validateRequiredString("password", "signUpErrorMsg", "密码不能为空");
+		}
+
 	}
 
 	@Override

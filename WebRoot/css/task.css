@@ -30,7 +30,6 @@
       .xb-task-btn {
         margin: 20px 30px 0;
         padding: 7px 10px;
-        background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
         background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
         border: 1px solid #FF9D00;
         border-radius: 4px;
@@ -40,8 +39,7 @@
         .xb-task-btn:hover {
           color: #fff; }
       /* line 46, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
-      .xb-task-report-btn {
-        background: transparent -webkit-linear-gradient(top, rgba(255, 0, 0, 0.6), rgba(255, 0, 0, 0.8)) repeat scroll 0 0;
+      .xb-task-report-btn, .xb-task-giveup-btn {
         background: transparent linear-gradient(to bottom, rgba(255, 0, 0, 0.6), rgba(255, 0, 0, 0.8)) repeat scroll 0 0;
         border: 1px solid #ff0000; }
   /* line 54, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
@@ -70,7 +68,6 @@
     text-align: center;
     font-weight: normal;
     font-size: 24px;
-    background: -webkit-linear-gradient(left, #ffcc77 0%, #ffcc77 40%, #fff 40%, #fff 60%, #ffcc77 60%, #ffcc77 100%);
     background: linear-gradient(to right, #ffcc77 0%, #ffcc77 40%, #fff 40%, #fff 60%, #ffcc77 60%, #ffcc77 100%); }
   /* line 81, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
   .xb-task-accepter-list {
@@ -113,3 +110,5 @@
     .xb-task-accepter-list .xb-task-accepter-state {
       border-left: 1px solid #ccc;
       width: 200px; }
+
+/*# sourceMappingURL=task.css.map */

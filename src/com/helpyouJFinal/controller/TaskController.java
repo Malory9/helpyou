@@ -29,6 +29,7 @@ public class TaskController extends Controller {
 		Task task = taskService.getTaskSpecific(taskId);
 		// 找不到对应任务
 		if (task == null || task.getInt("state") == 3) {
+			setAttr("errorMsg", "找不到对应的任务！");
 			renderError(404);
 		}
 		
@@ -134,6 +135,18 @@ public class TaskController extends Controller {
 		if (!result) {
 			taskService.acceptTask(accepterId, taskId);
 		}
+		redirect("/task/" + taskId);
+	}
+	
+	/**
+	 * 放弃任务
+	 */
+	@Before(AuthInterceptor.class)
+	public void giveUp() {
+		Integer acceptId = getParaToInt("acceptId");
+		Integer publishId = getParaToInt("publishId");
+		Integer taskId = getParaToInt("taskId");
+		taskService.giveUpTask(taskId, acceptId, publishId);
 		redirect("/task/" + taskId);
 	}
 

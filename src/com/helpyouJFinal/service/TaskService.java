@@ -239,7 +239,7 @@ public class TaskService {
 	 */
 	public void giveUpTask(Integer taskId,Integer acceptId,Integer publishId) {
 		String findAcceptSQL = "select * from taskAccept where taskId = ? and userId = ?";
-		TaskAccept.dao.findFirst(findAcceptSQL, taskId,acceptId).set("state", 3).update();
+		TaskAccept.dao.findFirst(findAcceptSQL, taskId,acceptId).delete();
 		String taskRewardSQL = "select reward from task where taskId = ?";
 		Integer reward = Db.queryInt(taskRewardSQL, taskId);
 		User publisher = new User().findById(publishId);

@@ -30,9 +30,9 @@ public class MessageService {
 	 * @param receiverId 接受方id
 	 * @param content 信息内容
 	 */
-	public void addNewMessage(Integer senderId,Integer receiverId,String content) {
+	public boolean addNewMessage(Integer senderId,Integer receiverId,String content) {
 		//新建一条留言记录
-		new Message().set("senderId", senderId).set("receiverId", receiverId).set("time", new Date()).set("content", content).save();
+		return new Message().set("senderId", senderId).set("receiverId", receiverId).set("time", new Date()).set("content", content).save();
 	}
 	
 	/**

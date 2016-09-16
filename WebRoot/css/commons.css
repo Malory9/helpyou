@@ -139,6 +139,7 @@ input[type="search"] {
 .xb-top {
   width: 100%;
   height: 45px;
+  background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
   background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
   border-bottom: 1px solid #FF7000;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.15) inset;
@@ -190,6 +191,7 @@ input[type="search"] {
           line-height: 17px;
           outline: 0 none;
           padding: 7px 50px 7px 10px;
+          -webkit-transition: all 0.2s ease-in-out 0s;
           transition: all 0.2s ease-in-out 0s;
           width: 100%; }
           /* line 144, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
@@ -198,6 +200,7 @@ input[type="search"] {
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset, 0 1px 15px rgba(255, 255, 255, 0.3); }
         /* line 150, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
         .xb-top-search form .xb-top-search-button {
+          background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
           background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
           border: 1px solid #FF9D00;
           border-bottom-right-radius: 4px;
@@ -291,6 +294,7 @@ input[type="search"] {
       /* line 262, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .xb-top-profile .xb-top-logOut {
         display: none;
+        background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
         background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
         width: 100%;
         height: 45px;
@@ -353,7 +357,10 @@ input[type="search"] {
     position: relative;
     top: 3px;
     left: 5px;
-    user-select: none; }
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
 
 /* backtotop-end */
 /* add-task-modal-start*/
@@ -385,6 +392,7 @@ input[type="search"] {
   box-shadow: 0 0 80px 0 rgba(0, 0, 0, 0.4); }
   /* line 377, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .modal-title {
+    background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
     background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
     border: 1px solid #FF9D00;
     border-radius: 6px 6px 0 0;
@@ -416,14 +424,15 @@ input[type="search"] {
         margin-top: 10px;
         text-align: left;
         color: rgba(255, 0, 0, 0.85);
-        font-size: 13px; }
-      /* line 415, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+        font-size: 13px;
+        height: 20px; }
+      /* line 416, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form label {
         font-size: 15px;
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
         display: block;
         margin: 8px 5px; }
-      /* line 422, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+      /* line 423, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form input, .modal-content .add-task-form select, .modal-content .add-task-form textarea {
         padding: 4px 0 4px 5px;
         border-radius: 4px;
@@ -434,16 +443,17 @@ input[type="search"] {
         line-height: 16px;
         margin-left: 5px;
         margin-right: 5px; }
-        /* line 433, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+        /* line 434, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
         .modal-content .add-task-form input:focus, .modal-content .add-task-form select:focus, .modal-content .add-task-form textarea:focus {
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) inset; }
-      /* line 438, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+      /* line 439, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form input[type=number] {
         -webkit-appearance: none !important;
         -moz-appearance: textfield;
         width: 50px; }
-      /* line 444, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+      /* line 445, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form button {
+        background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
         background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
         border: 1px solid #FF9D00;
         box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -458,10 +468,10 @@ input[type="search"] {
         float: right;
         margin-top: 10px;
         margin-right: 30px; }
-      /* line 461, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+      /* line 462, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form #taskTitle {
         width: 500px; }
-      /* line 464, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+      /* line 465, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .modal-content .add-task-form #taskContent {
         width: 500px;
         height: 70px;
@@ -469,7 +479,7 @@ input[type="search"] {
 
 /* add-task-modal-end */
 /* footer-start */
-/* line 481, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+/* line 482, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
 .xb-footer {
   margin: 0 auto;
   padding: 10px 80px;
@@ -479,21 +489,19 @@ input[type="search"] {
   color: #999;
   line-height: 20px;
   font-size: 16px; }
-  /* line 493, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+  /* line 494, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .xb-footer span {
     float: left; }
-  /* line 496, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+  /* line 497, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
   .xb-footer .xb-footer-links {
     float: right; }
-    /* line 498, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+    /* line 499, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
     .xb-footer .xb-footer-links a {
       color: #999;
       display: inline-block;
       margin-left: 20px; }
-      /* line 503, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
+      /* line 504, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/commons.scss */
       .xb-footer .xb-footer-links a i.icon-bangzhuzhongxin {
         font-size: 14px; }
 
 /* footer-end */
-
-/*# sourceMappingURL=commons.css.map */

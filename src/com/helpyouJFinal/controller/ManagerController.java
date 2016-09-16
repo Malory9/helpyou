@@ -48,11 +48,6 @@ public class ManagerController extends Controller {
 		//获得被举报任务
 		List<Task> reportedTasks = taskService.getTasksReport();
 		setAttr("reportedTasks", reportedTasks);
-/*		
-		//获得所有用户
-		List<User> users = userService.getAllUsers();
-		setAttr("users", users);
-*/
 		render("manager.jsp");
 	}
 	
