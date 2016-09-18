@@ -1,5 +1,5 @@
 body {
-  background: #eff3f6;
+  background: url("../images/managerLoginBG.jpg") no-repeat;
 }
 
 .manager-login-title {
@@ -48,8 +48,7 @@ body {
 }
 
 .box input:focus {
-  border: 2px solid #ffd800;
-  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.04) inset, 0 0 1px #0d6db6 inset;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.04) inset;
 }
 
 .btnLogin {

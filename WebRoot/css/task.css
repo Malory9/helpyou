@@ -30,6 +30,7 @@
       .xb-task-btn {
         margin: 20px 30px 0;
         padding: 7px 10px;
+        background: transparent -webkit-linear-gradient(top, #FFCA00, #FFA900) repeat scroll 0 0;
         background: transparent linear-gradient(to bottom, #FFCA00, #FFA900) repeat scroll 0 0;
         border: 1px solid #FF9D00;
         border-radius: 4px;
@@ -38,38 +39,45 @@
         /* line 42, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
         .xb-task-btn:hover {
           color: #fff; }
-      /* line 46, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
-      .xb-task-report-btn, .xb-task-giveup-btn {
+      /* line 47, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+      .xb-task-report-btn,
+      .xb-task-giveup-btn {
+        background: transparent -webkit-linear-gradient(top, rgba(255, 0, 0, 0.6), rgba(255, 0, 0, 0.8)) repeat scroll 0 0;
         background: transparent linear-gradient(to bottom, rgba(255, 0, 0, 0.6), rgba(255, 0, 0, 0.8)) repeat scroll 0 0;
         border: 1px solid #ff0000; }
-  /* line 54, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+  /* line 55, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
   .task-content {
     padding-left: 0; }
-    /* line 56, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 57, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .task-content p {
       text-indent: 2em;
       margin-top: 30px;
       padding-left: 30px;
       box-sizing: border-box; }
-    /* line 62, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 63, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .task-content .xb-task-form {
       display: none; }
-      /* line 64, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+      /* line 65, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
       .task-content .xb-task-form textarea {
         margin-top: 30px;
         padding-left: 30px;
         box-sizing: border-box;
-        width: inherit;
-        height: 100px; }
-  /* line 73, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+        width: 960px;
+        min-height: 200px;
+        display: block;
+        border: 1px solid #222;
+        overflow: auto;
+        resize: none; }
+  /* line 78, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
   .xb-task-separator {
     margin: 30px auto;
     display: block;
     text-align: center;
     font-weight: normal;
     font-size: 24px;
+    background: -webkit-linear-gradient(left, #ffcc77 0%, #ffcc77 40%, #fff 40%, #fff 60%, #ffcc77 60%, #ffcc77 100%);
     background: linear-gradient(to right, #ffcc77 0%, #ffcc77 40%, #fff 40%, #fff 60%, #ffcc77 60%, #ffcc77 100%); }
-  /* line 81, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+  /* line 86, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
   .xb-task-accepter-list {
     width: 750px;
     margin: 35px auto 10px;
@@ -77,38 +85,36 @@
     text-align: center;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 2px #ccc; }
-    /* line 88, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 93, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task-accepter-list div {
       margin: 0;
       padding: 0; }
-    /* line 92, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 97, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task-accepter-list .xb-task-accepter-list-header {
       font-weight: 600;
       border-bottom: 1px solid #ccc; }
-    /* line 96, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 101, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task-accepter-list .xb-task-accepter {
       border-bottom: 1px solid #ccc; }
-      /* line 98, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+      /* line 103, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
       .xb-task-accepter-list .xb-task-accepter:hover {
         background-color: #eee; }
-    /* line 104, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 109, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task-accepter-list .xb-task-accepter-nickname,
     .xb-task-accepter-list .xb-task-accepter-acceptTime,
     .xb-task-accepter-list .xb-task-accepter-state {
       display: inline-block; }
-    /* line 107, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 112, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task-accepter-list .xb-task-accepter-nickname {
       width: 200px; }
-      /* line 108, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+      /* line 113, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
       .xb-task-accepter-list .xb-task-accepter-nickname a {
         color: inherit; }
-    /* line 113, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 118, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task-accepter-list .xb-task-accepter-acceptTime {
       border-left: 1px solid #ccc;
       width: 300px; }
-    /* line 117, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
+    /* line 122, E:/Program Test/JAVA/helpyouJFinal/WebRoot/css/task.scss */
     .xb-task-accepter-list .xb-task-accepter-state {
       border-left: 1px solid #ccc;
       width: 200px; }
-
-/*# sourceMappingURL=task.css.map */

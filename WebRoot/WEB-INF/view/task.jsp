@@ -129,7 +129,7 @@
 				       		<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
 				            <button type="submit" class="xb-task-btn xb-task-end-btn" id="xb-task-end-btn">结束任务</button>
 		            	</form>
-				        <button type="button" data-url="${BASE_PATH}/task/updateContent" class="xb-task-btn xb-task-edit-btn" id="xb-task-edit-btn">修改信息</button>
+				        <button type="button" data-url="${BASE_PATH}/task/updateContent" class="xb-task-btn xb-task-edit-btn" id="xb-task-edit-btn">修改任务内容</button>
 		        <% }
 				}
 			}%>
@@ -137,8 +137,8 @@
 	            <span class="xb-task-separator">任务介绍</span>
 				<p><%=task.getStr("content") %></p>
 				<% 
-					if( state == 1 && state == 2 && user != null){
-						if(request.getAttribute("publishId") != user.getInt("userId")) { %>
+					if( state != 3 && state != 4 && user != null){
+						if(publisher.getInt("userId") == user.getInt("userId")) { %>
 							<form action="${BASE_PATH}/task/updateContent" method="post" class="xb-task-form" id="xb-task-editInfo-form">
 								<input type="hidden" name="taskId" value="<%=task.getInt("taskId") %>">
 								<textarea name="content"><%=task.getStr("content") %></textarea>

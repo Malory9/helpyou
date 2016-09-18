@@ -28,7 +28,7 @@ public class TaskController extends Controller {
 		// 添加任务model到request中
 		Task task = taskService.getTaskSpecific(taskId);
 		// 找不到对应任务
-		if (task == null || task.getInt("state") == 3) {
+		if (task == null) {
 			setAttr("errorMsg", "找不到对应的任务！");
 			renderError(404);
 		}
@@ -82,7 +82,7 @@ public class TaskController extends Controller {
 		Integer allReward = peopleNum*reward;
 		boolean result = userService.canPublish(userId,allReward);
 		if (!result) {
-			renderText("failed");
+			renderText("noPoint");
 		}
 		result = taskService.addNewTask(userId, title, type, peopleNum, reward, content,
 						days, hours, minutes);
@@ -94,13 +94,12 @@ public class TaskController extends Controller {
 	}
 
 	/**
-	 * 搜索任务
+	 * 关键字搜索任务
 	 */
 	public void search() {
 		String keyword = getPara("keyword");
 		System.out.println(keyword);
 		List<Task> tasks = taskService.searchTasksByKeyword(keyword);
-		System.out.println(tasks.size());
 		setAttr("tasks", tasks);
 		this.render("searchResult.jsp");
 	}
@@ -169,7 +168,6 @@ public class TaskController extends Controller {
 		Integer publishId = getParaToInt("publishId");
 		Integer taskId = getParaToInt("taskId");
 		boolean result = taskService.confirmFinishTask(taskId, publishId, acceptId);
-		System.out.println(result);
 		if (result) {
 			renderText("success");
 		} else {

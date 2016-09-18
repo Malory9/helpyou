@@ -35,7 +35,7 @@
 	<% List<Task> reportedTasks = (List<Task>)request.getAttribute("reportedTasks"); %>
 	<div class="navbar navbar-default navbar-fixed-top xb-manager-nav">
 		<div class="navbar-header">
-			<a href="/maneger" class="navbar-brand xb-manager-nav-title">校帮后台管理系统</a>
+			<a href="${BASE_PATH}/maneger" class="navbar-brand xb-manager-nav-title">校帮后台管理系统</a>
 		</div>
 		<button type="button"
 			class="btn btn-info navbar-btn navbar-right send-notice-btn"

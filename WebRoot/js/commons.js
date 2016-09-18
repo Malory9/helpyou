@@ -166,8 +166,18 @@ function addTask() {
                 if(window.location.href.endWith('helpyouJFinal/')){
                     location.reload();
                 }
-            } else if (result == "failed") {
+            } else if (result == "noPoint") {
                 $('.addTaskErrorMsg').text('任务发布失败，请检查积分是否足够').animate({
+                    opacity: 0.99
+                }, 3000, function () {
+                    $('.addTaskErrorMsg').animate({
+                        opacity:0
+                    },1000,function(){
+                        $('.addTaskErrorMsg').css('display','none');
+                    });
+                });
+            } else if(result == "failed"){
+            	$('.addTaskErrorMsg').text('任务发布失败，请检查后重新发布').animate({
                     opacity: 0.99
                 }, 3000, function () {
                     $('.addTaskErrorMsg').animate({

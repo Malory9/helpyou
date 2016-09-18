@@ -77,7 +77,9 @@ public class MainController extends Controller {
 		if (user != null) {
 			// 存储新用户信息到session中
 			getSession().setAttribute("user", user);
-			redirect("/");
+			//获得登陆前的页面路径
+			String url = getSessionAttr("originURL");
+			redirect(url);
 		} else {
 			setAttr("signUpErrorMsg", "用户名已存在");
 			renderJsp("login.jsp");

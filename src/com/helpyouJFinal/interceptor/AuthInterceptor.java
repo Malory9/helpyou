@@ -16,7 +16,7 @@ public class AuthInterceptor implements Interceptor {
 	public void intercept(Invocation invocation) {
 		Controller controller = invocation.getController();
 		User user = controller.getSessionAttr("user");
-		Integer userId = null;
+		Integer userId = 0;
 		if (user != null) {
 			userId = user.getInt("userId");
 			if (userId > 0) {

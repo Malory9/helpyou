@@ -62,8 +62,15 @@ public class UserController extends Controller {
 		String nickname = getPara("nickname");
 		String sex = getPara("sex");
 		Integer age = getParaToInt("age");
-		User newUser = userService.updateUserInfo(userId, nickname, sex, age);
-		setSessionAttr("user", newUser);
-		redirect("/user/"+userId);
+		boolean isRepeat = userService.isNicknameRepeat(nickname);
+		if (!isRepeat) {
+			User newUser = userService.updateUserInfo(userId, nickname, sex, age);
+			setSessionAttr("user", newUser);
+			redirect("/user/"+userId);
+		} else {
+			setAttr("nicknameErrorMsg", "昵称重复！");
+			forwardAction("/user/"+userId);
+		}
+
 	}
 }

@@ -25,6 +25,8 @@ function messageBinding() {
 	$('#xb-message-send-btn').click(function (e) {
 	    if ($('#receiver').val().trim() != '' && $('#messageContent').val().trim() != '') {
 	    	sendMessage();
+	    }else {
+	    	$('.send-message-errorMsg').text("请正确填写留言内容!");
 	    }
 	    e.preventDefault();
 	    e.stopPropagation();

@@ -59,6 +59,21 @@ public class UserService {
 	}
 	
 	/**
+	 * 检测用户昵称是否重复
+	 * @param nickname 用户昵称
+	 * @return 重复返回true，不重复返回false
+	 */
+	public boolean isNicknameRepeat(String nickname) {
+		String sql = "select userId from user where nickname = ?";
+		User user = User.dao.findFirst(sql, nickname);
+		if (user != null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	/**
 	 * 更新用户信息
 	 * @param userId 查询用的用户id
 	 * @param nickname 用户昵称

@@ -44,12 +44,13 @@
 					id="send-message-modal-close" class="modal-close iconfont">&#xe602;</span>
 			</div>
 			<div class="modal-content">
-				<form action="${BASE_PATH}/message/send" method="post" class="send-message-form">
-					<label for="receiver">发送对象 <small>对方的昵称</small></label> <input
-						type="text" id="receiver" name="receiver"> <label
-						for="messageContent">留言内容</label>
+				<form action="${BASE_PATH}/message/send" method="post" class="send-message-form" id="send-message-form">
+					<span class="errorMsg send-message-errorMsg"></span>
+					<label for="receiver">发送对象 <small>对方的昵称</small></label> 
+					<input type="text" id="receiver" name="receiver"> 
+					<label for="messageContent">留言内容</label>
 					<textarea name="messageContent" id="messageContent"></textarea>
-					<button type="submit">发送</button>
+					<button type="submit" id="xb-message-send-btn">发送</button>
 				</form>
 			</div>
 		</div>
@@ -63,6 +64,7 @@
 					<% if(editPower){ %>
 						<span class="change-info"><i class="iconfont icon-xiugai"></i>修改</span>
 						<input type="text" name="nickname" id="xb-user-edit-nickname">
+						<span class="errorMsg nicknameErrorMsg"><%=request.getAttribute("nicknameErrorMsg")==null?"":request.getAttribute("nicknameErrorMsg") %></span>
 					<% } %>
 				</div>
 				<div class="xb-user-info-item">
@@ -82,7 +84,7 @@
 					<span class="xb-user-info-content xb-user-info-age"><span class="xb-user-age"><%=readUser.getInt("age")!=null?readUser.getInt("age"):0 %></span>岁</span>
 					<% if(editPower){ %>
 						<span class="change-info"><i class="iconfont icon-xiugai"></i>修改</span> 
-						<input type="number" min="1" max="120" name="age" id="xb-user-edit-age" placeholder="1-120">
+						<input type="number" min="1" max="120" name="age" id="xb-user-edit-age" placeholder="1-99">
 					<% } %>
 				</div>
 				<div class="xb-user-info-item">

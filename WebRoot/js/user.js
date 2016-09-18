@@ -14,6 +14,7 @@ function switchTaskPublishAndToken() {
 //显示修改信息框
 function showUserInfoEditInput() {
     $('.change-info').click(function () {
+    	$('.nicknameErrorMsg').hide();
         $(this).hide().next().prop('required', 'true').show(500);
         $('#xb-user-info-save').show(500);
     });
@@ -43,8 +44,42 @@ function showMessageModal() {
 			$(this).css('display','none');
 		});
 	});
+	//发送留言验证
+	$('#xb-message-send-btn').click(function (e) {
+	    if ($('#receiver').val().trim() != '' && $('#messageContent').val().trim() != '') {
+	    	sendMessage();
+	    }else {
+	    	$('.send-message-errorMsg').text("请正确填写留言内容!");
+	    }
+	    e.preventDefault();
+	    e.stopPropagation();
+	});
 }
 
+function sendMessage(){
+  var data = {
+	receiver: $('#receiver').val().trim(),
+    messageContent: $('#messageContent').val().trim(),
+    userId: $('.xb-top-userinfo').attr('href').replace('/helpyouJFinal/user/', '')
+  };
+  $.ajax({
+    url: $('#send-message-form').attr('action'),
+    type: 'post',
+    data: data,
+    success: function (result) {
+      if (result == "success") {
+        alert("消息发布成功!");
+        //清除发布框内的内容
+        $('.send-message-errorMsg').text('');
+        $('#send-message-modal-close').trigger('click');
+      } else if (result == "noTargetUser") {
+        $('.send-message-errorMsg').text("没有对应的用户");
+      } else if (result == "failed") {
+        $('.send-message-errorMsg').text("发送失败，请重试");
+      }
+    }
+  })
+}
 
 
 $(document).ready(function () {
