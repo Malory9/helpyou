@@ -10,10 +10,11 @@ Target Server Type    : MYSQL
 Target Server Version : 50627
 File Encoding         : 65001
 
-Date: 2016-09-12 16:38:47
+Date: 2016-09-22 20:56:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+CREATE DATABASE helpyou;
 
 -- ----------------------------
 -- Table structure for admin
@@ -32,49 +33,28 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` VALUES ('1', 'root', 'root');
 
 -- ----------------------------
--- Table structure for message
+-- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `message`;
-CREATE TABLE `message` (
-  `messageId` int(10) NOT NULL AUTO_INCREMENT COMMENT '留言编号',
-  `senderId` int(10) NOT NULL COMMENT '发送者编号',
-  `receiverId` int(10) NOT NULL COMMENT '接受者编号',
-  `time` datetime NOT NULL COMMENT '发送时间',
-  `content` varchar(140) NOT NULL COMMENT '留言内容',
-  PRIMARY KEY (`messageId`),
-  KEY `send` (`senderId`),
-  KEY `receiver` (`receiverId`),
-  CONSTRAINT `receiver` FOREIGN KEY (`receiverId`) REFERENCES `user` (`userId`),
-  CONSTRAINT `send` FOREIGN KEY (`senderId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of message
--- ----------------------------
-INSERT INTO `message` VALUES ('1', '2', '1', '2016-09-03 18:33:45', '我已经接受了你的任务，但是我希望用支付宝支付');
-INSERT INTO `message` VALUES ('2', '1', '2', '2016-09-03 18:40:35', '我知道了，我会用支付宝支付的');
-INSERT INTO `message` VALUES ('3', '1', '2', '2016-09-07 10:41:43', '测试留言1111');
-INSERT INTO `message` VALUES ('4', '1', '2', '2016-09-07 10:43:00', '测试留言222');
-INSERT INTO `message` VALUES ('5', '1', '2', '2016-09-07 10:44:52', '测试留言3333');
-
--- ----------------------------
--- Table structure for notice
--- ----------------------------
-DROP TABLE IF EXISTS `notice`;
-CREATE TABLE `notice` (
-  `noticeId` int(10) NOT NULL AUTO_INCREMENT COMMENT '系统通知编号',
-  `time` datetime NOT NULL COMMENT '发布时间',
-  `title` char(20) NOT NULL COMMENT '通知标题',
-  `content` varchar(140) NOT NULL DEFAULT '' COMMENT '通知内容',
-  PRIMARY KEY (`noticeId`)
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `userId` int(10) NOT NULL AUTO_INCREMENT COMMENT '用户编号',
+  `username` char(12) NOT NULL COMMENT '用户名',
+  `password` char(12) NOT NULL COMMENT '用户密码',
+  `nickname` char(10) NOT NULL COMMENT '昵称',
+  `sex` char(2) DEFAULT '' COMMENT '性别',
+  `age` int(2) DEFAULT NULL COMMENT '年龄',
+  `state` int(1) DEFAULT '1' COMMENT '用户状态',
+  `lastLoginTime` datetime DEFAULT NULL COMMENT '上次登录时间',
+  `point` int(10) DEFAULT '20' COMMENT '用户积分',
+  PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of notice
+-- Records of user
 -- ----------------------------
-INSERT INTO `notice` VALUES ('1', '2016-09-03 16:28:34', '校帮互助平台开始运行', '各位用户你们好，校帮互助平台从今天开始正式投入使用，欢迎各位的加入');
-INSERT INTO `notice` VALUES ('2', '2016-09-08 21:05:13', '通知测试', '测试获取未读信息数量的公告');
-INSERT INTO `notice` VALUES ('4', '2016-09-12 15:26:10', '测试公告', '测试公告内容111');
+INSERT INTO `user` VALUES ('1', 'zsk', '123456', '张世凯', '男', '20', '1', '2016-09-18 09:10:52', '69');
+INSERT INTO `user` VALUES ('2', 'fh401', '456789', '方浩', '男', '20', '1', '2016-09-18 09:12:07', '46');
+INSERT INTO `user` VALUES ('4', 'testuser1', '123456', '测试用户1', '男', '20', '1', '2016-09-18 10:55:56', '20');
 
 -- ----------------------------
 -- Table structure for task
@@ -92,7 +72,7 @@ CREATE TABLE `task` (
   `content` varchar(400) DEFAULT NULL COMMENT '任务内容',
   PRIMARY KEY (`taskId`),
   KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of task
@@ -102,7 +82,60 @@ INSERT INTO `task` VALUES ('2', '买一个修正带', '2', '2016-09-05 12:31:44'
 INSERT INTO `task` VALUES ('3', '测试任务1', '1', '2016-09-06 16:34:06', '2016-09-07 18:37:06', '1', '2', '4', '测试任务详情1111');
 INSERT INTO `task` VALUES ('4', '测试任务2', '2', '2016-09-07 09:06:43', '2016-09-08 00:46:25', '2', '3', '4', '测试任务2222修改');
 INSERT INTO `task` VALUES ('5', '测试积分任务', '1', '2016-09-09 22:32:17', '2016-09-10 22:32:17', '1', '5', '4', '用于测试积分变动的任务');
-INSERT INTO `task` VALUES ('7', '测试积分任务1', '1', '2016-09-12 09:59:24', '2016-09-12 11:19:30', '1', '5', '4', '测试用户积分变动任务1');
+INSERT INTO `task` VALUES ('6', '测试放弃任务', '3', '2016-09-14 13:25:58', '2016-09-15 13:26:00', '1', '3', '4', '测试放弃任务');
+INSERT INTO `task` VALUES ('7', '测试积分任务1', '1', '2016-09-12 09:59:24', '2016-09-18 11:19:30', '1', '5', '1', '测试用户积分变动任务2');
+INSERT INTO `task` VALUES ('8', '违禁任务1', '3', '2016-09-17 21:08:55', '2016-09-19 21:08:58', '1', '3', '1', '违禁任务内容');
+INSERT INTO `task` VALUES ('9', '求J2EE课设辅导', '2', '2016-09-18 08:13:16', '2016-09-23 08:13:16', '1', '10', '1', '求一个JAVA大神教我J2EE课设，我的手机号是*********');
+INSERT INTO `task` VALUES ('10', '请帮我微博第一条内容点赞', '1', '2016-09-18 08:15:39', '2016-09-21 09:17:39', '10', '1', '1', '我的微博名是*****，请点赞我的第一条内容，O(∩_∩)O谢谢');
+INSERT INTO `task` VALUES ('11', '新增任务1', '2', '2016-09-18 09:07:50', '2016-09-18 09:11:22', '3', '3', '4', '新增任务内容22222');
+
+-- ----------------------------
+-- Table structure for message
+-- ----------------------------
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
+  `messageId` int(10) NOT NULL AUTO_INCREMENT COMMENT '留言编号',
+  `senderId` int(10) NOT NULL COMMENT '发送者编号',
+  `receiverId` int(10) NOT NULL COMMENT '接受者编号',
+  `time` datetime NOT NULL COMMENT '发送时间',
+  `content` varchar(140) NOT NULL COMMENT '留言内容',
+  PRIMARY KEY (`messageId`),
+  KEY `send` (`senderId`),
+  KEY `receiver` (`receiverId`),
+  CONSTRAINT `receiver` FOREIGN KEY (`receiverId`) REFERENCES `user` (`userId`),
+  CONSTRAINT `send` FOREIGN KEY (`senderId`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of message
+-- ----------------------------
+INSERT INTO `message` VALUES ('1', '2', '1', '2016-09-03 18:33:45', '我已经接受了你的任务，但是我希望用支付宝支付');
+INSERT INTO `message` VALUES ('2', '1', '2', '2016-09-03 18:40:35', '我知道了，我会用支付宝支付的');
+INSERT INTO `message` VALUES ('3', '1', '2', '2016-09-07 10:41:43', '测试留言1111');
+INSERT INTO `message` VALUES ('4', '1', '2', '2016-09-07 10:43:00', '测试留言222');
+INSERT INTO `message` VALUES ('5', '1', '2', '2016-09-07 10:44:52', '测试留言3333');
+INSERT INTO `message` VALUES ('6', '4', '2', '2016-09-16 20:06:29', '测试留言');
+INSERT INTO `message` VALUES ('7', '1', '2', '2016-09-18 09:11:56', '留言内容1');
+
+-- ----------------------------
+-- Table structure for notice
+-- ----------------------------
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE `notice` (
+  `noticeId` int(10) NOT NULL AUTO_INCREMENT COMMENT '系统通知编号',
+  `time` datetime NOT NULL COMMENT '发布时间',
+  `title` char(20) NOT NULL COMMENT '通知标题',
+  `content` varchar(140) NOT NULL DEFAULT '' COMMENT '通知内容',
+  PRIMARY KEY (`noticeId`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of notice
+-- ----------------------------
+INSERT INTO `notice` VALUES ('1', '2016-09-03 16:28:34', '校帮互助平台开始运行', '各位用户你们好，校帮互助平台从今天开始正式投入使用，欢迎各位的加入');
+INSERT INTO `notice` VALUES ('2', '2016-09-08 21:05:13', '通知测试', '测试获取未读信息数量的公告');
+INSERT INTO `notice` VALUES ('4', '2016-09-12 15:26:10', '测试公告', '测试公告内容111');
+INSERT INTO `notice` VALUES ('5', '2016-09-18 09:13:30', '公告2', '公告内容222');
 
 -- ----------------------------
 -- Table structure for taskaccept
@@ -128,7 +161,7 @@ CREATE TABLE `taskaccept` (
 INSERT INTO `taskaccept` VALUES ('1', '2', '1', '帮我带一份晚饭', '2016-09-03 18:32:00', '3');
 INSERT INTO `taskaccept` VALUES ('2', '2', '4', '测试任务2', '2016-09-07 22:35:36', '3');
 INSERT INTO `taskaccept` VALUES ('3', '2', '5', '测试积分任务', '2016-09-09 23:01:20', '3');
-INSERT INTO `taskaccept` VALUES ('4', '1', '7', '测试积分任务1', '2016-09-12 09:59:40', '3');
+INSERT INTO `taskaccept` VALUES ('4', '2', '11', '新增任务1', '2016-09-18 09:10:19', '3');
 
 -- ----------------------------
 -- Table structure for taskpublish
@@ -143,7 +176,7 @@ CREATE TABLE `taskpublish` (
   KEY `userP` (`userId`),
   CONSTRAINT `taskP` FOREIGN KEY (`taskId`) REFERENCES `task` (`taskId`),
   CONSTRAINT `userP` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of taskpublish
@@ -154,27 +187,10 @@ INSERT INTO `taskpublish` VALUES ('3', '1', '4');
 INSERT INTO `taskpublish` VALUES ('4', '2', '2');
 INSERT INTO `taskpublish` VALUES ('5', '1', '5');
 INSERT INTO `taskpublish` VALUES ('6', '2', '7');
+INSERT INTO `taskpublish` VALUES ('7', '2', '6');
+INSERT INTO `taskpublish` VALUES ('8', '4', '8');
+INSERT INTO `taskpublish` VALUES ('9', '2', '9');
+INSERT INTO `taskpublish` VALUES ('10', '1', '10');
+INSERT INTO `taskpublish` VALUES ('11', '1', '11');
 
--- ----------------------------
--- Table structure for user
--- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `userId` int(10) NOT NULL AUTO_INCREMENT COMMENT '用户编号',
-  `username` char(12) NOT NULL COMMENT '用户名',
-  `password` char(12) NOT NULL COMMENT '用户密码',
-  `nickname` char(10) NOT NULL COMMENT '昵称',
-  `sex` char(2) DEFAULT '' COMMENT '性别',
-  `age` int(2) DEFAULT NULL COMMENT '年龄',
-  `state` int(1) DEFAULT '1' COMMENT '用户状态',
-  `lastLoginTime` datetime DEFAULT NULL COMMENT '上次登录时间',
-  `point` int(10) DEFAULT '20' COMMENT '用户积分',
-  PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of user
--- ----------------------------
-INSERT INTO `user` VALUES ('1', 'zsk', '123456', '张世凯', '男', '20', '1', '2016-09-12 10:04:16', '80');
-INSERT INTO `user` VALUES ('2', 'fh', '456789', '方浩', '男', '20', '1', '2016-09-12 11:19:21', '35');
-INSERT INTO `user` VALUES ('4', 'testuesr1', '123456', '测试用户11', '男', '20', '1', '2016-09-08 10:26:54', '20');
